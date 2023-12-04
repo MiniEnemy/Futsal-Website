@@ -25,11 +25,19 @@ menu a{
     color: white;
     text-align: center;
     text-decoration: none;
-    padding: 0px 20px 0px 95px;
+    
 }
-menu .login{
-    width: auto;
-    display: flex;
-    margin-left: 580px;
+#bar a{
+    padding-left: 95px; /* this is the change */
 }
 
+.login{
+    width: auto;
+    display: flex;
+    margin-left: 740px;
+    
+   
+}
+.login a{
+    padding-left: 50px; /* this is the change */
+}
