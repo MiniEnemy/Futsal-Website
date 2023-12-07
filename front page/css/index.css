@@ -41,17 +41,29 @@ menu a{
     flex: 1;
     text-align: right;
     position: absolute;
-    right: 0;
-
-    
-    
+    right: 0;    
 }
 .login a{
 padding-left: 30px; /* this is the change */
 }
 .goal{
     width: 100%;
-    height: 520px;
+    height: 400px;
     object-fit: cover;
     object-position:0% 80%;
 }
+
+h1{
+    background-color: brown;
+    color: black;
+    width: 480px;
+    position: absolute;
+    top: 61%;
+    left: 500px;
+    height: 100px;
+    text-align: center;
+    padding-top: 35px;
+}
+
+
+
