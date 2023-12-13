@@ -1,10 +1,10 @@
 function validate() {
     var username = document.getElementById('username').value;
     var password = document.getElementById('pass').value;
-    var usernameError = document.getElementById('usernameError');
+    var usernameError = document.getElementById('usernameError'); // why?
     var passwordError = document.getElementById('passwordError');
 
-    usernameError.innerText = "";
+    usernameError.innerText = ""; //why?
     passwordError.innerText = "";
 
     if (username === "") {
