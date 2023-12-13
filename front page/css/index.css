@@ -58,7 +58,7 @@ h1{
     color: black;
     width: 480px;
     position: absolute;
-    top: 61%;
+    top: 440px;
     left: 500px;
     height: 100px;
     text-align: center;
@@ -69,7 +69,7 @@ h1{
 .vl {
     border-top: 3px solid black;
     width: 70px;
-    top: 500px;
+    top: 485px;
     left: 580px;
     z-index: 2;
     position: absolute;
@@ -78,7 +78,7 @@ h1{
   .v2 {
     border-top: 3px solid black;
     width: 70px;
-    top: 500px;
+    top: 485px;
     left: 830px;
     z-index: 2;
     position: absolute;
