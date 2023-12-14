@@ -64,6 +64,7 @@ h1{
     text-align: center;
     padding-top: 35px;
     z-index: 1;
+    position: fixed;
 }
 /* lines */
 .vl {
@@ -71,8 +72,8 @@ h1{
     width: 70px;
     top: 485px;
     left: 580px;
-    z-index: 2;
-    position: absolute;
+    z-index: 1;
+    position: fixed;
     height: 100px;
   }
   .v2 {
@@ -80,8 +81,8 @@ h1{
     width: 70px;
     top: 485px;
     left: 830px;
-    z-index: 2;
-    position: absolute;
+    z-index: 1;
+    position: fixed;
     height: 100px;
   }
 
