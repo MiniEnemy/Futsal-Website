@@ -47,10 +47,11 @@ menu a{
 padding-left: 30px; /* this is the change */
 }
 .goal{
-    width: 100%;
+    width: 1419px;
     height: 400px;
     object-fit: cover;
-    object-position:0% 80%;
+    object-position:0% 75% ;
+    margin-left: -24px;
 }
 /* welcome to text */
 h1{
