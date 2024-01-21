@@ -4,8 +4,9 @@
     margin: 0;
     padding: 0;
     font-family: gamgote;
-    font-size: 16px !important;
+    /* font-size: 16px !important; */
 }
+
 nav{
     text-decoration: none;
     display: flex;
@@ -46,33 +47,37 @@ menu a{
 .login a{
 padding-left: 30px; /* this is the change */
 }
+
 .goal{
-    width: 1419px;
+    width: 1463px;
     height: 400px;
-    object-fit: cover;
-    object-position:0% 75% ;
-    margin-left: -24px;
+    object-fit: cover ;
+    object-position:10% 76% ;
+    margin-left: -67px;
 }
 /* welcome to text */
-h1{
+.welcome{
     background-color: white;
     color: black;
     width: 480px;
     position: absolute;
     top: 440px;
-    left: 500px;
-    height: 100px;
+    left: 50%;
+    height: 70px;
     text-align: center;
     padding-top: 35px;
     z-index: 1;
     position: fixed;
+    align-items: center;
+    margin-left: -240px;
+    font-size: 16px;
 }
 /* lines */
 .vl {
     border-top: 3px solid black;
     width: 70px;
-    top: 485px;
-    left: 580px;
+    top: 483px;
+    left: 550px;
     z-index: 1;
     position: fixed;
     height: 100px;
@@ -80,11 +85,19 @@ h1{
   .v2 {
     border-top: 3px solid black;
     width: 70px;
-    top: 485px;
-    left: 830px;
+    top: 483px;
+    left: 775px;
     z-index: 1;
     position: fixed;
     height: 100px;
   }
+
+  .elite{
+    margin-top: 75px;
+    text-align: center;
+    /* font-size:60px; */
+  }
+
+
 
 
