@@ -20,20 +20,19 @@
           <label for="phone">Phone</label>
           <input type="tel" id="phone" name="visitor_phone" placeholder="Please enter your phone number" pattern="(\d{3})-?\s?(\d{3})-?\s?(\d{4})" required>
         </div>
-        
+         
         <div class="elem-group">
           <label for="booking-date">Booking Date</label>
           <input type="date" id="booking-date" name="bookin" required>
         </div>
-
+        <div class="time">
           <div class="elem-group">
             <label for="from-time">From Time</label>
-            <input type="time" id="from-time" name="from_time" required>
+            <input type="time" id="ftime" name="from_time" required min="08:00" max="17:00">
           </div>
-  
           <div class="elem-group">
-            <label for="to-time">To Time</label>
-            <input type="time" id="to-time" name="to_time" required>
+            <label for="ttime" id="lto">To Time</label>
+            <input type="time" id="ttime" name="to_time" required>
           </div>
         </div>
         <button type="submit">Submit</button>

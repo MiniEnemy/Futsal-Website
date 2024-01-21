@@ -55,55 +55,53 @@ menu a{
     padding-left: 100px; /* this is the change */
 
 }
+
 .goal{
-    width: 100%;
+    width: 1463px;
     height: 400px;
-    object-fit: cover;
-    object-position:0% 80%;
+    object-fit: cover ;
+    object-position:10% 76% ;
+    margin-left: -67px;
 }
 /* welcome to text */
-/* h1{
+h1{
     background-color: white;
     color: black;
     width: 480px;
     position: absolute;
     top: 440px;
-    left: 500px;
-    height: 100px;
+    left: 50%;
+    height: 70px;
     text-align: center;
     padding-top: 35px;
     z-index: 1;
-} */
-h1.welcome,.to{
-    background-color: white;
-    color: black;
-    width: 480px;
-    position: absolute;
-    /* top: 440px; */
-    left: 500px;
-    height: 100px;
-    text-align: center;
-    padding-top: 35px;
-    z-index: 2;
 }
 /* lines */
 .vl {
     border-top: 3px solid black;
-    width: 146px;
-    top: 487px;
-    left: 490px;
+    width: 70px;
+    top: 485px;
+    left: 580px;
     z-index: 2;
     position: absolute;
     height: 100px;
   }
   .v2 {
     border-top: 3px solid black;
-    width: 154px;
-    top: 487px;
-    left: 841px;
+    width: 70px;
+    top: 485px;
+    left: 830px;
     z-index: 2;
     position: absolute;
     height: 100px;
   }
+
+  .elite{
+    margin-top: 75px;
+    text-align: center;
+    /* font-size:60px; */
+  }
+
+
 
 
