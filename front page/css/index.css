@@ -3,48 +3,57 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: gamgote;
-    font-size: 16px !important;
+    font-family: sans-serif;
+    font-size: 22px !important;
+    letter-spacing: 2px;
 }
+/* .topbar nav{
+    font: 30px !important;
+} */
 nav{
     text-decoration: none;
     display: flex;
     background-color: black;
 }
 nav .logo img{
+    margin-top: 3px;
+    margin-left:40px ;
     width: 60px;
     border-radius: 40px;
 }
 menu{
-    margin-left: 268px;
+    margin-left: 210px;
     margin-top: 25px;
     list-style: none;
     display: flex;
 }
 menu a{ 
     /* font-weight: bold; */
-    font-size: 16px;
+    /* font-size: 20px; */
     color: white;
     text-align: center;
     text-decoration: none;
     
 }
 #bar a{
-    font-size: larger;
+    
+    /* font-size: larger; */
     font-weight: bold;
-    padding-left: 95px; 
+    padding-left: 100px; 
 }
 
 .login{
-    width: 240px;
+    width: 350px;
     display: flex;
     flex: 1;
     text-align: right;
     position: absolute;
     right: 0;    
 }
-.login a{
-padding-left: 30px; /* this is the change */
+
+.login .sign-up{
+    padding-left: 100px; /* this is the change */
+
 }
 .goal{
     width: 100%;
@@ -53,7 +62,7 @@ padding-left: 30px; /* this is the change */
     object-position:0% 80%;
 }
 /* welcome to text */
-h1{
+/* h1{
     background-color: white;
     color: black;
     width: 480px;
@@ -64,22 +73,34 @@ h1{
     text-align: center;
     padding-top: 35px;
     z-index: 1;
+} */
+h1.welcome,.to{
+    background-color: white;
+    color: black;
+    width: 480px;
+    position: absolute;
+    /* top: 440px; */
+    left: 500px;
+    height: 100px;
+    text-align: center;
+    padding-top: 35px;
+    z-index: 2;
 }
 /* lines */
 .vl {
     border-top: 3px solid black;
-    width: 70px;
-    top: 485px;
-    left: 580px;
+    width: 146px;
+    top: 487px;
+    left: 490px;
     z-index: 2;
     position: absolute;
     height: 100px;
   }
   .v2 {
     border-top: 3px solid black;
-    width: 70px;
-    top: 485px;
-    left: 830px;
+    width: 154px;
+    top: 487px;
+    left: 841px;
     z-index: 2;
     position: absolute;
     height: 100px;
