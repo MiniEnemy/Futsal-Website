@@ -7,101 +7,100 @@
     font-size: 22px !important;
     letter-spacing: 2px;
 }
-/* .topbar nav{
-    font: 30px !important;
-} */
-nav{
+
+nav {
     text-decoration: none;
     display: flex;
     background-color: black;
 }
-nav .logo img{
+
+nav .logo img {
     margin-top: 3px;
-    margin-left:40px ;
+    margin-left: 40px;
     width: 60px;
     border-radius: 40px;
 }
-menu{
+
+menu {
     margin-left: 210px;
     margin-top: 25px;
     list-style: none;
     display: flex;
 }
-menu a{ 
-    /* font-weight: bold; */
-    /* font-size: 20px; */
+
+menu a {
     color: white;
     text-align: center;
     text-decoration: none;
-    
-}
-#bar a{
-    
-    /* font-size: larger; */
-    font-weight: bold;
-    padding-left: 100px; 
 }
 
-.login{
+#bar a {
+    font-weight: bold;
+    padding-left: 100px;
+}
+
+.login {
     width: 350px;
     display: flex;
     flex: 1;
     text-align: right;
     position: absolute;
-    right: 0;    
+    right: 0;
 }
 
-.login .sign-up{
-    padding-left: 100px; /* this is the change */
-
+.login .sign-up {
+    padding-left: 100px;
 }
 
-.goal{
-    width: 1463px;
+.goal {
+    width: 1650px;
     height: 400px;
-    object-fit: cover ;
-    object-position:10% 76% ;
+    object-fit: cover;
+    object-position: 10% 79%;
     margin-left: -67px;
 }
-/* welcome to text */
-h1{
-    background-color: white;
-    color: black;
-    width: 480px;
-    position: absolute;
-    top: 440px;
-    left: 50%;
-    height: 70px;
-    text-align: center;
-    padding-top: 35px;
-    z-index: 1;
+
+#big-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 55vh;
+    position: relative;
 }
-/* lines */
-.vl {
-    border-top: 3px solid black;
-    width: 70px;
-    top: 485px;
-    left: 580px;
-    z-index: 2;
-    position: absolute;
-    height: 100px;
-  }
-  .v2 {
-    border-top: 3px solid black;
-    width: 70px;
-    top: 485px;
-    left: 830px;
-    z-index: 2;
-    position: absolute;
-    height: 100px;
-  }
 
-  .elite{
-    margin-top: 75px;
+.box {
+    width: 500px;
+    height: 80px;
+    background-color: white;
+    position: absolute;
+    top: 385px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.line {
+    margin-left: 25px;
+    margin-right: 25px;
+    width: 65%;
+    height: 3px;
+    background-color: black;
+}
+
+.text {
+    width: 600px;
+    /* Adjusted to lower case 'px' */
     text-align: center;
-    /* font-size:60px; */
-  }
+}
 
-
-
-
+.club {
+    background-color: maroon;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    padding: 10px 20px;
+    border-top-left-radius: 5px;
+}
