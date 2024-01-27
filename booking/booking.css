@@ -60,6 +60,18 @@ button:hover {
 #lto{
     margin-left: 38px;
 }
+.error-message {
+    color: red;
+    margin-top: 5px;
+    display: block;
+}
+#to-time-error{
+    margin-left: 38px;
+    width: 80%;
+    
+}
+
+
 
 
 
