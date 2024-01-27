@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="booking.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="booking.css">
 </head>
+
 <body>
-    <form action="" method="post" >
+    <form action="" method="post">
         <div class="elem-group">
           <label for="name">Username</label>
           <input type="text" id="name" name="visitor_name" placeholder="Please enter your name" pattern="[A-Za-z\s]{3,20}" required>
@@ -28,68 +30,34 @@
         <div class="time">
           <div class="elem-group">
             <label for="from-time">From Time</label>
-            <input type="time" id="ftime" name="from_time" required onchange="checkTimeRange()">
-            <span id="from-time-error" class="error-message"></span>
+            <input type="time" id="ftime" name="from_time" required min="08:00" max="17:00">
           </div>
           <div class="elem-group">
             <label for="ttime" id="lto">To Time</label>
-            <input type="time" id="ttime" name="to_time" required  onchange="checkTimeRange()">
-            <span id="to-time-error" class="error-message"></span>
-
+            <input type="time" id="ttime" name="to_time" required>
           </div>
         </div>
         <button type="submit">Submit</button>
     </form>
 
-    <script>
-        var currentDateTime = new Date();
-        var year = currentDateTime.getFullYear();
-        var month = (currentDateTime.getMonth() + 1);
-        var date = currentDateTime.getDate();
+  <script>
+    var currentDateTime = new Date();
+    var year = currentDateTime.getFullYear();
+    var month = (currentDateTime.getMonth() + 1);
+    var date = currentDateTime.getDate();
 
-        if (date < 10) {
-          date = '0' + date;
-        }
-        if (month < 10) {
-          month = '0' + month;
-        }
+    if (date < 10) {
+      date = '0' + date;
+    }
+    if (month < 10) {
+      month = '0' + month;
+    }
 
-        var currentDate = year + "-" + month + "-" + date;
-        var bookingElem = document.querySelector("#booking-date");
+    var currentDate = year + "-" + month + "-" + date;
+    var bookingElem = document.querySelector("#booking-date");
 
         bookingElem.setAttribute("min", currentDate);
-
-    function checkTimeRange() {
-        var fromTime = document.getElementById("ftime").value;
-        var toTime = document.getElementById("ttime").value;
-
-        // Convert time strings to Date objects for easier comparison
-        var fromDateTime = new Date("2000-01-01T" + fromTime);
-        var toDateTime = new Date("2000-01-01T" + toTime);
-
-        // Set the allowed time range (5 am to 5 pm)
-        var allowedStartTime = new Date("2000-01-01T05:00:00");
-        var allowedEndTime = new Date("2000-01-01T17:00:00");
-
-        // Get error message elements
-        var fromTimeError = document.getElementById("from-time-error");
-        var toTimeError = document.getElementById("to-time-error");
-
-        // Check if the selected From Time is outside the allowed hours
-        if (fromDateTime < allowedStartTime || fromDateTime > allowedEndTime) {
-            fromTimeError.textContent = " Please select a time between 5 am and 5 pm.";
-        } else {
-            fromTimeError.textContent = "";
-        }
-
-        // Check if the selected To Time is outside the allowed hours
-        if (toDateTime < allowedStartTime || toDateTime > allowedEndTime) {
-            toTimeError.textContent = " Please select a time between 5 am and 5 pm.";
-        } else {
-            toTimeError.textContent = "";
-        }
-    }
-        
     </script>
 </body>
+
 </html>

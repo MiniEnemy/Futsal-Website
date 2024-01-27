@@ -1,34 +1,25 @@
-body{
+body {
     justify-content: center;
     align-items: center;
-    height: 800px;
+    height: 100vh;
     display: flex;
     margin: 0;
 }
 
-.login{
-    height: 500px;
+.sign-up {
+    width: 300px;
+    padding: 20px;
     background-color: #2c8177;
-    /* width: auto; */
     border: 2px solid black;
+    border-radius: 10px;
+    text-align: center;
 }
-.login label,input{
-    width: 200px;
-    height:auto;
-    display: flex;
+
+.sign-up label, .sign-up input {
+    width: 100%;
+    margin-bottom: 10px;
 }
-.login .user label{
-    margin-top: 10%;
-    margin-left: 38% !important;
-}
-.login .pass label{
-    margin-left: 27% !important;
-}
-.login input{
-    margin-left: 14%;
-    border-radius: 200px;
-}
-button{
-    margin-top: 10%;
-    margin-left: 39%;
+
+button {
+    margin-top: 10px;
 }
