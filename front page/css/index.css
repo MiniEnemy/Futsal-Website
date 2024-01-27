@@ -40,7 +40,7 @@ menu a {
 }
 
 .login {
-    width: 127px;
+    width: 55px;
     display: flex;
     flex: 1;
     text-align: left;
@@ -65,7 +65,7 @@ h1 {
     width: 1650px;
     height: 400px;
     object-fit: cover;
-    object-position: 10% 79%;
+    object-position: 10% 100%;
     margin-left: -67px;
 }
 
