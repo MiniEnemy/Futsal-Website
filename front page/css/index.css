@@ -40,16 +40,29 @@ menu a {
 }
 
 .login {
-    width: 350px;
+    width: 127px;
     display: flex;
     flex: 1;
-    text-align: right;
+    text-align: left;
     position: absolute;
     right: 0;
 }
 
 .login .sign-up {
     padding-left: 100px;
+}
+
+h1 {
+    background-color: white;
+    color: black;
+    width: 480px;
+    position: absolute;
+    top: 440px;
+    left: 50%;
+    height: 70px;
+    text-align: center;
+    padding-top: 35px;
+    z-index: 1;
 }
 
 .goal {
@@ -64,7 +77,6 @@ menu a {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 55vh;
     position: relative;
 }
 
@@ -84,23 +96,13 @@ menu a {
 
 .line {
     margin-left: 25px;
-    margin-right: 25px;
+    margin-right:25px ;
     width: 65%;
     height: 3px;
     background-color: black;
 }
 
 .text {
-    width: 600px;
-    /* Adjusted to lower case 'px' */
+    width: 600PX;
     text-align: center;
-}
-
-.club {
-    background-color: maroon;
-    color: white;
-    font-family: Arial, sans-serif;
-    font-size: 24px;
-    padding: 10px 20px;
-    border-top-left-radius: 5px;
 }
