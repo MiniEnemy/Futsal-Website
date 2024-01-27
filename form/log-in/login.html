@@ -1,34 +1,35 @@
+<!-- login.html -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/form/log-in/login.css">
-    <script src="/form/log-in/login.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Elite Strike</title>
+  <link rel="stylesheet" href="/form/log-in/login.css">
+  <script src="/form/log-in/login.js"></script>
 </head>
+
 <body>
-    <div >
-        <h1>Welcome to Elite Strike</h1>
-        <form  onsubmit="return validate()"  action="/front page/Index.html" >
-            <div class="login">
-
-                <div class="user">
-                    <label for="username" class="user" > Username</label><br>
-                    <input type="text" placeholder="Enter your username"  id="username" name="username">
-                    <span id="usernameError" class="error"></span>
-                </div>
-                <br><br>
-                <div class="pass">
-                    <label>Enter your Password</label><br>
-                    <input type="password" placeholder="Input your Password"  id="pass" name="pass">
-                    <span id="passwordError" class="error"></span>
-                </div>
-                <button type="submit">Submit</button>
-
-                <p>Don't have a account?<a href="/form/sign-up/sign-up.html">Sign-up</a>here</p>
-            </div>
-            </form>
-    </div>
+  <div class="login-popup">
+    <h1>Welcome to Elite Strike</h1>
+    <form onsubmit="return validate()" action="/front page/Index.html">
+      <div class="user">
+        <label for="username" class="user">Username</label><br>
+        <input type="text" placeholder="Enter your username" id="username" name="username">
+        <span id="usernameError" class="error"></span>
+      </div>
+      <br><br>
+      <div class="pass">
+        <label>Password</label><br>
+        <input type="password" placeholder="Enter your password" id="pass" name="pass">
+        <span id="passwordError" class="error"></span>
+      </div>
+      <button type="submit">Submit</button>
+      <p>Don't have an account? <a href="/form/sign-up/sign-up.html">Sign up here</a></p>
+    </form>
+    <span class="close-btn" onclick="closeLogin()">&times;</span>
+  </div>
 </body>
+
 </html>

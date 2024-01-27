@@ -46,6 +46,7 @@ menu a {
     text-align: left;
     position: absolute;
     right: 0;
+
 }
 
 h1 {
@@ -149,7 +150,7 @@ h1 {
 }
 
 .goal2 {
-    width: 1650px;
+    width: 1626px;
     height: 400px;
     object-fit: cover;
     object-position: 11% 85%;

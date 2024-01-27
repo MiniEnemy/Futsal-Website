@@ -1,10 +1,11 @@
+// login.js
 function validate() {
     var username = document.getElementById('username').value;
     var password = document.getElementById('pass').value;
-    var usernameError = document.getElementById('usernameError'); // why?
+    var usernameError = document.getElementById('usernameError');
     var passwordError = document.getElementById('passwordError');
 
-    usernameError.innerText = ""; //why?
+    usernameError.innerText = "";
     passwordError.innerText = "";
 
     if (username === "") {
@@ -15,4 +16,8 @@ function validate() {
         return false;
     }
     return true;
+}
+
+function closeLogin() {
+    document.location.href = "/front page/Index.html";
 }
