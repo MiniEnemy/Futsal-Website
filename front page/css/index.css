@@ -15,12 +15,14 @@ nav {
     display: flex;
     background-color: grey;
 }
-.logo{
+
+.logo {
     background-color: grey;
 }
 
 /* Styling for the logo in the navigation bar */
 nav .logo img {
+    cursor: pointer;
     /* margin-top: 3px; */
     margin-left: 40px;
     width: 70px;
@@ -40,7 +42,8 @@ menu a {
     text-align: center;
     text-decoration: none;
 }
-menu a:hover{
+
+menu a:hover {
     color: black;
     /* background-color: black; */
 }
@@ -218,20 +221,37 @@ h1 {
     /* Move the line to the right */
 }
 
-.fourth-bar img{
-    width: 1200px;
+.fourth-bar img {
+    /* width: 199px; */
     transform: scaleX(-1);
-    margin-left: 1px;
     position: relative;
     text-align: center;
+
 }
-.sponsors{
-    /* background-color: green; */
+
+.wave img {
+    bottom: 30px;
+    right: 45px;
+    width: 950px;
+    transform: scaleX(-1);
+    position: relative;
+    text-align: center;
+    transform: rotate(-6deg) scaleX(-1);
+}
+
+.football img {
+    width: 420px;
+    bottom: 520px;
+    left: 500px;
+}
+
+.sponsors {
     position: absolute;
-    top: 2293px;
-    left: 7%;
+    top: 2260px;
+    left: 13%;
     transform: translate(-50%, -50%);
     font-size: 24px;
     font-weight: bold;
-    color: black; /* Text color */
+    color: black;
 }
+
