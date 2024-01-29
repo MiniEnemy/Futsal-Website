@@ -1,3 +1,4 @@
+/* Resetting default styles and setting global styles */
 * {
     border: 0;
     box-sizing: border-box;
@@ -8,19 +9,25 @@
     letter-spacing: 2px;
 }
 
+/* Styling for the navigation bar */
 nav {
     text-decoration: none;
     display: flex;
-    background-color: black;
+    background-color: grey;
+}
+.logo{
+    background-color: grey;
 }
 
+/* Styling for the logo in the navigation bar */
 nav .logo img {
-    margin-top: 3px;
+    /* margin-top: 3px; */
     margin-left: 40px;
-    width: 60px;
+    width: 70px;
     border-radius: 40px;
 }
 
+/* Styling for the menu items in the navigation bar */
 menu {
     margin-left: 110px;
     margin-top: 25px;
@@ -33,12 +40,18 @@ menu a {
     text-align: center;
     text-decoration: none;
 }
+menu a:hover{
+    color: black;
+    /* background-color: black; */
+}
 
+/* Styling for the navigation bar items with additional id 'bar' */
 #bar a {
     font-weight: bold;
     padding-left: 100px;
 }
 
+/* Styling for the login section in the navigation bar */
 .login {
     width: 55px;
     display: flex;
@@ -46,9 +59,9 @@ menu a {
     text-align: left;
     position: absolute;
     right: 0;
-
 }
 
+/* Styling for the heading */
 h1 {
     background-color: white;
     color: black;
@@ -62,6 +75,7 @@ h1 {
     z-index: 1;
 }
 
+/* Styling for the main image with class 'goal' */
 .goal {
     width: 1650px;
     height: 400px;
@@ -70,6 +84,7 @@ h1 {
     margin-left: -67px;
 }
 
+/* Styling for the big box containing the welcome text */
 #big-box {
     display: flex;
     justify-content: center;
@@ -77,6 +92,7 @@ h1 {
     position: relative;
 }
 
+/* Styling for the box with welcome text */
 .box {
     width: 500px;
     height: 80px;
@@ -91,6 +107,7 @@ h1 {
     letter-spacing: 1px;
 }
 
+/* Styling for the lines inside the box */
 .line {
     margin-left: 25px;
     margin-right: 25px;
@@ -99,11 +116,14 @@ h1 {
     background-color: black;
 }
 
+/* Styling for the welcome text */
 .text {
     width: 600px;
     text-align: center;
+    font-weight: light;
 }
 
+/* Styling for the team name heading */
 .t1 p {
     display: flex;
     align-items: center;
@@ -114,6 +134,7 @@ h1 {
     margin-top: 62px;
 }
 
+/* Styling for the first set of team logos */
 .teamlogo1 {
     display: flex;
     width: 100px;
@@ -121,12 +142,14 @@ h1 {
     margin-top: 50px;
 }
 
+/* Styling for individual team logos within teamlogo1 */
 .teamlogo1 img {
     margin-left: 200px;
     max-width: 100%;
     max-height: 100%;
 }
 
+/* Styling for the second set of team logos */
 .teamlogo2 {
     display: flex;
     width: 100px;
@@ -135,20 +158,22 @@ h1 {
     margin-bottom: 40px;
 }
 
+/* Styling for individual team logos within teamlogo2 */
 .teamlogo2 img {
     margin-left: 200px;
     max-width: 100%;
     max-height: 100%;
 }
 
+/* Styling for the second bar with image */
 .second-bar {
     object-fit: cover;
     object-position: 10% 79%;
     /* margin-left: -67px; */
-    /* max-width: 100%;
-    max-height: 100%; */
+    /* max-width: 100%; max-height: 100%; */
 }
 
+/* Styling for the second goal image */
 .goal2 {
     width: 1626px;
     height: 400px;
@@ -162,6 +187,7 @@ h1 {
     max-height: 100%;
 }
 
+/* Styling for the matches section */
 .t2 {
     display: flex;
     align-items: center;
@@ -169,6 +195,7 @@ h1 {
     margin-top: 20px;
 }
 
+/* Styling for the matches heading */
 .t2 p {
     color: maroon;
     display: flex;
@@ -182,10 +209,29 @@ h1 {
     text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
 }
 
+/* Styling for the line under the matches heading */
 .line2 {
     width: 25%;
     height: 3px;
     background-color: black;
     margin-left: 25px;
     /* Move the line to the right */
+}
+
+.fourth-bar img{
+    width: 1200px;
+    transform: scaleX(-1);
+    margin-left: 1px;
+    position: relative;
+    text-align: center;
+}
+.sponsors{
+    /* background-color: green; */
+    position: absolute;
+    top: 2293px;
+    left: 7%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    font-weight: bold;
+    color: black; /* Text color */
 }
