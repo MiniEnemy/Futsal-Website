@@ -254,4 +254,34 @@ h1 {
     font-weight: bold;
     color: black;
 }
+.football .css-button {
+    bottom: 600px;
+    margin-left: 80px;
+	color: #ffffff;
+	font-size: 16px;
+	border-radius: 50px;
+	border: solid 1px #3866a3;
+	padding: 14px 17px;
+	text-shadow: -1px 1px 6px #000000;
+	box-shadow: inset 1px 1px 0px -50px rgba(187, 218, 247, 0);
+	text-decoration: none;
+	cursor: pointer;
+	position: relative;
+	overflow: hidden;
+	font-family: Arial;
+	background: linear-gradient(180deg, #87898a 100%, #737475 100%);
+	display: inline-block;
+	vertical-align: middle;
+    /* opacity: 30%; */
+    /* background: transparent; */
+    background: black;
 
+}
+.css-button:hover {
+	background: linear-gradient(180deg, #737475 100%, #87898a 100%);
+}
+.css-button-text {
+	position: relative;
+	display: inline-block;
+
+}
