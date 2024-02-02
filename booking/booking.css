@@ -20,6 +20,12 @@ label {
     margin-bottom: 5px;
     color: #333;
 }
+select{
+    width: 105%;
+    padding: 10px;
+    font-size: 14px;
+
+}
 
 input {
     width: 100%;
@@ -46,30 +52,11 @@ button:hover {
     background-color: #ff8c00;
     border: 2px solid #333;
 }
-
-.time{
-    display: flex;
-}
-#ftime{
-    width: 170px;
-}
-#ttime{
-    margin-left: 38px;
-    width: 170px;
-}
-#lto{
-    margin-left: 38px;
-}
-.error-message {
+.error-message{
     color: red;
-    margin-top: 5px;
-    display: block;
+    font-size: 20px;
 }
-#to-time-error{
-    margin-left: 38px;
-    width: 80%;
-    
-}
+
 
 
 
