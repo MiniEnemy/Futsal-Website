@@ -11,49 +11,44 @@
 <body>
     <div>
         <h1>Welcome to Elite Strike</h1>
-        <form onsubmit="return validate()" action="/front page/Index.html">
+        <form onsubmit="return validate()" action="processsignup.php" method="post">
             <div class="sign-up">
                 <div class="fname">
                     <label for="fname">First name</label><br>
-                    <input type="text" placeholder="Enter your First Name" id="fname">
+                    <input type="text" name="fname"   placeholder="Enter your First Name" id="fname">
                 </div>
                 <br><br>
                 <div class="lname">
                     <label for="lname">Enter your Last name</label><br>
-                    <input type="text" placeholder="Enter your last name" id="lname">
+                    <input type="text" name="lname" placeholder="Enter your last name" id="lname">
                 </div>
                 <br><br>
                 <div class="mail">
                     <label for="email">Enter your E-mail</label><br>
-                    <input type="email" placeholder="Enter your Email" id="email" onblur="checkEmail()">
+                    <input type="email" name="email" placeholder="Enter your Email" id="email" onblur="checkEmail()">
                     <span id="emailError" class="error"></span>
                 </div>
                 <br><br>
                 <div class="pn">
                     <label for="no">Enter your phone number</label><br>
-                    <input type="tel" placeholder="Enter your phone no." id="no">
+                    <input type="tel" name="no" placeholder="Enter your phone no." id="no">
                 </div>
                 <br><br>
                 <div class="username">
                     <label for="user">Enter your username</label><br>
-                    <input type="text" name="un" id="user" placeholder="Enter your username">
+                    <input type="text" name="user" id="user" placeholder="Enter your username">
                 </div>
                 <br><br>
                 <div class="pass">
                     <label for="pass">Enter your password</label><br>
-                    <input type="password" name="ps" id="pass" onblur="checkPassword()">
+                    <input type="password" name="pass" id="pass" onblur="checkPassword()" placeholder="Enter your password">
                     <span id="passwordError" class="error"></span>
-                </div>
-                <br><br>
-                <div class="re-pass">
-                    <label for="cnfpass">Confirm your password</label><br>
-                    <input type="password" name="ps" id="cnfpass" placeholder="Re-type your password">
                 </div>
                 <br><br>
                 <button type="submit">Submit</button>
                 <br><br>
                 <div class="noacc">
-                    <p>Already signed in? <a href="form/log-in/login.html">Log-in</a> here</p>
+                    <p>Already signed in? <a href="../log-in/login.html">Log-in</a> here</p>
                 </div>
             </div>
         </form>

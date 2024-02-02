@@ -13,11 +13,10 @@
 <body>
   <div class="login-popup">
     <h1>Welcome to Elite Strike</h1>
-    <form onsubmit="return validate()" action="/front page/Index.html">
+    <form onsubmit="return validate()" action="processlogin.php" method="post">
       <div class="user">
         <label for="username" class="user">Username</label><br>
         <input type="text" placeholder="Enter your username" id="username" name="username">
-        <span id="usernameError" class="error"></span>
       </div>
       <br><br>
       <div class="pass">
