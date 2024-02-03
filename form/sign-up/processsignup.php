@@ -17,10 +17,11 @@ $phone = $_POST['no'];
 $username = $_POST['user'];
 $password = password_hash($_POST['pass'], PASSWORD_DEFAULT);
 
-$sql = "INSERT INTO `signup`( `Firstname`, `Lastname`, `Email`, `Phone`, `Username`, `Password`) VALUES ('$fname', '$lname', '$email', '$phone', '$username', '$password')";
+$sql = "INSERT INTO `signup`(`Firstname`, `Lastname`, `Email`, `Phone`, `Username`, `Password`) VALUES ('$fname', '$lname', '$email', '$phone', '$username', '$password')";
 
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
+    header("Location:../log-in/login.html");
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
