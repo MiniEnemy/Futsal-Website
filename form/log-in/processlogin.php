@@ -10,15 +10,31 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$username = $_POST['username'];
-$password = $_POST['pass']; // Note: This is not hashed for simplicity; in a real application, you should hash and validate the password.
+$enteredUsername = $_POST['username'];
+$enteredPassword = $_POST['pass'];
 
-$sql = "INSERT INTO `login`(`Username`, `Password`) VALUES ('$username', '$password')";
+$sql = "SELECT * FROM `signup` WHERE `Username`='$enteredUsername'";
+$result = $conn->query($sql);
 
-if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    
+    // Verify the password
+    if (password_verify($enteredPassword, $row['Password'])) {
+        // Username and password match
+        $_SESSION['username'] = $username;
+        header("Location:../../booking/booking.php");
+
+        exit();
+    } else {
+        // Password does not match
+        echo "<script>alert('Invalid password. Please try again.');</script>";
+        echo "<script>window.location.href='./login.html';</script>";
+    }
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    // Username not found
+    echo "<script>alert('Invalid username. Please try again.');</script>";
+    echo "<script>window.location.href='./login.html';</script>";
 }
 
 $conn->close();
