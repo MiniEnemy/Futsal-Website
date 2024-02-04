@@ -64,6 +64,7 @@ menu a:hover {
     right: 0;
 }
 
+
 /* Styling for the heading */
 h1 {
     background-color: white;
@@ -127,47 +128,44 @@ h1 {
 }
 
 /* Styling for the team name heading */
-.t1 p {
+.boxes{
     display: flex;
-    align-items: center;
-    flex-direction: column;
-    font-size: 80px;
-    font-weight: bolder;
-    font-family: 'Times New Roman', Times, serif;
-    margin-top: 62px;
+    justify-content: space-between;
+    margin-top: 100px;
+    
 }
-
-/* Styling for the first set of team logos */
-.teamlogo1 {
-    display: flex;
-    width: 100px;
-    height: 100px;
-    margin-top: 50px;
+.box1 img{
+    width: 153px;
+    height: 161px;
+    border: 4px solid #000; /* Add borders for visualization */
+    margin-left: 40px; /* Adjust the margin as needed to add space */
+    text-align: center;
+    line-height: 100px; /* Vertical centering */
 }
-
-/* Styling for individual team logos within teamlogo1 */
-.teamlogo1 img {
-    margin-left: 200px;
-    max-width: 100%;
-    max-height: 100%;
+.box2{
+    width: 100px; /* Adjust the width as needed */
+    height: 100px; /* Adjust the height as needed */
+    border: 1px solid #000; /* Add borders for visualization */
+    margin: 10px; /* Adjust the margin as needed to add space */
+    text-align: center;
+    line-height: 100px; /* Vertical centering */
 }
-
-/* Styling for the second set of team logos */
-.teamlogo2 {
-    display: flex;
-    width: 100px;
-    height: 100px;
-    margin-top: 70px;
-    margin-bottom: 40px;
+.box3{
+    width: 100px; /* Adjust the width as needed */
+    height: 100px; /* Adjust the height as needed */
+    border: 1px solid #000; /* Add borders for visualization */
+    margin: 10px; /* Adjust the margin as needed to add space */
+    text-align: center;
+    line-height: 100px; /* Vertical centering */
 }
-
-/* Styling for individual team logos within teamlogo2 */
-.teamlogo2 img {
-    margin-left: 200px;
-    max-width: 100%;
-    max-height: 100%;
+.box4{
+    width: 100px; /* Adjust the width as needed */
+    height: 100px; /* Adjust the height as needed */
+    border: 1px solid #000; /* Add borders for visualization */
+    margin: 10px; /* Adjust the margin as needed to add space */
+    text-align: center;
+    line-height: 100px; /* Vertical centering */;
 }
-
 /* Styling for the second bar with image */
 .second-bar {
     object-fit: cover;
