@@ -128,58 +128,82 @@ h1 {
 }
 
 /* Styling for the team name heading */
-.boxes{
+.boxes {
     display: flex;
     justify-content: space-between;
     margin-top: 100px;
-    
+
 }
-.box1 img{
+
+.box1 img {
     width: 153px;
     height: 161px;
-    border: 4px solid #000; /* Add borders for visualization */
-    margin-left: 40px; /* Adjust the margin as needed to add space */
+    border: 4px solid #000;
+    /* Add borders for visualization */
+    margin-left: 40px;
+    /* Adjust the margin as needed to add space */
     text-align: center;
-    line-height: 100px; /* Vertical centering */
+    line-height: 100px;
+    /* Vertical centering */
 }
-.box2{
-    width: 100px; /* Adjust the width as needed */
-    height: 100px; /* Adjust the height as needed */
-    border: 1px solid #000; /* Add borders for visualization */
-    margin: 10px; /* Adjust the margin as needed to add space */
+
+.box2 {
+    width: 100px;
+    /* Adjust the width as needed */
+    height: 100px;
+    /* Adjust the height as needed */
+    border: 1px solid #000;
+    /* Add borders for visualization */
+    margin: 10px;
+    /* Adjust the margin as needed to add space */
     text-align: center;
-    line-height: 100px; /* Vertical centering */
+    line-height: 100px;
+    /* Vertical centering */
 }
-.box3{
-    width: 100px; /* Adjust the width as needed */
-    height: 100px; /* Adjust the height as needed */
-    border: 1px solid #000; /* Add borders for visualization */
-    margin: 10px; /* Adjust the margin as needed to add space */
+
+.box3 {
+    width: 100px;
+    /* Adjust the width as needed */
+    height: 100px;
+    /* Adjust the height as needed */
+    border: 1px solid #000;
+    /* Add borders for visualization */
+    margin: 10px;
+    /* Adjust the margin as needed to add space */
     text-align: center;
-    line-height: 100px; /* Vertical centering */
+    line-height: 100px;
+    /* Vertical centering */
 }
-.box4{
-    width: 100px; /* Adjust the width as needed */
-    height: 100px; /* Adjust the height as needed */
-    border: 1px solid #000; /* Add borders for visualization */
-    margin: 10px; /* Adjust the margin as needed to add space */
+
+.box4 {
+    width: 100px;
+    /* Adjust the width as needed */
+    height: 100px;
+    /* Adjust the height as needed */
+    border: 1px solid #000;
+    /* Add borders for visualization */
+    margin: 10px;
+    /* Adjust the margin as needed to add space */
     text-align: center;
-    line-height: 100px; /* Vertical centering */;
+    line-height: 100px;
+    /* Vertical centering */
+    ;
 }
+
 /* Styling for the second bar with image */
 .second-bar {
     object-fit: cover;
-    object-position: 10% 79%;
+    object-position: 10% 100%;
     /* margin-left: -67px; */
     /* max-width: 100%; max-height: 100%; */
 }
 
 /* Styling for the second goal image */
 .goal2 {
-    width: 1626px;
-    height: 400px;
+    width: 1472px;
+    height: 300px;
     object-fit: cover;
-    object-position: 11% 85%;
+    object-position: 11% 99%;
     margin-left: -107px;
 }
 
@@ -188,98 +212,74 @@ h1 {
     max-height: 100%;
 }
 
-/* Styling for the matches section */
-.t2 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
+.second-bar .book {
+    background-color: rgba(128, 128, 128, 0.79);
+    /* Grey color with 79% opacity */
+    width: 86%;
+    margin-left: 75px;
+    margin-top: 29px;
+    text-align: center;
+    height: 38%;
+    position: absolute;
 }
 
-/* Styling for the matches heading */
-.t2 p {
-    color: maroon;
-    display: flex;
-    text-decoration: solid maroon;
-    flex-direction: column;
+.book p {
+    margin-left: 430px;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: justify;
     font-size: 50px;
     font-weight: bolder;
-    font-family: 'Times New Roman', Times, serif;
-    margin-right: 80px;
-    /* Move the text to the left */
-    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+    margin-top: 80px;
+    color: black;
+    /* Black color for the text */
+    opacity: 1;
+    /* Full opacity for the text */
 }
 
-/* Styling for the line under the matches heading */
-.line2 {
-    width: 25%;
-    height: 3px;
-    background-color: black;
-    margin-left: 25px;
-    /* Move the line to the right */
-}
 
-.fourth-bar img {
-    /* width: 199px; */
-    transform: scaleX(-1);
-    position: relative;
-    text-align: center;
 
-}
 
-.wave img {
-    bottom: 30px;
-    right: 45px;
-    width: 950px;
-    transform: scaleX(-1);
-    position: relative;
-    text-align: center;
-    transform: rotate(-6deg) scaleX(-1);
-}
-
-.football img {
-    width: 420px;
-    bottom: 520px;
-    left: 500px;
-}
 
 .sponsors {
-    position: absolute;
-    top: 2260px;
-    left: 13%;
-    transform: translate(-50%, -50%);
     font-size: 24px;
     font-weight: bold;
     color: black;
 }
-.football .css-button {
-    bottom: 600px;
-    margin-left: 80px;
-	color: #ffffff;
-	font-size: 16px;
-	border-radius: 50px;
-	border: solid 1px #3866a3;
-	padding: 14px 17px;
-	text-shadow: -1px 1px 6px #000000;
-	box-shadow: inset 1px 1px 0px -50px rgba(187, 218, 247, 0);
-	text-decoration: none;
-	cursor: pointer;
-	position: relative;
-	overflow: hidden;
-	font-family: Arial;
-	background: linear-gradient(180deg, #87898a 100%, #737475 100%);
-	display: inline-block;
-	vertical-align: middle;
-    /* opacity: 30%; */
-    /* background: transparent; */
-    background: black;
 
-}
-.css-button:hover {
-	background: linear-gradient(180deg, #737475 100%, #87898a 100%);
-}
-.css-button-text {
-	position: relative;
-	display: inline-block;
 
+
+
+footer {
+    background-color: black;
+}
+
+.cu {
+    text-align: center;
+    color: white;
+}
+
+.material-symbols-outlined {
+    color: white;
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+}
+.phn{
+    display: flex;
+}
+.phn p{
+    margin-left: 20px;
+    color: white;
+}
+
+
+.mail{
+    display: flex;
+}
+
+footer.mail.material-symbols-outlined{
+    justify-items: right;
 }
