@@ -233,16 +233,14 @@ h1 {
     margin-top: 80px;
     color: black;
     /* Black color for the text */
-    opacity: 1;
+    opacity: 90%;
     /* Full opacity for the text */
 }
 
 
 
-
-
 .sponsors {
-    font-size: 24px;
+    font-size: 14px;
     font-weight: bold;
     color: black;
 }
@@ -252,34 +250,48 @@ h1 {
 
 footer {
     background-color: black;
+    color: white;
+    position: relative;
+    height: 200px;
+}
+
+footer img {
+    width: 80px;
+    position: absolute;
+    margin-left: 600px;
+    margin-top: 5%;
 }
 
 .cu {
     text-align: center;
-    color: white;
 }
 
-.material-symbols-outlined {
-    color: white;
-    font-variation-settings:
-        'FILL' 0,
-        'wght' 400,
-        'GRAD' 0,
-        'opsz' 24
-}
-.phn{
+.cnt {
     display: flex;
+    align-items: center;
+    margin-top: 50px;
+
 }
-.phn p{
-    margin-left: 20px;
-    color: white;
+
+.phn {
+    margin-right: 850px;
 }
 
 
-.mail{
+.social {
+    margin-top: 43px;
     display: flex;
 }
 
-footer.mail.material-symbols-outlined{
-    justify-items: right;
+.cc {
+    position: absolute;
+    top: 170px; 
+    color: white;
+    left: 50%; /* Position it at the center horizontally */
+    transform: translateX(-50%); /* Center it precisely */
+    width: 100%; /* Make sure it takes the full width of the footer */
+    text-align: center;
+}
+.fb{
+    margin-left: 987px;
 }
