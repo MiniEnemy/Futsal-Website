@@ -27,7 +27,9 @@ nav p{
     width: 100px; /* Adjust width as needed */
     height: auto; /* Maintain aspect ratio */
 }
-
+nav p{
+    cursor: pointer;
+}
 /* Menu styles */
 menu {
     margin-left: 360px; /* Move menu to the right */
@@ -46,6 +48,7 @@ menu i{
     text-decoration: none; /* Remove underline */
     margin-left: 20px; /* Spacing between menu items */
     font-size: 36px;
+    cursor: pointer;
 }
 menu a:hover {
     text-decoration: underline; /* Underline on hover */
