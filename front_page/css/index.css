@@ -11,59 +11,46 @@
 
 /* Styling for the navigation bar */
 nav {
-    text-decoration: none;
-    display: flex;
-    background-color: grey;
+    background-color: white; /* Dark background color */
+    padding: 10px 20px; /* Padding for the navigation bar */
+    display: flex; /* Flex container to align items horizontally */
+    align-items: center; /* Align items vertically in the center */
 }
-
+nav p{
+    margin-left: 34px;
+    font-size: 45px;
+    font-weight: 1000px;
+    font-family: 'Times New Roman', Times, serif;
+}
+/* Logo styles */
 .logo {
-    background-color: grey;
+    width: 100px; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
 }
 
-/* Styling for the logo in the navigation bar */
-nav .logo img {
-    cursor: pointer;
-    /* margin-top: 3px; */
-    margin-left: 40px;
-    width: 70px;
-    border-radius: 40px;
-}
-
-/* Styling for the menu items in the navigation bar */
+/* Menu styles */
 menu {
-    margin-left: 110px;
-    margin-top: 25px;
-    list-style: none;
-    display: flex;
+    margin-left: 360px; /* Move menu to the right */
 }
 
 menu a {
-    color: white;
-    text-align: center;
-    text-decoration: none;
+    font-weight: 400;
+    color: black; /* Text color */
+    text-decoration: none; /* Remove underline */
+    margin-left: 20px; /* Spacing between menu items */
+    font-size: 26px; /* Adjust font size as needed */
 }
-
+menu i{
+    font-weight: 400;
+    color: black; /* Text color */
+    text-decoration: none; /* Remove underline */
+    margin-left: 20px; /* Spacing between menu items */
+    font-size: 36px;
+}
 menu a:hover {
-    color: black;
-    /* background-color: black; */
+    text-decoration: underline; /* Underline on hover */
 }
-
-/* Styling for the navigation bar items with additional id 'bar' */
-#bar a {
-    font-weight: bold;
-    padding-left: 100px;
-}
-
-/* Styling for the login section in the navigation bar */
-.login {
-    width: 55px;
-    display: flex;
-    flex: 1;
-    text-align: left;
-    position: absolute;
-    right: 0;
-}
-
+/* Styling for the logo in the navigation bar */
 
 /* Styling for the heading */
 h1 {
@@ -264,6 +251,10 @@ footer img {
 
 .cu {
     text-align: center;
+}
+footer .cu p{
+    margin-top: 300px;
+
 }
 
 .cnt {
