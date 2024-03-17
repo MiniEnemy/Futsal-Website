@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -22,9 +24,13 @@ if ($result->num_rows > 0) {
     // Verify the password
     if (password_verify($enteredPassword, $row['Password'])) {
         // Username and password match
-        $_SESSION['username'] = $username;
-        header("Location:../../booking/booking.php");
+        $_SESSION['username'] = $enteredUsername;
+        
+        // Pass user details to the booking form
+        $_SESSION['userEmail'] = $row['Email'];
+        $_SESSION['userPhone'] = $row['Phone'];
 
+        header("Location: ../../loginhome/loggedin.html");
         exit();
     } else {
         // Password does not match

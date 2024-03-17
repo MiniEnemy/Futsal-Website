@@ -6,17 +6,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login - Elite Strike</title>
-  <link rel="stylesheet" href="/form/log-in/login.css">
-  <script src="/form/log-in/login.js"></script>
-</head>
+  <link rel="stylesheet" href="login.css">
+</head> 
 
 <body>
   <div class="login-popup">
     <h1>Welcome to Elite Strike</h1>
-    <form onsubmit="return validate()" action="processlogin.php" method="post">
+    <form onsubmit="return validateForm()" action="./processlogin.php" method="post">
       <div class="user">
         <label for="username" class="user">Username</label><br>
         <input type="text" placeholder="Enter your username" id="username" name="username">
+        <span id="usernameError" class="error"></span>
       </div>
       <br><br>
       <div class="pass">
@@ -29,6 +29,34 @@
     </form>
     <span class="close-btn" onclick="closeLogin()">&times;</span>
   </div>
+  <script>
+    function validateForm() {
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("pass").value;
+      var usernameError = document.getElementById("usernameError");
+      var passwordError = document.getElementById("passwordError");
+      var isValid = true; // Flag to track overall validity
+
+      usernameError.innerHTML = "";
+      passwordError.innerHTML = "";
+
+      if (username === "") {
+        usernameError.innerHTML = "Username is required";
+        isValid = false;
+      }
+
+      if (password === "") {
+        passwordError.innerHTML = "Password is required";
+        isValid = false;
+      }
+
+      return isValid;
+    }
+
+    function closeLogin() {
+      // Your close login function implementation
+    }
+  </script>
 </body>
 
 </html>

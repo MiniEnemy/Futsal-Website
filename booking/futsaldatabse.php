@@ -12,11 +12,14 @@ if ($conn->connect_error) {
 }
 
 if (isset($_POST['submit'])) {
-    $name = $_POST['visitor_name'];
-    $email = $_POST['visitor_email'];
-    $phone = $_POST['visitor_phone'];
-    $booking_date = $_POST['booking_date'];
-    $time = $_POST['time'];
+    // Retrieve user details from session
+    $userName = $_SESSION['username'] ?? "";
+    $userEmail = $_SESSION['userEmail'] ?? "";
+    $userPhone = $_SESSION['userPhone'] ?? "";
+
+    // Retrieve form data
+    $booking_date = $_POST['booking_date'] ?? "";
+    $time = $_POST['time'] ?? "";
 
     // Check if the selected time is already booked
     $checkSql = "SELECT * FROM booking WHERE Booking_Date = '$booking_date' AND Time = '$time'";
@@ -24,11 +27,11 @@ if (isset($_POST['submit'])) {
 
     if ($result->num_rows > 0) {
         $_SESSION['error_message'] = "Selected time is already booked. Please choose another time.";
-        header("Location: booking.php"); // Replace with the actual URL of your form page
+        header("Location: booking.php"); // Redirect back to booking page
         exit();
     } else {
-        // Insert Query for SQL
-        $sql = "INSERT INTO booking(Username, Email, Phone, Booking_Date, Time) VALUES ('$name', '$email', '$phone', '$booking_date', '$time')";
+        // Insert the data into the database
+        $sql = "INSERT INTO booking (Username, Email, Phone, Booking_Date, Time) VALUES ('$userName', '$userEmail', '$userPhone', '$booking_date', '$time')";
 
         if ($conn->query($sql) === TRUE) {
             echo "<br/><br/><span>Data Inserted successfully...!!</span>";

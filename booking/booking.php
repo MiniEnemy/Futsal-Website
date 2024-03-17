@@ -1,48 +1,21 @@
 <?php
-// Assuming you have a database connection established
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "futsalbooking";
+session_start(); // Start the session
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+// Retrieve user details from session
+$userEmail = $_SESSION['userEmail'] ?? "";
+$userPhone = $_SESSION['userPhone'] ?? "";
+$userName = $_SESSION['username'] ?? ""; // Retrieve the username from the session
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// Fetch user details from the "signup" table
-$sql = "SELECT username, email, phone FROM signup WHERE id = 5"; // Assuming you have a user_id, you need to replace it with the actual user ID or use some mechanism to identify the current user
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    // Fetch the data
-    $row = $result->fetch_assoc();
-    $userName = $row["username"];
-    $userEmail = $row["email"];
-    $userPhone = $row["phone"];
-} else {
-    // Handle if user details are not found
-    $userName = "";
-    $userEmail = "";
-    $userPhone = "";
-}
-
-$conn->close();
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Booking Form</title>
     <link rel="stylesheet" href="booking.css">
 </head>
-
 <body>
     <form action="futsaldatabse.php" method="post" id="bookingForm" onsubmit="return validateForm()">
         <div class="elem-group">
@@ -85,7 +58,7 @@ $conn->close();
             </select>
             <span class="error-message" id="time-error">
                 <?php
-                session_start();
+                
                 if (isset($_SESSION['error_message'])) {
                     echo $_SESSION['error_message'];
                     unset($_SESSION['error_message']); // Clear the session variable
@@ -97,76 +70,58 @@ $conn->close();
     </form>
 
     <script>
-        function validateForm() {
-            // Reset previous error messages
-            resetErrorMessages();
+    function validateForm() {
+        // Reset previous error messages
+        resetErrorMessages();
 
-            var name = document.getElementById("name").value;
-            var email = document.getElementById("email").value;
-            var phone = document.getElementById("phone").value;
-            var date = document.getElementById("booking-date").value;
-            var time = document.getElementById("time").value;
+        var date = document.getElementById("booking-date").value;
+        var time = document.getElementById("time").value;
 
-            // Validate username
-            if (!name.trim()) {
-                document.getElementById("name-error").textContent = "Username is required";
-            } else if (!/^[A-Za-z\s]{3,20}$/.test(name)) {
-                document.getElementById("name-error").textContent = "Invalid username format";
-            }
-
-            // Validate email
-            if (!email.trim()) {
-                document.getElementById("email-error").textContent = "Email is required";
-                
-            } else if (!/^\S+@\S+\.\S+$/.test(email)) {
-                document.getElementById("email-error").textContent = "Invalid email format";
-            }
-
-            // Validate phone
-            if (!phone.trim()) {
-                document.getElementById("phone-error").textContent = "Phone number is required";
-            } else if (!/(\d{3})-?\s?(\d{3})-?\s?(\d{4})/.test(phone)) {
-                document.getElementById("phone-error").textContent = "Invalid phone number format";
-            }
-
-            // Validate booking date
-            if (!date.trim()) {
-                document.getElementById("date-error").textContent = "Booking date is required";
-            }
-
-            // Validate time
-            if (!time.trim()) {
-                document.getElementById("time-error").textContent = "Time selection is required";
-            }
-            return !(name === '' || email === '' || phone === '' || date === '' || time === '');
-
-            // Add additional validation for booking date, from time, and to time if needed
+        // Validate booking date
+        if (!date.trim()) {
+            document.getElementById("date-error").textContent = "Booking date is required";
         }
 
-        function resetErrorMessages() {
-            var errorElements = document.getElementsByClassName("error-message");
-            for (var i = 0; i < errorElements.length; i++) {
-                errorElements[i].textContent = "";
+        // Validate time
+        if (!time.trim()) {
+            document.getElementById("time-error").textContent = "Time selection is required";
+        }
+
+        // If any error messages are present, prevent form submission
+        var errorMessages = document.querySelectorAll(".error-message");
+        for (var i = 0; i < errorMessages.length; i++) {
+            if (errorMessages[i].textContent !== "") {
+                return false; // Prevent form submission
             }
         }
 
-        var currentDateTime = new Date();
-        var year = currentDateTime.getFullYear();
-        var month = (currentDateTime.getMonth() + 1);
-        var date = currentDateTime.getDate();
+        return true; // Allow form submission if no errors
+    }
 
-        if (date < 10) {
-            date = '0' + date;
+    function resetErrorMessages() {
+        var errorElements = document.getElementsByClassName("error-message");
+        for (var i = 0; i < errorElements.length; i++) {
+            errorElements[i].textContent = "";
         }
-        if (month < 10) {
-            month = '0' + month;
-        }
+    }
 
-        var currentDate = year + "-" + month + "-" + date;
-        var bookingElem = document.querySelector("#booking-date");
+    var currentDateTime = new Date();
+    var year = currentDateTime.getFullYear();
+    var month = (currentDateTime.getMonth() + 1);
+    var date = currentDateTime.getDate();
 
-        bookingElem.setAttribute("min", currentDate);
-    </script>
+    if (date < 10) {
+        date = '0' + date;
+    }
+    if (month < 10) {
+        month = '0' + month;
+    }
+
+    var currentDate = year + "-" + month + "-" + date;
+    var bookingElem = document.querySelector("#booking-date");
+
+    bookingElem.setAttribute("min", currentDate);
+</script>
+
 </body>
-
 </html>
