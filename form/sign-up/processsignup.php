@@ -17,13 +17,26 @@ $phone = $_POST['no'];
 $username = $_POST['user'];
 $password = password_hash($_POST['pass'], PASSWORD_DEFAULT);
 
-$sql = "INSERT INTO `signup`(`Firstname`, `Lastname`, `Email`, `Phone`, `Username`, `Password`) VALUES ('$fname', '$lname', '$email', '$phone', '$username', '$password')";
+// Check if email or username already exists
+$checkSql = "SELECT * FROM signup WHERE Email = '$email' OR Username = '$username'";
+$checkResult = $conn->query($checkSql);
 
-if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
-    header("Location:../log-in/login.html");
+if ($checkResult->num_rows > 0) {
+    // Email or username already exists
+    echo "<script>alert('Email or username already exists.');</script>";
+    echo "<script>window.location.href = '../sign-up/sign-up.html';</script>";
+    exit();
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    // Insert new record
+    $sql = "INSERT INTO signup (Firstname, Lastname, Email, Phone, Username, Password)
+            VALUES ('$fname', '$lname', '$email', '$phone', '$username', '$password')";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "New record created successfully";
+        header("Location:../log-in/login.html");
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
 }
 
 $conn->close();

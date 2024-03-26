@@ -43,6 +43,101 @@
             </div>
         </div>
     </div>
+
+    <style>
+        
+    </style>
+
+<script>
+    function validate() {
+    // Get form inputs
+    var fname = document.getElementById('fname').value;
+    var lname = document.getElementById('lname').value;
+    var email = document.getElementById('email').value;
+    var phone = document.getElementById('no').value;
+    var username = document.getElementById('user').value;
+    var password = document.getElementById('pass').value;
+    var confirmPassword = document.getElementById('cnfpass').value;
+
+    // Flag to track overall validation status
+    var isValid = true;
+
+    // Validate first name
+    if (fname.trim() === '') {
+        document.getElementById('fnameError').textContent = 'First name is required';
+        isValid = false;
+    } else {
+        document.getElementById('fnameError').textContent = '';
+    }
+
+    // Validate last name
+    if (lname.trim() === '') {
+        document.getElementById('lnameError').textContent = 'Last name is required';
+        isValid = false;
+    } else {
+        document.getElementById('lnameError').textContent = '';
+    }
+
+    // Validate email
+    if (!isValidEmail(email)) {
+        document.getElementById('emailError').textContent = 'Invalid email address';
+        isValid = false;
+    } else {
+        document.getElementById('emailError').textContent = '';
+    }
+
+    // Validate phone number
+    if (!isValidPhoneNumber(phone)) {
+        document.getElementById('phoneError').textContent = 'Phone number must be 10 digits';
+        isValid = false;
+    } else {
+        document.getElementById('phoneError').textContent = '';
+    }
+
+    // Validate username
+    if (username.trim() === '') {
+        document.getElementById('usernameError').textContent = 'Username is required';
+        isValid = false;
+    } else {
+        document.getElementById('usernameError').textContent = '';
+    }
+
+    // Validate password
+    if (password.trim() === '') {
+        document.getElementById('passwordError').textContent = 'Password is required';
+        isValid = false;
+    } else {
+        document.getElementById('passwordError').textContent = '';
+    }
+
+    // Validate confirm password
+    if (confirmPassword.trim() === '') {
+        document.getElementById('cnfpassError').textContent = 'Confirm password is required';
+        isValid = false;
+    } else if (password !== confirmPassword) {
+        document.getElementById('cnfpassError').textContent = 'Passwords do not match';
+        isValid = false;
+    } else {
+        document.getElementById('cnfpassError').textContent = '';
+    }
+
+    // Return the overall validation status
+    return isValid;
+}
+
+function isValidEmail(email) {
+    // Regular expression for email validation
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+
+function isValidPhoneNumber(phone) {
+    // Regular expression for 10-digit phone number validation
+    var phoneRegex = /^\d{10}$/;
+    return phoneRegex.test(phone);
+}
+
+</script>
 </body>
 
 </html>
