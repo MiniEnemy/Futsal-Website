@@ -38,7 +38,7 @@ function validate() {
 }
 
 function checkEmail() {
-    var emailInput = document.getElementById('email');
+    var emailInput = document.getElementById('mail');
     var emailError = document.getElementById('emailError');
     var inputText = emailInput.value;
     var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;

@@ -1,93 +1,80 @@
-body {
+*{
     margin: 0;
     padding: 0;
-    font-family: 'Arial', sans-serif;
-    background-color: #3498db;
+    font-family: Arial, sans-serif;
+  }
+
+  .container {
+    background-color: #70ecec;
     display: flex;
-    align-items: center;
-    justify-content: center;
     height: 100vh;
-}
+  }
 
-legend {
-    text-align: center;
-    font-size: 28px;
-    font-weight: bold;
-    color: #fff;
-}
+  .left-side {
+    flex: 1;
+    background-image: url(/allpics/log.png);
+    background-size: cover;
+    background-position: center bottom 2%;
+    box-shadow: 0 0 90px black;
+    background-size: 200%;
+  }
 
-h1 {
-    text-align: center;
-    color: #fff;
-}
+  .right-side {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
 
-form {
+  .form-container {
     max-width: 400px;
-    background: #fff;
+    width: 100%;
+    background-color: #70ecec;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+  }
 
-.login {
-    display: flex;
-    flex-direction: column;
-}
-
-label {
-    font-size: 16px;
-    color: #333;
-    margin-bottom: 8px;
-}
-
-input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    font-size: 14px;
-}
-
-button {
-    background-color: #2ecc71;
-    color: #fff;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-button:hover {
-    background-color: #27ae60;
-}
-
-.error {
-    color: red;
-    font-size: 14px;
-    margin-top: -10px;
-    margin-bottom: 10px;
-}
-
-p {
+  .form-container h2,h4 {
+    margin-bottom: 20px;
     text-align: center;
-    margin-top: 15px;
-    font-size: 14px;
-    color: #fff;
-}
-
-a {
-    color: #ecf0f1;
-    text-decoration: none;
+  }
+  .form-container form label {
+    display: block;
+    margin-bottom: 5px;
     font-weight: bold;
-}
+  }
+  .form-container form input {
+    width: 70%;
+    margin-bottom: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: black;
+    color: white;
+  }
+  .form-container form input,label{
+    margin-left: 20%;
+  }
 
-a:hover {
-    text-decoration: underline;
-}
-
-p, a {
+  .form-container form button {
+    width: 40%;
+    margin-left: 35%;
+    margin-top: 2%;
+    padding: 10px;
+    background-color: white;
     color: black;
-}
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  .form-container p {
+    margin-top: 15px;
+    text-align: center;
+  }
+  .form-container p a {
+    color: black;
+    text-decoration: none;
+    
+  }

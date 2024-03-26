@@ -1,66 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elite Strike Sign-Up</title>
-    <link rel="stylesheet" href="/form/sign-up/sign-up.css">
-    <script src="/form/sign-up/sign-up.js" defer></script>
+    <title>Sign Up Page</title>
+    <link rel="stylesheet" href="/form/sign-up/sign-up.css  ">
+    <script src="/form/sign-up/sign-up.js"></script>
 </head>
+
 <body>
-    <div>
-        <h1>Welcome to Elite Strike</h1>
-        <form onsubmit="return validate()" action="processsignup.php" method="post">
-            <div class="sign-up">
-                <div class="fname">
-                    <label for="fname">First name:</label><br>
-                    <input type="text" name="fname" id="fname" placeholder="Enter your first name" >
-                    <span id="fnameError" class="error"></span>
-                </div>
-                <br><br>
-                <div class="lname">
-                    <label for="lname">Last name:</label><br>
-                    <input type="text" name="lname" id="lname" placeholder="Enter your last name" >
-                    <span id="lnameError" class="error"></span>
-                </div>
-                <br><br>
-                <div class="mail">
-                    <label for="email">Email:</label><br>
-                    <input type="email" name="email" id="email" placeholder="Enter your email" >
-                    <span id="emailError" class="error"></span>
-                </div>
-                <br><br>
-                <div class="pn">
-                    <label for="no">Phone number:</label><br>
-                    <input type="tel" name="no" id="no" placeholder="Enter your phone number" >
-                    <span id="phoneError" class="error"></span>
-                </div>
-                <br><br>
-                <div class="username">
-                    <label for="user">Username:</label><br>
-                    <input type="text" name="user" id="user" placeholder="Enter your username" >
+    <div class="container">
+        <div class="left-side"></div>
+        <div class="right-side">
+            <div class="form-container">
+                <h1>Create new Account</h1>
+                <h4>Already Registered? <a href="/form/log-in/login.html">Log in</a> here</h4>
+                <div class="user">
+                    <label for="username" class="user">Username</label><br>
+                    <input type="text" placeholder="Enter your username" id="username" name="username">
                     <span id="usernameError" class="error"></span>
+                    <p id="usernameError" class="error"></p>
+<p id="emailError" class="error"></p>
+<p id="passwordError" class="error"></p>
+
+                </div>
+                <br><br>
+                <div class="no">
+                    <label for="ph" id="no" name="no"></label>
+                </div>
+                <div class="mail">
+                    <label for="email" class="mail">Email</label>
+                    <input type="email" id="mail" name="mail">
                 </div>
                 <br><br>
                 <div class="pass">
-                    <label for="pass">Password:</label><br>
-                    <input type="password" name="pass" id="pass" placeholder="Enter your password" >
+                    <label>Password</label><br>
+                    <input type="password" placeholder="Enter your password" id="pass" name="pass">
                     <span id="passwordError" class="error"></span>
                 </div>
-                <br><br>
-                <div class="conf-pass">
-                    <label for="cnfpass">Confirm password:</label><br>
-                    <input type="password" name="cnfpass" id="cnfpass" placeholder="Confirm your password" >
-                    <span id="cnfpassError" class="error"></span>
-                </div>
-                <br><br>
-                <button type="submit">Submit</button>
-                <br><br>
-                <div class="noacc">
-                    <p>Already signed in? <a href="../log-in/login.html">Log-in</a> here</p>
-                </div>
+                <button class="log" type="submit">Sign Up</button>
             </div>
-        </form>
+        </div>
     </div>
 </body>
+
 </html>

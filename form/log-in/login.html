@@ -1,62 +1,32 @@
-<!-- login.html -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login - Elite Strike</title>
-  <link rel="stylesheet" href="login.css">
-</head> 
+  <title>Login Page</title>
+  <link rel="stylesheet" href="/form/log-in/login.css">
+  <script src="/form/log-in/login.js"></script>
+</head>
 
 <body>
-  <div class="login-popup">
-    <h1>Welcome to Elite Strike</h1>
-    <form onsubmit="return validateForm()" action="./processlogin.php" method="post">
-      <div class="user">
-        <label for="username" class="user">Username</label><br>
-        <input type="text" placeholder="Enter your username" id="username" name="username">
-        <span id="usernameError" class="error"></span>
+  <div class="container">
+    <div class="left-side"></div>
+    <div class="right-side">
+      <div class="form-container">
+        <h2>Login</h2>
+        <h4>sign in to continue</h4>
+        <form action="#" method="POST">
+          <label for="email">Email</label>
+          <input type="text" id="email" name="email" placeholder="Enter your email" ><br><br>
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" ><br><br>
+          <button type="submit">Login</button>
+        </form>
+        <p>Don't have an account? <a href="/form/sign-up/sign-up.html">Sign up here</a></p>
       </div>
-      <br><br>
-      <div class="pass">
-        <label>Password</label><br>
-        <input type="password" placeholder="Enter your password" id="pass" name="pass">
-        <span id="passwordError" class="error"></span>
-      </div>
-      <button type="submit">Submit</button>
-      <p>Don't have an account? <a href="../sign-up/sign-up.html">Sign up here</a></p>
-    </form>
-    <span class="close-btn" onclick="closeLogin()">&times;</span>
+    </div>
   </div>
-  <script>
-    function validateForm() {
-      var username = document.getElementById("username").value;
-      var password = document.getElementById("pass").value;
-      var usernameError = document.getElementById("usernameError");
-      var passwordError = document.getElementById("passwordError");
-      var isValid = true; // Flag to track overall validity
-
-      usernameError.innerHTML = "";
-      passwordError.innerHTML = "";
-
-      if (username === "") {
-        usernameError.innerHTML = "Username is required";
-        isValid = false;
-      }
-
-      if (password === "") {
-        passwordError.innerHTML = "Password is required";
-        isValid = false;
-      }
-
-      return isValid;
-    }
-
-    function closeLogin() {
-      // Your close login function implementation
-    }
-  </script>
 </body>
 
 </html>
