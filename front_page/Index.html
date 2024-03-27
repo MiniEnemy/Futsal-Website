@@ -7,125 +7,31 @@
 
   <!-- Title of the website -->
   <title>Futsal Website</title>
-
   <!-- External stylesheets -->
   <link rel="stylesheet" href="/front_page/css/index.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <style>
-    .slide img{
-        width: 307px;
-        height: 272xpx;
-    }
-    #slider-container {
-        height: 300px;
-        width: 95vw;
-        max-width: 1400px;
-        position: relative;
-        overflow: hidden;
-        padding: 20px;
-    }
-
-    #slider-container .btn {
-        position: absolute;
-        top: calc(50% - 30px);
-        height: 30px;
-        width: 30px;
-        border-left: 8px solid grey;
-        border-top: 8px solid  grey;    }
-
-    #slider-container .btn:hover {
-        transform: scale(1.2);
-    }
-
-    #slider-container .btn.inactive {
-        border-color: rgb(153, 121, 126)
-    }
-
-    #slider-container .btn:first-of-type {
-        transform: rotate(-45deg);
-        left: 10px
-    }
-
-    #slider-container .btn:last-of-type {
-        transform: rotate(135deg);
-        right: 10px;
-    }
-
-    #slider-container #slider {
-        display: flex;
-        width: 1000%;
-        height: 100%;
-        transition: all .5s;
-    }
-
-    #slider-container #slider .slide {
-        /* height: 90%; */
-        margin:  10px;
-        border: 4px solid black;
-        display: grid;
-        place-items: center;
-    }
-
-    #slider-container #slider .slide span {
-        color: white;
-        font-size: 150px;
-    }
-
-    @media only screen and (min-width: 1100px) {
-
-        #slider-container #slider .slide {
-            width: calc(2.5% - 20px);
-        }
-
-    }
-
-    @media only screen and (max-width: 1100px) {
-
-        #slider-container #slider .slide {
-            width: calc(3.3333333% - 20px);
-        }
-
-    }
-
-    @media only screen and (max-width: 900px) {
-
-        #slider-container #slider .slide {
-            width: calc(5% - 20px);
-        }
-
-    }
-
-    @media only screen and (max-width: 550px) {
-
-        #slider-container #slider .slide {
-            width: calc(10% - 20px);
-        }
-
-    }
-</style>
 </head>
-
 <body>
   <!-- Navigation bar -->
   <nav>
-  <img src="/Logo/Futsal.png" alt="fusal logo" class="logo">
-  <p>Elite Strike </p>
-  <menu>
-    <!-- Navigation bar ends here -->
-  <a href="">Home</a>
-  <a href="">About-Us</a>
-  <a href="/form/log-in/login.html">Booking</a>
-  <a href="">Gallery</a>
+    <img src="/Logo/Futsal.png" alt="fusal logo" class="logo">
+    <p>Elite Strike </p>
+    <menu>
+      <!-- Navigation bar ends here -->
+      <a href="">Home</a>
+      <a href="">About-Us</a>
+      <a href="/form/log-in/login.html">Booking</a>
+      <a href="">Gallery</a>
+      <i class="fa-solid fa-right-to-bracket" onclick="alert('hello nigs')"></i>
 
-  <i class="fa-solid fa-right-to-bracket" onclick="alert('hello nigs')"></i>
-
-  </menu>
-</nav>
+    </menu>
+  </nav>
   <!-- Main content area -->
   <div id="big-box">
     <!-- Image section -->
-    <img src="/all pics/first-bar.png" class="goal">
+    <img src="/allpics/first-bar.png" class="goal">
     <!-- Box with text -->
     <div class="box">
       <div class="line"></div>
@@ -137,62 +43,62 @@
   <div id="container">
     <!-- Slider container -->
     <div id="slider-container">
-        <!-- Slider navigation buttons -->
-        <span onclick="slideRight()" class="btn"></span>
-        <!-- Slider content -->
-        <div id="slider">
-            <div class="slide"><img src="/Logo/Futsal.png" alt=""></div>
-            <div class="slide"><img src="/img/slider/2.png" alt=""></div>
-            <div class="slide"><img src="/img/slider/3.png" alt=""></div>
-            <div class="slide"><img src="/img/slider/4.png" alt=""></div>
-            <div class="slide"><img src="/img/slider/5.png" alt=""></div>
-            <div class="slide"><img src="/img/slider/6.png" alt=""></div>
-            <div class="slide"><img src="/img/slider/7.png" alt=""></div>
-        </div>
-        <span onclick="slideLeft()" class="btn"></span>
+      <!-- Slider navigation buttons -->
+      <span onclick="slideRight()" class="btn"></span>
+      <!-- Slider content -->
+      <div id="slider">
+        <div class="slide"><img src="/img/slider/frndboards.jpg" alt=""></div>
+        <div class="slide"><img src="/img/slider/2.png" alt=""></div>
+        <div class="slide"><img src="/img/slider/3.png" alt=""></div>
+        <div class="slide"><img src="/img/slider/4.png" alt=""></div>
+        <div class="slide"><img src="/img/slider/5.png" alt=""></div>
+        <div class="slide"><img src="/img/slider/6.png" alt=""></div>
+        <div class="slide"><img src="/img/slider/7.png" alt=""></div>
+      </div>
+      <span onclick="slideLeft()" class="btn"></span>
     </div>
-</div>
-    <!-- Second bar with image -->
-    <div class="second-bar">
-      <div class="book">
-        <div>
-            <p onclick="alert('hello nigs')">Click to Book</p>
-        </div>
+  </div>
+  <!-- Second bar with image -->
+  <div class="second-bar">
+    <div class="book">
+      <div>
+        <p onclick="alert('hello nigs')">Click to Book</p>
+      </div>
     </div>
-          <img src="/all pics/second-bar.png" class="goal2">
+    <img src="/allpics/second-bar.png" class="goal2">
+  </div>
+
+  <p class="sponsors">SPONSORS</p>
+
+
+
+  <footer>
+    <img src="/Logo/Futsal.png" alt="">
+    <p class="cu">CONTACT US</p>
+    <div class="cnt">
+      <i class="fa-solid fa-phone">&nbsp; &nbsp;</i>
+      <div class="phn">
+        9841266010
+      </div>
+      <div class="maill">
+        <p>Elitestrike@gmail.com</p>
+        <i class="fa-solid fa-envelope"></i>
+      </div>
     </div>
-
-      <p class="sponsors">SPONSORS</p>
-      
-      
-      
-      <footer>
-        <img src="/Logo/Futsal.png" alt="">
-        <p class="cu">CONTACT US</p>
-        <div class="cnt">
-          <i class="fa-solid fa-phone">&nbsp; &nbsp;</i>
-          <div class="phn">
-            9841266010
-          </div>
-          <div class="maill">
-            Elitestrike@gmail.com &nbsp;
-            <i class="fa-solid fa-envelope"></i>
-          </div>          
-        </div>
-        <div class="social">
-          <div class="insta">
-            <i class="fa-brands fa-instagram">&nbsp; &nbsp;</i>
-           <a href="https://www.instagram.com/EliteStrie">Elite Strike</a>
-          </div>
-          <div class="fb">
-            <a href="https://www.facebook.com/Elitestrike">Elite Strike</a>
-            <i class="fa-brands fa-facebook">&nbsp;</i>
-          </div>
-        </div>
-        <div class="cc">
-          &#169; 2024 Elite Strike.All Rights Reserved
-        </div>
-      </footer>
+    <div class="social">
+      <div class="insta">
+        <i class="fa-brands fa-instagram">&nbsp; &nbsp;</i>
+        <a href="https://www.instagram.com/EliteStrie">Elite Strike</a>
+      </div>
+      <div class="fb">
+        <a href="https://www.facebook.com/Elitestrike">Elite Strike</a>
+        <i class="fa-brands fa-facebook">&nbsp;</i>
+      </div>
+    </div>
+    <div class="cc">
+      &#169; 2024 Elite Strike.All Rights Reserved
+    </div>
+  </footer>
 
 
 
@@ -200,88 +106,89 @@
 
 
 
-      
-      <script>
-        var container = document.getElementById('container');
-        var slider = document.getElementById('slider');
-        var slides = document.getElementsByClassName('slide').length;
-        var buttons = document.getElementsByClassName('btn');
 
-        var currentPosition = 0;
-        var currentMargin = 0;
-        var slidesPerPage = 0;
-        var slidesCount = slides - slidesPerPage;
-        var containerWidth = container.offsetWidth;
+  <script>
+    var container = document.getElementById('container');
+    var slider = document.getElementById('slider');
+    var slides = document.getElementsByClassName('slide').length;
+    var buttons = document.getElementsByClassName('btn');
 
-        // Event listener for window resize
-        window.addEventListener("resize", checkWidth);
+    var currentPosition = 0;
+    var currentMargin = 0;
+    var slidesPerPage = 0;
+    var slidesCount = slides - slidesPerPage;
+    var containerWidth = container.offsetWidth;
 
-        // Function to check width and set parameters
-        function checkWidth() {
-            containerWidth = container.offsetWidth;
-            setParams(containerWidth);
-        }
+    // Event listener for window resize
+    window.addEventListener("resize", checkWidth);
 
-        // Function to set parameters based on width
-        function setParams(w) {
-            if (w < 551) {
-                slidesPerPage = 1;
-            } else if (w < 901) {
-                slidesPerPage = 2;
-            } else if (w < 1101) {
-                slidesPerPage = 3;
-            } else {
-                slidesPerPage = 4;
-            }
-            slidesCount = slides - slidesPerPage;
-            if (currentPosition > slidesCount) {
-                currentPosition -= slidesPerPage;
-            };
-            currentMargin = - currentPosition * (100 / slidesPerPage);
-            slider.style.marginLeft = currentMargin + '%';
-            if (currentPosition > 0) {
-                buttons[0].classList.remove('inactive');
-            }
-            if (currentPosition < slidesCount) {
-                buttons[1].classList.remove('inactive');
-            }
-            if (currentPosition >= slidesCount) {
-                buttons[1].classList.add('inactive');
-            }
-        }
+    // Function to check width and set parameters
+    function checkWidth() {
+      containerWidth = container.offsetWidth;
+      setParams(containerWidth);
+    }
 
-        // Initial call to set parameters
-        setParams();
+    // Function to set parameters based on width
+    function setParams(w) {
+      if (w < 551) {
+        slidesPerPage = 1;
+      } else if (w < 901) {
+        slidesPerPage = 2;
+      } else if (w < 1101) {
+        slidesPerPage = 3;
+      } else {
+        slidesPerPage = 4;
+      }
+      slidesCount = slides - slidesPerPage;
+      if (currentPosition > slidesCount) {
+        currentPosition -= slidesPerPage;
+      };
+      currentMargin = - currentPosition * (100 / slidesPerPage);
+      slider.style.marginLeft = currentMargin + '%';
+      if (currentPosition > 0) {
+        buttons[0].classList.remove('inactive');
+      }
+      if (currentPosition < slidesCount) {
+        buttons[1].classList.remove('inactive');
+      }
+      if (currentPosition >= slidesCount) {
+        buttons[1].classList.add('inactive');
+      }
+    }
 
-        // Function to slide right
-        function slideRight() {
-            if (currentPosition != 0) {
-                slider.style.marginLeft = currentMargin + (100 / slidesPerPage) + '%';
-                currentMargin += (100 / slidesPerPage);
-                currentPosition--;
-            };
-            if (currentPosition === 0) {
-                buttons[0].classList.add('inactive');
-            }
-            if (currentPosition < slidesCount) {
-                buttons[1].classList.remove('inactive');
-            }
-        }
+    // Initial call to set parameters
+    setParams();
 
-        // Function to slide left
-        function slideLeft() {
-            if (currentPosition != slidesCount) {
-                slider.style.marginLeft = currentMargin - (100 / slidesPerPage) + '%';
-                currentMargin -= (100 / slidesPerPage);
-                currentPosition++;
-            };
-            if (currentPosition == slidesCount) {
-                buttons[1].classList.add('inactive');
-            }
-            if (currentPosition > 0) {
-                buttons[0].classList.remove('inactive');
-            }
-        }
-    </script>
+    // Function to slide right
+    function slideRight() {
+      if (currentPosition != 0) {
+        slider.style.marginLeft = currentMargin + (100 / slidesPerPage) + '%';
+        currentMargin += (100 / slidesPerPage);
+        currentPosition--;
+      };
+      if (currentPosition === 0) {
+        buttons[0].classList.add('inactive');
+      }
+      if (currentPosition < slidesCount) {
+        buttons[1].classList.remove('inactive');
+      }
+    }
+
+    // Function to slide left
+    function slideLeft() {
+      if (currentPosition != slidesCount) {
+        slider.style.marginLeft = currentMargin - (100 / slidesPerPage) + '%';
+        currentMargin -= (100 / slidesPerPage);
+        currentPosition++;
+      };
+      if (currentPosition == slidesCount) {
+        buttons[1].classList.add('inactive');
+      }
+      if (currentPosition > 0) {
+        buttons[0].classList.remove('inactive');
+      }
+    }
+  </script>
 </body>
+
 </html>

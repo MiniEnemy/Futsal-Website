@@ -16,7 +16,100 @@ nav {
     display: flex; /* Flex container to align items horizontally */
     align-items: center; /* Align items vertically in the center */
 }
+/* slider csss Starts here */
+.slide img{
+    width: 307px;
+    height: 272xpx;
+}
+#slider-container {
+    margin-left: 6%;
+    margin-top:6%;
+    margin-bottom: 3%;
+    /* height: 300px; */
+    width: 90%;
+    max-width: 1400px;
+    position: relative;
+    overflow: hidden;
+}
 
+#slider-container .btn {
+    position: absolute;
+    top: calc(50% - 30px);
+    height: 30px;
+    width: 30px;
+    border-left: 8px solid grey;
+    border-top: 8px solid  grey;    }
+
+#slider-container .btn:hover {
+    transform: scale(1.2);
+}
+
+#slider-container .btn.inactive {
+    border-color: rgb(153, 121, 126)
+}
+
+#slider-container .btn:first-of-type {
+    transform: rotate(-45deg);
+    left: 10px
+}
+
+#slider-container .btn:last-of-type {
+    transform: rotate(135deg);
+    right: 10px;
+}
+
+#slider-container #slider {
+    display: flex;
+    width: 1000%;
+    height: 100%;
+    transition: all .5s;
+}
+
+#slider-container #slider .slide {
+    /* height: 90%; */
+    margin:  10px;
+    border: 4px solid black;
+    display: grid;
+    place-items: center;
+}
+
+#slider-container #slider .slide span {
+    color: white;
+    font-size: 150px;
+}
+
+@media only screen and (min-width: 1100px) {
+
+    #slider-container #slider .slide {
+        width: calc(2.5% - 20px);
+    }
+
+}
+
+@media only screen and (max-width: 1100px) {
+
+    #slider-container #slider .slide {
+        width: calc(3.3333333% - 20px);
+    }
+
+}
+
+@media only screen and (max-width: 900px) {
+
+    #slider-container #slider .slide {
+        width: calc(5% - 20px);
+    }
+
+}
+
+@media only screen and (max-width: 550px) {
+
+    #slider-container #slider .slide {
+        width: calc(10% - 20px);
+    }
+
+}
+/* Slider css ends here */
 nav p{
     margin-left: 34px;
     font-size: 45px;
@@ -197,7 +290,7 @@ h1 {
 
 /* Styling for the second goal image */
 .goal2 {
-    width: 1472px;
+    width: 107%;
     height: 300px;
     object-fit: cover;
     object-position: 11% 99%;
@@ -216,12 +309,12 @@ h1 {
     margin-left: 75px;
     margin-top: 29px;
     text-align: center;
-    height: 38%;
+    height: 30%;
     position: absolute;
 }
 
 .book p {
-    margin-left: 430px;
+    margin-left: 470px;
     cursor: pointer;
     font-family: Arial, Helvetica, sans-serif;
     text-align: justify;
@@ -258,7 +351,7 @@ footer a{
 footer img {
     width: 80px;
     position: absolute;
-    margin-left: 610px;
+    margin-left: 45%;
     margin-top: 5%;
 }
 
@@ -270,12 +363,6 @@ footer .cu p{
 
 }
 
-.cnt {
-    display: flex;
-    align-items: center;
-    margin-top: 50px;
-
-}
 
 .phn {
     margin-right: 850px;
@@ -298,5 +385,11 @@ footer .cu p{
     margin-top: 9px;
 }
 .fb{
-    margin-left: 999.2px;
+    margin-left: 75%;
 }
+.cnt {
+    display: flex;
+    align-items: center;
+    margin-top: 50px;
+}
+
