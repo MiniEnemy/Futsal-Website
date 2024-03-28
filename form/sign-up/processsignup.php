@@ -13,8 +13,7 @@ if ($conn->connect_error) {
 $fname = $_POST['fname'];
 $lname = $_POST['lname'];
 $email = $_POST['email'];
-$phone = $_POST['no'];
-$username = $_POST['user'];
+$username = $_POST['username'];
 $password = password_hash($_POST['pass'], PASSWORD_DEFAULT);
 
 // Check if email or username already exists
@@ -28,8 +27,8 @@ if ($checkResult->num_rows > 0) {
     exit();
 } else {
     // Insert new record
-    $sql = "INSERT INTO signup (Firstname, Lastname, Email, Phone, Username, Password)
-            VALUES ('$fname', '$lname', '$email', '$phone', '$username', '$password')";
+    $sql = "INSERT INTO signup (Firstname, Lastname, Email, Username, Password)
+            VALUES ('$fname', '$lname', '$email', '$username', '$password')";
 
     if ($conn->query($sql) === TRUE) {
         echo "New record created successfully";

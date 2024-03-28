@@ -8,30 +8,18 @@
   <!-- Title of the website -->
   <title>Futsal Website</title>
   <!-- External stylesheets -->
-  <link rel="stylesheet" href="/front_page/css/index.css">
+  <link rel="stylesheet" href="./css/index.css">
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-  <!-- Navigation bar -->
-  <nav>
-    <img src="/Logo/Futsal.png" alt="fusal logo" class="logo">
-    <p>Elite Strike </p>
-    <menu>
-      <!-- Navigation bar ends here -->
-      <a href="">Home</a>
-      <a href="">About-Us</a>
-      <a href="/form/log-in/login.html">Booking</a>
-      <a href="">Gallery</a>
-      <i class="fa-solid fa-right-to-bracket" onclick="alert('hello nigs')"></i>
-
-    </menu>
-  </nav>
+   <!-- NAVIGATION BAR -->
+    <?php include('../header&footer/header.php'); ?>
   <!-- Main content area -->
   <div id="big-box">
     <!-- Image section -->
-    <img src="/allpics/first-bar.png" class="goal">
+    <img src="../allpics/first-bar.png" class="goal">
     <!-- Box with text -->
     <div class="box">
       <div class="line"></div>
@@ -47,13 +35,13 @@
       <span onclick="slideRight()" class="btn"></span>
       <!-- Slider content -->
       <div id="slider">
-        <div class="slide"><img src="/img/slider/frndboards.jpg" alt=""></div>
-        <div class="slide"><img src="/img/slider/2.png" alt=""></div>
-        <div class="slide"><img src="/img/slider/3.png" alt=""></div>
-        <div class="slide"><img src="/img/slider/4.png" alt=""></div>
-        <div class="slide"><img src="/img/slider/5.png" alt=""></div>
-        <div class="slide"><img src="/img/slider/6.png" alt=""></div>
-        <div class="slide"><img src="/img/slider/7.png" alt=""></div>
+        <div class="slide"><img src="../img/slider/frndboards.jpg" alt=""></div>
+        <div class="slide"><img src="../img/slider/2.png" alt=""></div>
+        <div class="slide"><img src="../img/slider/3.png" alt=""></div>
+        <div class="slide"><img src="../img/slider/4.png" alt=""></div>
+        <div class="slide"><img src="../img/slider/5.png" alt=""></div>
+        <div class="slide"><img src="../img/slider/6.png" alt=""></div>
+        <div class="slide"><img src="../img/slider/7.png" alt=""></div>
       </div>
       <span onclick="slideLeft()" class="btn"></span>
     </div>
@@ -65,40 +53,14 @@
         <p onclick="alert('hello nigs')">Click to Book</p>
       </div>
     </div>
-    <img src="/allpics/second-bar.png" class="goal2">
+    <img src="../allpics/second-bar.png" class="goal2">
   </div>
 
   <p class="sponsors">SPONSORS</p>
 
 
+  <?php include('../header&footer/footer.php'); ?>
 
-  <footer>
-    <img src="/Logo/Futsal.png" alt="">
-    <p class="cu">CONTACT US</p>
-    <div class="cnt">
-      <i class="fa-solid fa-phone">&nbsp; &nbsp;</i>
-      <div class="phn">
-        9841266010
-      </div>
-      <div class="maill">
-        <p>Elitestrike@gmail.com</p>
-        <i class="fa-solid fa-envelope"></i>
-      </div>
-    </div>
-    <div class="social">
-      <div class="insta">
-        <i class="fa-brands fa-instagram">&nbsp; &nbsp;</i>
-        <a href="https://www.instagram.com/EliteStrie">Elite Strike</a>
-      </div>
-      <div class="fb">
-        <a href="https://www.facebook.com/Elitestrike">Elite Strike</a>
-        <i class="fa-brands fa-facebook">&nbsp;</i>
-      </div>
-    </div>
-    <div class="cc">
-      &#169; 2024 Elite Strike.All Rights Reserved
-    </div>
-  </footer>
 
 
 

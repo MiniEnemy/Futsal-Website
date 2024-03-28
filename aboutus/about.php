@@ -6,26 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<link rel="stylesheet" href="/front_page/css/about.css">
+<link rel="stylesheet" href="about.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 <body>
     <!-- Navigation bar -->
-    <nav>
-        <img src="/Logo/Futsal.png" alt="fusal logo" class="logo">
-        <p>Elite Strike </p>
-        <menu>
-            <!-- Navigation bar ends here -->
-            <a href="/front_page/Index.html">Home</a>
-            <a href="/front_page/aboutus/about.html">About-Us</a>
-            <a href="/form/log-in/login.html">Booking</a>
-            <a href="">Gallery</a>
-
-            <i class="fa-solid fa-right-to-bracket" onclick="alert('hello nigs')"></i>
-
-        </menu>
-    </nav>
+    <?php include('../header&footer/header.php'); ?>
 <div class="box2">
     <h1>About</h1>
     <h1 class="l"> Us</h1>
@@ -34,6 +21,11 @@
     <div class="box">
         <div class="circle"><img src="/all pics/futsal song.jpg" alt="">asdasd</div>
     </div>
+</div>
+
+
+
+    <?php include('../header&footer/footer.php'); ?>
 </body>
 
 </html>
