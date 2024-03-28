@@ -16,20 +16,8 @@
         <div class="right-side">
             <div class="form-container">
                 <h1>Create new Account</h1>
-                <h4>Already Registered? <a href="/form/log-in/login.html">Log in</a> here</h4>
+                <h4>Already Registered? <a href="../form/log-in/login.php">Log in</a> here</h4>
                 <form action="processsignup.php" method="POST" onsubmit="return validate()">
-                    <div class="name">
-                        <label for="fname">First Name</label><br>
-                        <input type="text" placeholder="Enter your first name" id="fname" name="fname">
-                        <span id="fnameError" class="error"></span>
-                    </div>
-                    <br><br>
-                    <div class="name">
-                        <label for="lname">Last Name</label><br>
-                        <input type="text" placeholder="Enter your last name" id="lname" name="lname">
-                        <span id="lnameError" class="error"></span>
-                    </div>
-                    <br><br>
                     <div class="user">
                         <label for="username">Username</label><br>
                         <input type="text" placeholder="Enter your username" id="username" name="username">
@@ -42,6 +30,11 @@
                         <span id="emailError" class="error"></span>
                     </div>
                     <br><br>
+                    <div class="phone">
+                       <label for="phone">Phone</label>
+                       <input type="tel" id="phone" name="phone" placeholder="Enter your number"> 
+                        <span class="error-message" id="phone-error"></span>
+                       </div>
                     <div class="pass">
                         <label>Password</label><br>
                         <input type="password" placeholder="Enter your password" id="pass" name="pass">
