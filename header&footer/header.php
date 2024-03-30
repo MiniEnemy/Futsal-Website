@@ -27,7 +27,7 @@ nav p {
 }
 
 /* Logo styles */
-.logo {
+.logo1 {
     width: 100px; /* Adjust width as needed */
     height: auto; /* Maintain aspect ratio */
 }
@@ -65,7 +65,7 @@ menu a:hover {
 </head>
 <body>
 <nav>
-    <img src="../Logo/Futsal.png" alt="fusal logo" class="logo">
+    <img src="../Logo/Futsal.png" alt="fusal logo" class="logo1">
     <p>Elite Strike </p>
     <menu>
       <!-- Navigation bar ends here -->
