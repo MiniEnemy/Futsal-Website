@@ -31,7 +31,6 @@
 </head>
 
 <body>
-<?php include('../../header&footer/header.php'); ?>
   <div class="container">
     <div class="left-side"></div>
     <div class="right-side">
@@ -49,7 +48,6 @@
       </div>
     </div>
   </div>
-  <?php include('../../header&footer/footer.php'); ?>
 </body>
 
 </html>

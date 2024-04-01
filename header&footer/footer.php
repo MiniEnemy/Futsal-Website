@@ -7,6 +7,15 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+      * {
+    border: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    font-size: 22px;
+    letter-spacing: 2px;
+}
       
 footer {
   /* width: 500%; */
@@ -56,7 +65,7 @@ footer .cu p{
     margin-top: 9px;
 }
 .fb{
-    margin-left: 75%;
+    margin-left: 1154px;
 }
 .cnt {
     display: flex;
@@ -64,7 +73,7 @@ footer .cu p{
     margin-top: 50px;
 }
 .maill{
-    margin-left: 151px;
+    margin-left: 160px;
     display: inline-flex;
 
 }

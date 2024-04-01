@@ -10,11 +10,23 @@
       /* Resetting default styles and setting global styles */
 
 /* Styling for the navigation bar */
+* {
+    border: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    font-size: 22px;
+    letter-spacing: 2px;
+}
 nav {
     background-color: white; /* Dark background color */
     padding: 10px 20px; /* Padding for the navigation bar */
     display: flex; /* Flex container to align items horizontally */
-    align-items: center; /* Align items vertically in the center */
+    align-items: center;
+     /* Align items vertically in the center */
+     border-bottom: 2px black solid ;
+    
 }
 
 nav p {
@@ -37,6 +49,7 @@ menu {
     display: flex;
     align-items: center;
     margin-left: 280px;
+    margin-top: 10px;
 }
 
 menu a {
@@ -55,6 +68,7 @@ menu i {
     cursor: pointer;
     margin-left: 50px;
     vertical-align: middle;
+    margin-bottom: 2px;
 }
 
 menu a:hover {

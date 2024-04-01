@@ -1,0 +1,96 @@
+.about-container {
+    display: flex;
+}
+
+.box1 {
+    width: fit-content;
+    height: fit-content;
+}
+
+.box1 h1 {
+    font-size: 130px;
+    margin-left: 10px;
+    font-family: 'Times New Roman', Times, serif;
+    margin-top: 50px;
+}
+
+.box1 h2 {
+    font-size: 130px;
+    margin-left: 138px;
+}
+.box2{
+    margin-top: 170px;
+}
+
+.box2,.box4{
+    background-color: aqua;
+    width: 70%; 
+    height: 250px;
+    display: flex; 
+    align-items: center; /* Align items vertically */
+
+}
+
+ .circle,.circle3{
+    width: 180px; /* Adjust circle size as needed */
+    height: 180px; /* Adjust circle size as needed */
+    border-radius: 50%; /* Make it a circle */
+    overflow: hidden; /* Hide overflow content (if any) */
+    margin-left: 50px;
+    margin-bottom: 20px; /* Adjust margin as needed */
+}
+
+.box2 img,.box4 img {
+    width: 100%; /* Make sure the image fills the circle */
+    height: 100%; /* Make sure the image fills the circle */
+    object-fit: cover; /* Maintain aspect ratio and cover the entire circle */
+}
+.box2 h1,.box4 h1{
+    margin-left: 20px;
+    margin-bottom: 50px;
+    width: 250px;
+    font-size: 20px;
+}
+ .circle2,.circle4 {
+    width: 180px; /* Adjust circle size as needed */
+    height: 180px; /* Adjust circle size as needed */
+    border-radius: 50%; /* Make it a circle */
+    overflow: hidden; /* Hide overflow content (if any) */
+    margin-top: 20px;
+    margin-left: 10px; /* Adjust margin as needed */
+}
+
+.box2 h2,.box4 h2{
+    margin-top: 120px;
+    width: 250px;
+    font-size: 20px;
+    margin-left: 50px;
+    
+}
+.box3{
+    width: 32.5%;
+}
+.box4{
+    margin-top: 40px;
+}
+.box5{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 30px;
+    flex-direction: column;
+    
+}
+.box5 p{
+    font-size: 20px;
+    width: 50%;
+    text-align: left;
+}
+.box5 h1 {
+    font-size: 17px;
+    margin-top: 20px; 
+    text-align: center;
+    width: 25%;
+    height: 110px;
+}
