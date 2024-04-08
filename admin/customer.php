@@ -79,19 +79,13 @@
 </head>
 <body>
     <div class="container">
-        <h2>Booking Records</h2>
-        <form action="" method="get" class="filter-btns">
-            <input type="date" name="date" value="<?= isset($_GET['date']) ? $_GET['date'] : '' ?>" class="form-control">
-            <button type="submit" class="btn btn-primary">Filter</button>
-            <a href="customer.php" class="btn btn-danger">Reset</a>
-        </form>
+        <h2>Customers Records</h2>
         <table>
             <thead>
                 <tr>
                     <th>Username</th>
                     <th>Email</th>
                     <th>Phone</th>
-                    <th>Booking Date</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -107,7 +101,7 @@
                     die("Connection failed: " . mysqli_connect_error());
                 }
 
-                $sql = "SELECT * FROM `booking` ";
+                $sql = "SELECT * FROM `signup` ";
                 
                 if(isset($_GET['date']) && $_GET['date'] != '') {
                     $sql .= "WHERE Booking_Date = '" . $_GET['date'] . "'";
@@ -125,7 +119,6 @@
                     echo "<td>" . $row["Username"] . "</td>";
                     echo "<td>" . $row["Email"] . "</td>"; 
                     echo "<td>" . $row["Phone"] . "</td>";
-                    echo "<td>" . $row["Booking_Date"] . "</td>";
                     echo "<td>";
                     echo '<a href="#" class="btn btn-edit">Edit</a>';
                     echo '<a href="#" class="btn btn-danger">Delete</a>';
