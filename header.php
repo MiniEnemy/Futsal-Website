@@ -83,9 +83,9 @@ menu a:hover {
     <p>Elite Strike </p>
     <menu>
       <!-- Navigation bar ends here -->
-      <a href="">Home</a>
-      <a href="../front_page/aboutus/about.html">About-Us</a>
-      <a href="../form/log-in/reservations.html">Reservations</a>
+      <a href="index.php">Home</a>
+      <a href="about.php">About-Us</a>
+      <a href="booking.php">Reservations</a>
       <a href="">Gallery</a>
       <i class="fa-solid fa-right-to-bracket" onclick="alert('hello nigs')"></i>
 

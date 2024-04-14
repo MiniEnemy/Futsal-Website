@@ -14,7 +14,7 @@
 </style>
 <body>
     <!-- Navigation bar -->
-<?php include('../header&footer/header.php'); ?>
+<?php include('header.php'); ?>
 <div class="about-container">
 <div class="box1">
     <h1>ABOUT</h1>
@@ -59,7 +59,7 @@
     <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis numquam cupiditate illum? Dolorem, reprehenderit modi.</h1>
 </div>
 
-<?php include('../header&footer/footer.php'); ?>
+<?php include('footer.php'); ?>
 </body>
 
 </html>

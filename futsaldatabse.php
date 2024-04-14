@@ -1,10 +1,12 @@
 <?php
 session_start();
 
+
+
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "futsalbooking";
+$dbname = "futsal-booking";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
@@ -13,9 +15,9 @@ if ($conn->connect_error) {
 
 if (isset($_POST['submit'])) {
     // Retrieve user details from session
-    $userName = $_SESSION['username'] ?? "";
-    $userEmail = $_SESSION['userEmail'] ?? "";
-    $userPhone = $_SESSION['userPhone'] ?? "";
+    $userName =$_POST['visitor_name'];
+    $userEmail = $_POST['visitor_email'];
+    $userPhone = $_POST['visitor_phone'] ?? "";
 
     // Retrieve form data
     $booking_date = $_POST['booking_date'] ?? "";
@@ -34,7 +36,7 @@ if (isset($_POST['submit'])) {
         $sql = "INSERT INTO booking (Username, Email, Phone, Booking_Date, Time) VALUES ('$userName', '$userEmail', '$userPhone', '$booking_date', '$time')";
 
         if ($conn->query($sql) === TRUE) {
-            echo "<br/><br/><span>Data Inserted successfully...!!</span>";
+            header("Location:index.php");
         } else {
             echo "<p>Insertion Failed <br/>" . $conn->error . "</p>";
         }
