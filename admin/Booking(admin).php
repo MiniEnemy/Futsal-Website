@@ -83,7 +83,7 @@
         <form action="" method="get" class="filter-btns">
             <input type="date" name="date" value="<?= isset($_GET['date']) ? $_GET['date'] : '' ?>" class="form-control">
             <button type="submit" class="btn btn-primary">Filter</button>
-            <a href="customer.php" class="btn btn-danger">Reset</a>
+            <a href="Booking(admin).php" class="btn btn-danger">Reset</a>
         </form>
         <table>
             <thead>
@@ -92,6 +92,7 @@
                     <th>Email</th>
                     <th>Phone</th>
                     <th>Booking Date</th>
+                    <th>Time</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -126,9 +127,10 @@
                     echo "<td>" . $row["Email"] . "</td>"; 
                     echo "<td>" . $row["Phone"] . "</td>";
                     echo "<td>" . $row["Booking_Date"] . "</td>";
+                    echo "<td>" . $row["Time"] . "</td>";
                     echo "<td>";
                     echo '<a href="#" class="btn btn-edit">Edit</a>';
-                    echo '<a href="#" class="btn btn-danger">Delete</a>';
+                    echo '<a href="#"class="btn btn-danger">Delete</a>';
                     echo "</td>";
                     echo "</tr>";
                 }
