@@ -79,7 +79,7 @@ menu a:hover {
 </head>
 <body>
 <nav>
-    <img src="../Logo/Futsal.png" alt="fusal logo" class="logo1">
+    <img src="Logo/Futsal.png" alt="fusal logo" class="logo1">
     <p>Elite Strike </p>
     <menu>
       <!-- Navigation bar ends here -->
@@ -87,7 +87,7 @@ menu a:hover {
       <a href="about.php">About-Us</a>
       <a href="booking.php">Reservations</a>
       <a href="">Gallery</a>
-      <i class="fa-solid fa-right-to-bracket" onclick="alert('hello nigs')"></i>
+      <a href="form/log_in/login.php"><i class="fa-solid fa-right-to-bracket"></i></a>
 
     </menu>
   </nav>
