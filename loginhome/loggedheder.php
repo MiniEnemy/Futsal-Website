@@ -83,8 +83,8 @@ menu a:hover {
     <p>Elite Strike </p>
     <menu>
       <!-- Navigation bar ends here -->
-      <a href="index.php">Home</a>
-      <a href="./booking.php">About-Us</a>
+      <a href="loggedin.php">Home</a>
+      <a href="../about.php">About-Us</a>
       <a href="./booking.php">Booking</a>
       <a href="">Gallery</a>
       <a href="form/log_in/login.php"><i class="fa-solid fa-right-to-bracket"></i></a>
