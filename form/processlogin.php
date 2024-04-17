@@ -33,18 +33,18 @@ if ($result->num_rows > 0) {
         $_SESSION['userEmail'] = $row['Email'];
         $_SESSION['userPhone'] = $row['Phone'];
         
-        header("Location: ../../loginhome/loggedin.html");
+        header("Location: ../loginhome/loggedin.php");
         exit();
     } else {
         // Passwords do not match, redirect back to login page with an error message
         $_SESSION['error_message'] = "Invalid password. Please try again.";
-        header("Location: login.html");
+        header("Location: login.php");
         exit();
     }
 } else {
     // No user found with the entered username, redirect back to login page with an error message
     $_SESSION['error_message'] = "Invalid username. Please try again.";
-    header("Location: login.html");
+    header("Location: login.php");
     exit();
 }
 ?>

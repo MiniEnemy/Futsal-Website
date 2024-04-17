@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up Page</title>
-    <link rel="stylesheet" href="sign-up2.css">
     <script src="/form/sign-up/sign-up.js"></script>
 </head>
 <style>
@@ -23,7 +22,7 @@
 
 .left-side {
     flex: 1;
-    background-image: url(../../allpics/log.png);
+    background-image: url(../allpics/log.png);
     background-size: cover;
     background-position: center bottom 2%;
     box-shadow: 0 0 90px black;
@@ -112,7 +111,7 @@
         <div class="right-side">
             <div class="form-container">
                 <h1>Create new Account</h1>
-                <h4>Already Registered? <a href="../form/log-in/login.php">Log in</a> here</h4>
+                <h4>Already Registered? <a href="login.php">Log in</a> here</h4>
                 <form action="processsignup.php" method="POST" onsubmit="return validate()">
                     <div class="user">
                         <label for="username">Username</label><br>

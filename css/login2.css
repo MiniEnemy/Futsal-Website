@@ -12,7 +12,7 @@
 
 .left-side {
   flex: 1;
-  background-image: url(../../allpics/log.png);
+  background-image: url(../allpics/log.png);
   background-size: cover;
   background-position: center bottom 2%;
   box-shadow: 0 0 90px black;

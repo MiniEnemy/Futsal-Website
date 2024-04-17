@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login Page</title>
-  <link rel="stylesheet" href="./login2.css">
+  <link rel="stylesheet" href="../css/login2.css">
   <script>
     // Function to validate the form
     function validateForm() {
@@ -44,7 +44,7 @@
           <input type="password" id="password" name="password"><br><br>
           <button type="submit">Login</button>
         </form>
-        <p>Don't have an account? <a href="/form/sign-up/sign-up.php">Sign up here</a></p>
+        <p>Don't have an account? <a href="sign-up.php">Sign up here</a></p>
       </div>
     </div>
   </div>

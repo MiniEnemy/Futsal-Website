@@ -14,25 +14,25 @@ $userName = $_SESSION['username'] ?? ""; // Retrieve the username from the sessi
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Booking Form</title>
-    <link rel="stylesheet" href="booking.css">
+    <link rel="stylesheet" href="../css/booking.css">
 </head>
 <body>
     <form action="futsaldatabse.php" method="post" id="bookingForm" onsubmit="return validateForm()">
         <div class="elem-group">
             <label for="name">Username</label>
-            <input type="text" id="name" name="visitor_name" value="<?php echo $userName; ?>" >
+            <input type="text" id="name" name="visitor_name" value="<?php echo $userName; ?>" disabled >
             <span class="error-message" id="name-error"></span>
         </div>
 
         <div class="elem-group">
             <label for="email">E-mail</label>
-            <input type="email" id="email" name="visitor_email" value="<?php echo $userEmail; ?>" >
+            <input type="email" id="email" name="visitor_email" value="<?php echo $userEmail; ?>" disabled>
             <span class="error-message" id="email-error"></span>
         </div>
 
         <div class="elem-group">
             <label for="phone">Phone</label>
-            <input type="tel" id="phone" name="visitor_phone" value="<?php echo $userPhone; ?>" >
+            <input type="tel" id="phone" name="visitor_phone" value="<?php echo $userPhone; ?>"disabled >
             <span class="error-message" id="phone-error"></span>
         </div>
 
