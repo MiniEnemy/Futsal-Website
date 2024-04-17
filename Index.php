@@ -8,15 +8,15 @@
   <!-- Title of the website -->
   <title>Futsal Website</title>
   <!-- External stylesheets -->
-  <link rel="stylesheet" href="./css/index.css">
+  <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
    <!-- NAVIGATION BAR -->
-    <?php include('../header&footer/header.php'); ?>
+    <?php include('header.php'); ?>
   <!-- Main content area -->
   <div id="big-box">
     <!-- Image section -->
-    <img src="../allpics/first-bar.png" class="goal">
+    <img src="allpics/first-bar.png" class="goal">
     <!-- Box with text -->
     <div class="box">
       <div class="line"></div>
@@ -32,13 +32,13 @@
       <span onclick="slideRight()" class="btn"></span>
       <!-- Slider content -->
       <div id="slider">
-        <div class="slide"><img src="../img/slider/frndboards.jpg" alt=""></div>
-        <div class="slide"><img src="../img/slider/2.png" alt=""></div>
-        <div class="slide"><img src="../img/slider/3.png" alt=""></div>
-        <div class="slide"><img src="../img/slider/4.png" alt=""></div>
-        <div class="slide"><img src="../img/slider/5.png" alt=""></div>
-        <div class="slide"><img src="../img/slider/6.png" alt=""></div>
-        <div class="slide"><img src="../img/slider/7.png" alt=""></div>
+        <div class="slide"><img src="img/slider/frndboards.jpg" alt=""></div>
+        <div class="slide"><img src="img/slider/2.png" alt=""></div>
+        <div class="slide"><img src="img/slider/3.png" alt=""></div>
+        <div class="slide"><img src="img/slider/4.png" alt=""></div>
+        <div class="slide"><img src="img/slider/5.png" alt=""></div>
+        <div class="slide"><img src="img/slider/6.png" alt=""></div>
+        <div class="slide"><img src="img/slider/7.png" alt=""></div>
       </div>
       <span onclick="slideLeft()" class="btn"></span>
     </div>
@@ -50,13 +50,13 @@
         <p onclick="alert('hello nigs')">Click to Book</p>
       </div>
     </div>
-    <img src="../allpics/second-bar.png" class="goal2">
+    <img src="allpics/second-bar.png" class="goal2">
   </div>
 
   <p class="sponsors">SPONSORS</p>
 
 
-  <?php include('../header&footer/footer.php'); ?>
+  <?php include('footer.php'); ?>
 
 
 

@@ -44,7 +44,7 @@
           <input type="password" id="password" name="password"><br><br>
           <button type="submit">Login</button>
         </form>
-        <p>Don't have an account? <a href="/form/sign-up/sign-up.html">Sign up here</a></p>
+        <p>Don't have an account? <a href="/form/sign-up/sign-up.php">Sign up here</a></p>
       </div>
     </div>
   </div>
