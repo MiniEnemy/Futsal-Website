@@ -101,8 +101,7 @@
                 $servername = "localhost";
                 $username = "root";
                 $password = "";
-                $dbname = "futsal-booking";
-
+                $dbname = "futsalbooking";
                 $conn = mysqli_connect($servername, $username, $password, $dbname);
                 if (!$conn) {
                     die("Connection failed: " . mysqli_connect_error());
@@ -127,7 +126,7 @@
                     echo "<td>" . $row["Email"] . "</td>"; 
                     echo "<td>" . $row["Phone"] . "</td>";
                     echo "<td>" . $row["Booking_Date"] . "</td>";
-                    echo "<td>" . $row["Time"] . "</td>";
+                    echo "<td>" . $row["TIme"] . "</td>";
                     echo "<td>";
                     echo '<a href="#" class="btn btn-edit">Edit</a>';
                     echo '<a href="#"class="btn btn-danger">Delete</a>';

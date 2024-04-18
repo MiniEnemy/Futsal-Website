@@ -101,7 +101,7 @@
                     echo "<td>" . $row["Phone"]  . "</td>";
                     echo "<td>";
                     echo '<a href="edit.php?editid='. $row["ID"].'" class="btn btn-edit">Edit</a>';
-                    echo '<a href="delete.php?deleteid=' . $row["ID"] . '" class="btn btn-danger">Delete</a>';;
+                    echo '<a href="delete-customer.php?deleteid=' . $row["ID"] . '" class="btn btn-danger">Delete</a>';;
                     echo "</td>";
                     echo "</tr>";
                 }
