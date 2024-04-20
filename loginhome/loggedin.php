@@ -53,7 +53,6 @@
     <img src="../allpics/second-bar.png" class="goal2">
   </div>
 
-  <p class="sponsors">SPONSORS</p>
 
 
   <?php include('../footer.php'); ?>

@@ -29,14 +29,16 @@ footer a{
     color: white;
 }
 footer img {
-    width: 80px;
+    width: 130px;
     position: absolute;
-    margin-left: 45%;
-    margin-top: 5%;
+    margin-left: 46%;
+    margin-top: 3%;
 }
 
 .cu {
     text-align: center;
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
 }
 footer .cu p{
     margin-top: 300px;
@@ -86,7 +88,7 @@ footer .cu p{
 </head>
 <body>
     <footer>
-        <img src="../Logo/Futsal.png" alt="">
+        <img src="./Logo/Futsal.png" alt="">
         <p class="cu">CONTACT US</p>
         <div class="cnt">
           <i class="fa-solid fa-phone">&nbsp; &nbsp;</i>
