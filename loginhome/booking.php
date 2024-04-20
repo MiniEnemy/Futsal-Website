@@ -17,7 +17,7 @@ $userName = $_SESSION['username'] ?? ""; // Retrieve the username from the sessi
     <link rel="stylesheet" href="../css/booking.css">
 </head>
 <body>
-    <?php include("../header&footer/header.php"); ?>
+    <?php include("loggedheder.php"); ?>
     <form action="futsaldatabse.php" method="post" id="bookingForm" onsubmit="return validateForm()">
         <div class="elem-group">
             <label for="name">Username</label>

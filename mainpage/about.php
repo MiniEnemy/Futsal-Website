@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<link rel="stylesheet" href="./css/about2.css">
+<link rel="stylesheet" href="../css/about2.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <style>
@@ -14,7 +14,8 @@
 </style>
 <body>
     <!-- Navigation bar -->
-<?php include('header.php'); ?>
+    <?php include('../header&footer/header.php'); ?>
+
 <div class="about-container">
 <div class="box1">
     <h1>ABOUT</h1>
@@ -24,12 +25,12 @@
 
 <div class="box2">
     <div class="circle">
-        <img  src="./allpics/futsalsong.jpg" alt="">
+        <img  src="../allpics/futsalsong.jpg" alt="">
     </div>
     <h1>Lorem ipsum dolor sit</h1>
     <h2>Lorem ipsum dolor sit</h2>
     <div class="circle2">
-    <img  src="./allpics/futsalsong.jpg" alt="">
+    <img  src="../allpics/futsalsong.jpg" alt="">
     </div>
 
 </div>
@@ -41,12 +42,12 @@
 </div>
 <div class="box4">
     <div class="circle3">
-        <img  src="./allpics/futsalsong.jpg" alt="">
+        <img  src="../allpics/futsalsong.jpg" alt="">
     </div>
     <h1>Lorem ipsum dolor sit</h1>
     <h2>Lorem ipsum dolor sit</h2>
     <div class="circle4">
-    <img  src="./allpics/futsalsong.jpg" alt="">
+    <img  src="../allpics/futsalsong.jpg" alt="">
     </div>
 
 </div>
@@ -59,7 +60,8 @@
     <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis numquam cupiditate illum? Dolorem, reprehenderit modi.</h1>
 </div>
 
-<?php include('footer.php'); ?>
+<?php include('../header&footer/footer.php'); ?>
+
 </body>
 
 </html>

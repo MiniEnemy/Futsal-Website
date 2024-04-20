@@ -98,53 +98,53 @@
     </style>
 </head>
 <body>
-    <?php include("header.php")?>
+<?php include('../header&footer/header.php'); ?>
     <div class="container">
 
         <div class="images">
             <div class="image-box" data-name="spiderman">
-                <img src="./img/1st.jpg" alt="">
+                <img src="../img/1st.jpg" alt="">
                 <h6>spiderman</h6>
             </div>
             <div class="image-box" data-name="joker">
-            <img src="./img/2nd.jpg" alt="">
+            <img src="../img/2nd.jpg" alt="">
                 <h6>joker</h6>
             </div>
             <div class="image-box" data-name="ironman">
-            <img src="./img/1st.jpg" alt="">
+            <img src="../img/1st.jpg" alt="">
                 <h6>ironman</h6>
             </div>
             <div class="image-box" data-name="passenger">
-            <img src="./img/2nd.jpg" alt="">
+            <img src="../img/2nd.jpg" alt="">
                 <h6>passenger</h6>
             </div>
             <div class="image-box" data-name="space">
-            <img src="./img/1st.jpg" alt="">
+            <img src="../img/1st.jpg" alt="">
                 <h6>the space</h6>
             </div>
             <div class="image-box" data-name="spiderman">
-            <img src="./img/2nd.jpg" alt="">
+            <img src="../img/2nd.jpg" alt="">
                 <h6>spiderman 2</h6>
             </div>
             <div class="image-box" data-name="universe">
-            <img src="./img/1st.jpg" alt="">
+            <img src="../img/1st.jpg" alt="">
                 <h6>the universe</h6>
             </div>
             <div class="image-box" data-name="spiderman">
-            <img src="./img/2nd.jpg" alt="">
+            <img src="../img/2nd.jpg" alt="">
                 <h6>spiderman 3</h6>
             </div>
             <div class="image-box" data-name="holiday">
-            <img src="./img/1st.jpg" alt="">
+            <img src="../img/1st.jpg" alt="">
                 <h6>holiday</h6>
             </div>
             <div class="image-box" data-name="ironman">
-            <img src="./img/2nd.jpg" alt="">
+            <img src="../img/2nd.jpg" alt="">
                 <h6>ironman 2</h6>
             </div>
         </div>
     </div>
 
-    <?php include("footer.php")?>
+    <?php include('../header&footer/footer.php'); ?>
 </body>
 </html>
