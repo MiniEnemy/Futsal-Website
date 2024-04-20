@@ -79,14 +79,14 @@ menu a:hover {
 </head>
 <body>
 <nav>
-    <img src="Logo/Futsal.png" alt="fusal logo" class="logo1">
+    <img src="../Logo/Futsal.png" alt="fusal logo" class="logo1">
     <p>Elite Strike </p>
     <menu>
       <!-- Navigation bar ends here -->
       <a href="index.php">Home</a>
       <a href="about.php">About-Us</a>
       <a href="./form/login.php">Reservations</a>
-      <a href="">Gallery</a>
+      <a href="gallary.php">Gallery</a>
       <a href="form/log_in/login.php"><i class="fa-solid fa-right-to-bracket"></i></a>
 
     </menu>

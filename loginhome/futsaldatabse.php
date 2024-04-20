@@ -34,7 +34,7 @@ if (isset($_POST['submit'])) {
 
         if ($conn->query($sql) === TRUE) {
             echo "<br/><br/><span>Data Inserted successfully...!!</span>";
-            header("Location:../index.php");
+            header("Location:../mainpage/index.php");
             exit();
         } else {
             echo "<p>Insertion Failed <br/>" . $conn->error . "</p>";

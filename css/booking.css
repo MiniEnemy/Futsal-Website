@@ -1,15 +1,9 @@
-body {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 700px;
-
-}
-
 form {
-    width: 400px;
+    width: 500px;
+    margin-left: 530px;
+    height: 600px;
+    margin-top: 100px;
+    
 }
 
 .elem-group {
@@ -32,7 +26,6 @@ input {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 4px;
     font-size: 16px;
 }
 
@@ -45,8 +38,6 @@ button {
     border-radius: 4px;
     cursor: pointer;
     width: 100%;
-    margin-left: 9px;
-    
 }
 
 button:hover {
@@ -57,9 +48,10 @@ button:hover {
     color: red;
     font-size: 20px;
 }
-
-
-
-
-
-
+#time{
+    width: 100%;
+}
+#booking-date,#time,#phone,#name,#email{
+border: 1px solid black;
+border-radius: 4px;
+}

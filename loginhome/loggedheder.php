@@ -86,7 +86,7 @@ menu a:hover {
       <a href="loggedin.php">Home</a>
       <a href="../about.php">About-Us</a>
       <a href="./booking.php">Booking</a>
-      <a href="">Gallery</a>
+      <a href="../gallary.php">Gallery</a>
       <a href="form/log_in/login.php"><i class="fa-solid fa-user"></i></a>
 
     </menu>

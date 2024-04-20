@@ -17,6 +17,7 @@ $userName = $_SESSION['username'] ?? ""; // Retrieve the username from the sessi
     <link rel="stylesheet" href="../css/booking.css">
 </head>
 <body>
+    <?php include("../header&footer/header.php"); ?>
     <form action="futsaldatabse.php" method="post" id="bookingForm" onsubmit="return validateForm()">
         <div class="elem-group">
             <label for="name">Username</label>
@@ -44,7 +45,7 @@ $userName = $_SESSION['username'] ?? ""; // Retrieve the username from the sessi
         <div class="elem-group">
             <label for="time">Time Selection</label>
             <select name="time" id="time">
-                <option value="">Select a time</option>
+                <option value="" >Select a time</option>
                 <option value="08:00-09:00">08:00AM TO 09:00AM</option>
                 <option value="09:00-10:00">09:00AM TO 10:00AM</option>
                 <option value="10:00-11:00">10:00AM TO 11:00AM</option>
@@ -66,9 +67,9 @@ $userName = $_SESSION['username'] ?? ""; // Retrieve the username from the sessi
                 ?>
             </span>
         </div>
-        <button type="submit" name="submit" onclick="validateForm()">Submit</button>
+        <button type="submit" name="submit" class="submit" onclick="validateForm()">Submit</button>
     </form>
-
+    <?php include("../header&footer/footer.php"); ?>
     <script>
     function validateForm() {
         // Reset previous error messages
@@ -77,6 +78,7 @@ $userName = $_SESSION['username'] ?? ""; // Retrieve the username from the sessi
         var date = document.getElementById("booking-date").value;
         var time = document.getElementById("time").value;
 
+        
         // Validate booking date
         if (!date.trim()) {
             document.getElementById("date-error").textContent = "Booking date is required";
@@ -122,6 +124,5 @@ $userName = $_SESSION['username'] ?? ""; // Retrieve the username from the sessi
 
     bookingElem.setAttribute("min", currentDate);
 </script>
-
 </body>
 </html>

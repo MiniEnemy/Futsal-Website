@@ -88,7 +88,7 @@ footer .cu p{
 </head>
 <body>
     <footer>
-        <img src="./Logo/Futsal.png" alt="">
+        <img src="../Logo/Futsal.png" alt="">
         <p class="cu">CONTACT US</p>
         <div class="cnt">
           <i class="fa-solid fa-phone">&nbsp; &nbsp;</i>
