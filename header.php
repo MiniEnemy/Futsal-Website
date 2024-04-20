@@ -87,7 +87,7 @@ menu a:hover {
       <a href="about.php">About-Us</a>
       <a href="./form/login.php">Reservations</a>
       <a href="">Gallery</a>
-      <a href="form/log_in/login.php"><i class="fa-solid fa-right-to-bracket"></i></a>
+      <a href="form/login.php"><i class="fa-solid fa-right-to-bracket"></i></a>
 
     </menu>
   </nav>

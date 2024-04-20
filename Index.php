@@ -56,15 +56,6 @@
 
 
   <?php include('footer.php'); ?>
-
-
-
-
-
-
-
-
-
   <script>
     var container = document.getElementById('container');
     var slider = document.getElementById('slider');

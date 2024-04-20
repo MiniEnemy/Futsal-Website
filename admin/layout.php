@@ -1,89 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booking Records</title>
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+    <meta charset="UTF-8"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>GeeksForGeeks</title> 
+    <script>
+        let menuicn = document.querySelector(".menuicn"); 
+        let nav = document.querySelector(".navcontainer"); 
+
+        menuicn.addEventListener("click", () => { 
+            nav.classList.toggle("navclose"); 
+        })
+    </script>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
-            /* padding-top: 50px; */
-            margin: 0;
-        }
-        .container {
-            width: 80%;
-            margin: 0 auto;
-        }
-        h2 {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        table {
-            border-collapse: collapse;
-            width: 100%;
-            background-color: #fff;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            height: 10%;
-        }
-        th, td {
-            
-            border: 1px solid #dee2e6;
-            padding: 12px;
-            text-align: left;
-        }
-        th {
-            background-color: #f2f2f2;
-            font-weight: bold;
-        }
-        .btn {
-            padding: 8px 16px;
-            text-decoration: none;
-            border-radius: 4px;
-            font-size: 14px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .btn-primary {
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-        }
-        .btn-primary:hover {
-            background-color: #0056b3;
-        }
-        .btn-danger {
-            background-color: #dc3545;
-            color: #fff;
-            border: none;
-        }
-        .btn-danger:hover {
-            background-color: #c82333;
-        }
-        .filter-btns {
-            margin-bottom: 20px;
-        }
-        .form-control {
-            /* padding: 8px; */
-            border-radius: 4px;
-            border: 1px solid #ced4da;
-            width: 200px;
-        }
-        .btn-edit {
-            background-color: #28a745;
-            color: #fff;
-            border: none;
-        }
-        .btn-edit:hover {
-            background-color: #218838;
-        }
-        
+        /* Main CSS Here */
+
         @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
         * {
             margin: 0;
             padding: 0;
-            /* box-sizing: border-box; */
+            box-sizing: border-box;
             font-family: "Poppins", sans-serif;
         }
 
@@ -107,7 +46,7 @@
 
         header {
             height: 70px;
-            width: 96vw;
+            width: 100vw;
             padding: 0 30px;
             background-color: var(--background-color1);
             position: fixed;
@@ -630,8 +569,10 @@
         }
     </style>
 </head>
+
 <body>
-        <header>
+    <!-- for header part -->
+    <header>
         <div class="logosec">
             <div class="logo">Elite Strike</div>
             <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182541/Untitled-design-(30).png"
@@ -645,13 +586,12 @@
 
     <div class="main-container">
         <div class="navcontainer">
-        <div class="container">
             <nav class="nav">
                 <div class="nav-upper-options">
                     <div class="nav-option option1">
                         <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182148/Untitled-design-(29).png"
                             class="nav-img" alt="dashboard">
-                            <a class="nav-option option1" href="admin.php"><h3>Dashboard</h3></a>
+                        <h3> Dashboard</h3>
                     </div>
                     <div class="option2 nav-option">
                         <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/9.png"
@@ -661,7 +601,7 @@
                     <div class="nav-option option5">
                         <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183323/10.png"
                             class="nav-img" alt="blog">
-                            <a class="option3 nav-option" href="booking(admin).php"><h3>Booking</h3></a>
+                            <a class="option3 nav-option" href="customer.php"><h3>Booking</h3></a>
                     </div>
                     <div class="nav-option logout">
                         <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/7.png"
@@ -671,36 +611,17 @@
                 </div>
             </nav>
         </div>
+        <div class="main">
+            <div class="searchbar2">
+                <input type="text" name="" id="" placeholder="Search">
+                <div class="searchbtn">
+                    <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180758/Untitled-design-(28).png"
+                        class="icn srchicn" alt="search-icon">
+                </div>
+            </div>
+        </div>
         
     </div>
-        <table>
-            <thead>
-                <tr>
-                    <th>Username</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                
-                include 'connect.php';
-                // Fetching and displaying results
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo "<tr>";
-                    echo "<td>" . $row["Username"] . "</td>";
-                    echo "<td>" . $row["Email"] . "</td>"; 
-                    echo "<td>" . $row["Phone"]  . "</td>";
-                    echo "<td>";
-                    echo '<a href="edit.php?editid='. $row["ID"].'" class="btn btn-edit">Edit</a>';
-                    echo '<a href="delete-customer.php?deleteid=' . $row["ID"] . '" class="btn btn-danger">Delete</a>';;
-                    echo "</td>";
-                    echo "</tr>";
-                }
-                ?>
-            </tbody>
-        </table>
-    </div>
 </body>
+
 </html>
