@@ -716,7 +716,7 @@
                     echo "<td>" . $row["TIme"] . "</td>";
                     echo "<td>";
                     echo '<a href="#" class="btn btn-edit">Edit</a>';
-                    echo '<a href="#"class="btn btn-danger">Delete</a>';
+                    echo '<a href="delete-admin.php?deleteid=' . $row["ID"] . '" class="btn btn-danger">Delete</a>';;
                     echo "</td>";
                     echo "</tr>";
                 }
