@@ -45,11 +45,11 @@
   </div>
   <!-- Second bar with image -->
   <div class="second-bar">
-    <div class="book">
+  <a href="../form/login.php" class="book">
       <div>
-        <p onclick="alert('hello nigs')">Click to Book</p>
+        <p>Click to Book</p>
       </div>
-    </div>
+    </a>
     <img src="../allpics/second-bar.png" class="goal2">
   </div>
 

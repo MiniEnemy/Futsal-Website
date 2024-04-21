@@ -45,11 +45,12 @@
   </div>
   <!-- Second bar with image -->
   <div class="second-bar">
-    <div class="book">
+      <!-- Wrap the clickable text in an anchor tag -->
+      <a href="booking.php" class="book">
       <div>
-        <p onclick="alert('hello nigs')">Click to Book</p>
+        <p>Click to Book</p>
       </div>
-    </div>
+    </a>
     <img src="../allpics/second-bar.png" class="goal2">
   </div>
 

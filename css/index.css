@@ -262,6 +262,7 @@ h1 {
     text-align: center;
     height: 30%;
     position: absolute;
+    text-decoration: none;
 }
 
 .book p {
