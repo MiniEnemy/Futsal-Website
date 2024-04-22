@@ -11,7 +11,13 @@
     function validateForm() {
       var username = document.getElementById("username").value;
       var password = document.getElementById("password").value;
-      
+
+      // Check if username and password are "owner"
+      if (username.trim() === "owner" && password.trim() === "owner") {
+        window.location.href = "../admin/admin.php"; // Redirect to admin.php
+        return false; // Prevent default form submission
+      }
+
       // Check if username is empty
       if (username.trim() === "") {
         alert("Please enter your username");
@@ -24,7 +30,7 @@
         return false;
       }
 
-      // Form is valid, redirecting to processlogin.php for processing
+      // Form is valid, proceed with default form submission
       return true;
     }
   </script>
