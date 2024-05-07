@@ -31,13 +31,13 @@ footer a{
 footer img {
     width: 130px;
     position: absolute;
-    margin-left: 46%;
+    margin-left: 45.5%;
     margin-top: 3%;
 }
 
 .cu {
     text-align: center;
-    font-size: 30px;
+    font-size: 40px;
     font-family: 'Times New Roman', Times, serif;
 }
 footer .cu p{
@@ -60,7 +60,7 @@ footer .cu p{
     position: absolute;
     top: 170px; 
     color: white;
-    left: 50%; /* Position it at the center horizontally */
+    left: 51%; /* Position it at the center horizontally */
     transform: translateX(-50%); /* Center it precisely */
     width: 100%; /* Make sure it takes the full width of the footer */
     text-align: center;

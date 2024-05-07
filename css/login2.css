@@ -84,3 +84,12 @@
   text-decoration: none;
   background-color: #70ecec;
 }
+
+#closeBtn{
+  background-color: #70ecec;
+  border: none;
+  margin-left: 390px;
+  font-size: 25px;
+  color: white;
+}
+
