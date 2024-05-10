@@ -33,11 +33,13 @@ if (isset($_POST['submit'])) {
         $sql = "INSERT INTO booking (Username, Email, Phone, Booking_Date, Time) VALUES ('$userName', '$userEmail', '$userPhone', '$booking_date', '$time')";
 
         if ($conn->query($sql) === TRUE) {
-            echo "<br/><br/><span>Data Inserted successfully...!!</span>";
-            header("Location:../mainpage/index.php");
+            $_SESSION['success_message'] = "Booking successful! Redirecting...";
+            header("Location: success.php");
             exit();
         } else {
-            echo "<p>Insertion Failed <br/>" . $conn->error . "</p>";
+            $_SESSION['error_message'] = "Insertion failed: " . $conn->error;
+            header("Location: booking.php");
+            exit();
         }
     }
 }

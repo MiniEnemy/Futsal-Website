@@ -17,7 +17,7 @@ $userName = $_SESSION['username'] ?? ""; // Retrieve the username from the sessi
     <link rel="stylesheet" href="../css/booking.css">
 </head>
 <body>
-    <?php include("loggedheder.php"); ?>
+<?php include("../header&footer/header.php"); ?>
     <form action="futsaldatabse.php" method="post" id="bookingForm" onsubmit="return validateForm()">
         <div class="elem-group">
             <label for="name">Username</label>
@@ -69,6 +69,13 @@ $userName = $_SESSION['username'] ?? ""; // Retrieve the username from the sessi
         </div>
         <button type="submit" name="submit" class="submit" onclick="validateForm()">Submit</button>
     </form>
+    <?php
+    // Display success message if set
+    if(isset($_SESSION['success_message'])) {
+        echo '<div class="success-message">' . $_SESSION['success_message'] . '</div>';
+        unset($_SESSION['success_message']); // Clear the session variable
+    }
+    ?>
     <?php include("../header&footer/footer.php"); ?>
     <script>
     function validateForm() {

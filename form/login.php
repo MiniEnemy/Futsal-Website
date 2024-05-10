@@ -48,7 +48,7 @@
       <button id="closeBtn" onclick="redirectToIndex()"><i class="fa-solid fa-xmark"></i></button>
 
         <h2>Login</h2>
-        <h4>sign in to continue</h4>
+        <h4>log in to continue</h4>
         <form action="./processlogin.php" method="POST" onsubmit="return validateForm()">
           <label for="username">Username</label>
           <input type="text" id="username" name="username" placeholder="Enter your username"><br><br>

@@ -12,7 +12,7 @@
 </head>
 <body>
    <!-- NAVIGATION BAR -->
-    <?php include('loggedheder.php'); ?>
+    <?php include('../header&footer/header.php'); ?>
   <!-- Main content area -->
   <div id="big-box">
     <!-- Image section -->
