@@ -8,9 +8,16 @@ if (!session_id()) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Booking system</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Tourney:ital,wght@1,900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Tourney:wght@900&display=swap" rel="stylesheet">
+
     <style>
         /* Resetting default styles and setting global styles */
         * {
@@ -20,7 +27,7 @@ if (!session_id()) {
             padding: 0;
             font-family: sans-serif;
             font-size: 22px;
-            letter-spacing: 2px;
+            letter-spacing: 0px;
         }
         nav {
             background-color: white; /* Dark background color */
@@ -33,9 +40,9 @@ if (!session_id()) {
             margin-left: 34px;
             font-size: 45px;
             font-weight: bold;
-            font-family: 'Times New Roman', Times, serif;
+            font-family: 'tourney', 'Helvetica Neue', Helvetica, Arial;
             cursor: pointer;
-            width: 252px;
+            width: 304px;
         }
         /* Logo styles */
         .logo1 {
@@ -46,10 +53,11 @@ if (!session_id()) {
         menu {
             display: flex;
             align-items: center;
-            margin-left: 280px;
+            margin-left: 260px;
             margin-top: 10px;
         }
         menu a {
+            font-family:'merriweather';
             font-weight: 550;
             color: black;
             text-decoration: none;
@@ -104,12 +112,15 @@ if (!session_id()) {
         .dropdown:hover .dropdown-content {
             display: block;
         }
+        p #lname{
+            font: 'TourneyFont';
+        }
     </style>
 </head>
 <body>
 <nav>
     <img src="../Logo/Futsal.png" alt="fusal logo" class="logo1">
-    <p >Elite Strike </p>
+    <p id="lname" >Elite Strike </p>
     <menu>
         <!-- Navigation bar ends here -->
         <a href="../mainpage/index.php">Home</a>
