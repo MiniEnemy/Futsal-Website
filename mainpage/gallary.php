@@ -103,43 +103,43 @@
 
         <div class="images">
             <div class="image-box" data-name="spiderman">
-                <img src="../img/1st.jpg" alt="">
+                <img src="../mainimg/1.jpg" alt="">
                 <h6>spiderman</h6>
             </div>
             <div class="image-box" data-name="joker">
-            <img src="../img/2nd.jpg" alt="">
+            <img src="../mainimg/2.jpg" alt="">
                 <h6>joker</h6>
             </div>
             <div class="image-box" data-name="ironman">
-            <img src="../img/1st.jpg" alt="">
+            <img src="../mainimg/3.jpeg" alt="">
                 <h6>ironman</h6>
             </div>
             <div class="image-box" data-name="passenger">
-            <img src="../img/2nd.jpg" alt="">
+            <img src="../mainimg/4.png" alt="">
                 <h6>passenger</h6>
             </div>
             <div class="image-box" data-name="space">
-            <img src="../img/1st.jpg" alt="">
+            <img src="../mainimg/5.png" alt="">
                 <h6>the space</h6>
             </div>
             <div class="image-box" data-name="spiderman">
-            <img src="../img/2nd.jpg" alt="">
+            <img src="../mainimg/6.jpg" alt="">
                 <h6>spiderman 2</h6>
             </div>
             <div class="image-box" data-name="universe">
-            <img src="../img/1st.jpg" alt="">
+            <img src="../mainimg/7.jpg" alt="">
                 <h6>the universe</h6>
             </div>
             <div class="image-box" data-name="spiderman">
-            <img src="../img/2nd.jpg" alt="">
+            <img src="../mainimg/8.jpg" alt="">
                 <h6>spiderman 3</h6>
             </div>
             <div class="image-box" data-name="holiday">
-            <img src="../img/1st.jpg" alt="">
+            <img src="../mainimg/9.jpg" alt="">
                 <h6>holiday</h6>
             </div>
             <div class="image-box" data-name="ironman">
-            <img src="../img/2nd.jpg" alt="">
+            <img src="../mainimg/10.jpg" alt="">
                 <h6>ironman 2</h6>
             </div>
         </div>
