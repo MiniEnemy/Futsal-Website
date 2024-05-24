@@ -34,8 +34,8 @@
             <div class="circle">
                 <img src="../allpics/futsalsong.jpg" alt="">
             </div>
-            <h1>Lorem ipsum dolor sit</h1>
-            <h2>Lorem ipsum dolor sit</h2>
+            <h1>Football is not just a game; it's a way of life.</h1>
+            <h2>On the pitch, eleven hearts beat as one.</h2>
             <div class="circle2">
                 <img src="../allpics/futsalsong.jpg" alt="">
             </div>
@@ -43,23 +43,20 @@
     </div>
     
     <div class="box3">
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore, dolore quos? Ea neque voluptatum earum excepturi minima consequuntur aliquam cupiditate?</p>
+        <p>Welcome to Elite Strike! Book futsal courts easily and quickly. Join us for a seamless futsal experience. Celebrate the game with us!</p>
     </div>
     
     <div class="box4">
         <div class="circle3">
             <img src="../allpics/futsalsong.jpg" alt="">
         </div>
-        <h1>Lorem ipsum dolor sit</h1>
-        <h2>Lorem ipsum dolor sit</h2>
+        <h1>Our Team</h1>
         <div class="circle4">
-            <img src="../allpics/futsalsong.jpg" alt="">
         </div>
     </div>
     
     <div class="box5">
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium quod nulla ad animi libero asperiores, unde accusamus omnis iste deserunt reprehenderit alias pariatur repudiandae cupiditate minima temporibus voluptatem distinctio quia? Exercitationem nemo voluptate aut, molestias quis cupiditate delectus omnis sapiente.</p>
-        <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis numquam cupiditate illum? Dolorem, reprehenderit modi.</h1>
+        <p>Welcome to Elite strike! Created by two BCA students, we're dedicated to simplifying futsal court bookings, providing an easy and convenient platform for futsal enthusiasts to book courts hassle-free. Join us and celebrate the joy of futsal with ease and efficiency! Experience futsal booking redefined.</p>
     </div>
     
 </div>
