@@ -103,11 +103,11 @@
 
         <div class="images">
             <div class="image-box" data-name="spiderman">
-                <img src="../mainimg/1.jpg" alt="">
+                <img src="../mainimg/1.jpeg" alt="">
                 
             </div>
             <div class="image-box" data-name="joker">
-            <img src="../mainimg/2.jpg" alt="">
+            <img src="../mainimg/2.png" alt="">
                 
             </div>
             <div class="image-box" data-name="ironman">
@@ -119,27 +119,27 @@
                 
             </div>
             <div class="image-box" data-name="space">
-            <img src="../mainimg/5.png" alt="">
+            <img src="../mainimg/5.jpeg" alt="">
                 
             </div>
             <div class="image-box" data-name="spiderman">
-            <img src="../mainimg/6.jpg" alt="">
+            <img src="../mainimg/6.jpeg" alt="">
                 
             </div>
             <div class="image-box" data-name="universe">
-            <img src="../mainimg/7.jpg" alt="">
+            <img src="../mainimg/7.jpeg" alt="">
                 
             </div>
             <div class="image-box" data-name="spiderman">
-            <img src="../mainimg/8.jpg" alt="">
+            <img src="../mainimg/8.jpeg" alt="">
                 
             </div>
             <div class="image-box" data-name="holiday">
-            <img src="../mainimg/9.jpg" alt="">
+            <img src="../mainimg/9.jpeg" alt="">
                 
             </div>
             <div class="image-box" data-name="ironman">
-            <img src="../mainimg/10.jpg" alt="">
+            <img src="../mainimg/10.jpeg" alt="">
                 
             </div>
         </div>

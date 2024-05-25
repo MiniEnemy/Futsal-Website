@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-      * {
+* {
     border: 0;
     box-sizing: border-box;
     margin: 0;
@@ -18,7 +18,7 @@
 }
       
 footer {
-  /* width: 500%; */
+    width: 100%; 
     background-color: black;
     color: white;
     position: relative;
@@ -62,7 +62,7 @@ footer .cu p{
     color: white;
     left: 51%; /* Position it at the center horizontally */
     transform: translateX(-50%); /* Center it precisely */
-    width: 100%; /* Make sure it takes the full width of the footer */
+     /* Make sure it takes the full width of the footer */
     text-align: center;
     margin-top: 9px;
 }
