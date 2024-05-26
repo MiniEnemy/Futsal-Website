@@ -54,7 +54,8 @@
     </div>
     
     <div class="box5">
-        <p>Welcome to Elite strike! Created by two BCA students, we're dedicated to simplifying futsal court bookings, providing an easy and convenient platform for futsal enthusiasts to book courts hassle-free. Join us and celebrate the joy of futsal with ease and efficiency! Experience futsal booking redefined.</p>
+        <h1>WELCOME TO ELITE STRIKE</h1>
+        <p> Created by two BCA students, our platform makes booking futsal courts easy and hassle-free. Join us to enjoy futsal with unmatched convenience!</p>
     </div>
     
 </div>
