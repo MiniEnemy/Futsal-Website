@@ -32,7 +32,7 @@
       <span onclick="slideRight()" class="btn"></span>
       <!-- Slider content -->
       <div id="slider">
-        <div class="slide"><img src="../img/slider/frndboards.jpg" alt=""></div>
+        <div class="slide"><img src="../mainimg/main1.jpg" alt=""></div>
         <div class="slide"><img src="../img/slider/2.png" alt=""></div>
         <div class="slide"><img src="../img/slider/3.png" alt=""></div>
         <div class="slide"><img src="../img/slider/4.png" alt=""></div>
