@@ -136,7 +136,7 @@ if (!session_id()) {
                 <a href="#" class="user-icon"><i class="fa-solid fa-user"></i></a>
                 <!-- Dropdown content -->
                 <div class="dropdown-content">
-                    <a href="../loginhome/loggedin.php"><?php echo $_SESSION['username']; ?></a>
+                    <a href="../form/user.php"><?php echo $_SESSION['username']; ?></a>
                     <a href="../header&footer/logout.php">Logout</a>
                 </div>
             </div>
