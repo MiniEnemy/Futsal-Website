@@ -115,6 +115,10 @@ if (!session_id()) {
         p #lname{
             font: 'TourneyFont';
         }
+        .log-img{
+            margin-left: 43px;
+            width: 57px;
+        }
     </style>
 </head>
 <body>
@@ -137,7 +141,7 @@ if (!session_id()) {
                 </div>
             </div>
         <?php } else { ?>
-            <a href="../form/login.php"><i class="fa-solid fa-right-to-bracket"></i></a>
+            <a href="../form/login.php"><img src="../img/login.png" class="log-img" alt=""></a>
         <?php } ?>
     </menu>
 </nav>
