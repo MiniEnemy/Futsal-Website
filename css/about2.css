@@ -1,130 +1,150 @@
-.about-container {
+body {
+    background-color: #444;
+    font-family: Poppins, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  
+  .Top {
+    background-color: rgba(108, 109, 109, 0.555);
+    position: sticky;
+    border-bottom-left-radius: 44px;
+    border-bottom-right-radius: 44px;
+    top: 0;
+    box-shadow: 7px 0px 10px rgba(0, 0, 0, 0.459);
     display: flex;
-}
-
-.box1 {
-    width: fit-content;
-    height: fit-content;
-}
-
-.box1 h1 {
-    font-size: 140px;
-    margin-left: 10px;
-
-    margin-top: 50px;
-}
-
-.box1 h2 {
-    font-size: 140px;
-    margin-left: 138px;
-}
-
-.box2 {
-    margin-top: 170px;
-}
-
-.box2,
-.box4 {
-    background-color: rgb(196, 249, 249);
-    width: 70%;
-    height: 250px;
-    display: flex;
-    align-items: center;
-    /* Align items vertically */
-
-}
-
-.circle,
-.circle3 {
-    width: 180px;
-    /* Adjust circle size as needed */
-    height: 180px;
-    /* Adjust circle size as needed */
-    border-radius: 50%;
-    /* Make it a circle */
-    overflow: hidden;
-    /* Hide overflow content (if any) */
-    margin-left: 50px;
-    margin-bottom: 20px;
-    /* Adjust margin as needed */
-}
-
-.box2 img,
-.box4 img {
     width: 100%;
-    /* Make sure the image fills the circle */
+  }
+  
+  #logo {
+    height: 80px;
+    margin-left: 5px;
+  }
+  
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
     height: 100%;
-    /* Make sure the image fills the circle */
-    object-fit: cover;
-    /* Maintain aspect ratio and cover the entire circle */
-}
-
-.box2 h1,
-.box4 h1 {
-    margin-left: 20px;
-    margin-bottom: 50px;
-    width: 250px;
-    font-size: 20px;
-}
-
-.circle2,
-.circle4 {
-    width: 180px;
-    /* Adjust circle size as needed */
-    height: 180px;
-    /* Adjust circle size as needed */
-    border-radius: 50%;
-    /* Make it a circle */
-    overflow: hidden;
-    /* Hide overflow content (if any) */
-    margin-top: 20px;
-    margin-left: 10px;
-    /* Adjust margin as needed */
-}
-
-.box2 h2,
-.box4 h2 {
-    margin-top: 120px;
-    width: 250px;
-    font-size: 20px;
-    margin-left: 50px;
-
-}
-
-.box3 {
-    width: 32.5%;
-}
-
-.box4 {
-    margin-top: 40px;
-}
-
-.box5 {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin-top: 30px;
-    flex-direction: column;
-
-}
-
-.box5 p {
-    font-size: 19px;
-    width: 50%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(79, 79, 79, 0.9);
+  }
+  
+  .modal-content {
+    margin: auto;
+    display: block;
+    width: 15%;
+    max-width: 700px;
+  }
+  
+  #caption1, #caption2, #caption3, #caption4 {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
     text-align: center;
-    line-height: 1.5;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-
-}
-
-.box5 h1 {
-    text-align: center;
+    color: #cccccc;
+    padding: 10px 0;
+    height: 150px;
+  }
+  
+  .close1, .close2, .close3, .close4 {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
     font-size: 40px;
     font-weight: bold;
-    letter-spacing: .05em;
-    text-transform: uppercase;
-    font-family: UF Display, sans-serif;
-    line-height: 1.5;
-
-}
+    transition: 0.3s;
+  }
+  
+  .close1:hover, .close2:hover, .close3:hover, .close4:hover,
+  .close1:focus, .close2:focus, .close3:focus, .close4:focus {
+    color: #bbbbbb;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  #myImg1:hover, #myImg2:hover, #myImg3:hover, #myImg4:hover {
+    opacity: 0.9;
+  }
+  
+  @media only screen and (max-width: 700px) {
+    .modal-content {
+      width: 100%;
+    }
+  }
+  
+  .about-section {
+    display: flex;
+    margin-left: 1%;
+    flex-direction: column;
+    font-family: poppins;
+    padding: 7px;
+    text-align: left;
+    color: white;
+    border-radius: 30px;
+  }
+  
+  .cards {
+    margin-top: 2%;
+    margin-left: 1%;
+    margin-right: 1%;
+    display: flex;
+    gap: 1%;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .container {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f55f;
+    padding: 20px;
+    border-radius: 30px;
+    -webkit-box-shadow: 0px 0px 84px -16px rgba(163, 157, 163, 0.78);
+    -moz-box-shadow: 0px 0px 84px -16px rgba(163, 157, 163, 0.78);
+    box-shadow: 0px 0px 84px -16px rgba(163, 157, 163, 0.78);
+    transition: scale ease-in-out 0.5s;
+  }
+  
+  .container:hover {
+    background-color: #f5f5f5dc;
+    scale: 1.05;
+    border-radius: 30px;
+    -webkit-box-shadow: 0px 0px 84px -16px rgba(163, 157, 163, 0.78);
+    -moz-box-shadow: 0px 0px 84px -16px rgba(163, 157, 163, 0.78);
+    box-shadow: 0px 0px 84px -16px rgba(163, 157, 163, 0.78);
+  }
+  
+  #myImg1, #myImg2 {
+    border-radius: 50%;
+    background-color: black;
+  }
+  
+  p, h2 {
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  #Text1, #Text2, #Text3, #Text4 {
+    color: rgb(83, 81, 81);
+    text-align: center;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  #myModal1, #myModal2, #myModal3, #myModal4 {
+    font-family: poppins;
+  }
