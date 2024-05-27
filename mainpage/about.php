@@ -1,65 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../css/about2.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Teachers&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: "teachers";
-            font-size: 22px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/2655a12a43.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="../css/about2.css">
 </head>
 <body>
-    <!-- Navigation bar -->
-    <?php include('../header&footer/header.php'); ?>
-<div class="allcontent">
+  <!-- Header Section -->
+  <?php
+include('../header&footer/header.php');
+?>
 
-    <div class="about-container">
-        <div class="box1">
-            <h1>ABOUT</h1>
-            <h2> US</h2>
-        </div>
-        
-        <div class="box2">
-            <div class="circle">
-                <img src="../allpics/futsalsong.jpg" alt="">
-            </div>
-            <h1>Football is not just a game; it's a way of life.</h1>
-            <h2>On the pitch, eleven hearts beat as one.</h2>
-            <div class="circle2">
-                <img src="../allpics/futsalsong.jpg" alt="">
-            </div>
-        </div>
+
+
+  <!-- Main Body Section -->
+  <main class="body-content">
+    <div class="about-section" id="about-section">
+      <h1>About Us </h1>
+      <p id="AboutUsParagraph">Welcome to Elite Strike! Book futsal courts easily and quickly. Join us for a seamless futsal experience. Celebrate the game with us!</p>
     </div>
-    
-    <div class="box3">
-        <p>Welcome to Elite Strike! Book futsal courts easily and quickly. Join us for a seamless futsal experience. Celebrate the game with us!</p>
-    </div>
-    
-    <div class="box4">
-        <div class="circle3">
-            <img src="../allpics/futsalsong.jpg" alt="">
+
+    <div class="cards">
+      <div class="container">
+        <img id="myImg1" src="../img/1st.jpg" alt="Undergraduate Software Engineering student at university of Westminster , Student role : Student 1 , Tasks : Presentation page and Online market place , UoW ID : w1956095 , IIT ID : 20221307 " width="200" height="200">
+        <div class="Text1">
+          <h2>michel Ross</h2>
+          <p class="title">owner</p>
+
         </div>
-        <h1>Our Team</h1>
-        <div class="circle4">
+      </div>
+
+      <div class="container">
+        <img id="myImg2" src="../img/2nd.jpg" alt="Undergraduate Software Engineering student at university of Westminster , Student role : Student 2 , Tasks : Main site navigation,External CSS and Query form , UoW ID : w1954123 , IIT ID : 20221152 " width="200" height="200">
+        <div class="Text2">
+          <h2>Tharusha Sandeepa</h2>
+          <p class="title">manager</p>
         </div>
+      </div>
     </div>
-    
-    <div class="box5">
-        <h1>WELCOME TO ELITE STRIKE</h1>
-        <p> Created by two BCA students, our platform makes booking futsal courts easy and hassle-free. Join us to enjoy futsal with unmatched convenience!</p>
+
+    <!-- The Modals -->
+    <div id="myModal1" class="modal">
+      <span class="close1">&times;</span>
+      <img class="modal-content" id="img01" alt="Anjana" src="../img/1st.jpg">
+      <div id="caption1"></div>
     </div>
-    
-</div>
-    <?php include('../header&footer/footer.php'); ?>
+
+    <div id="myModal2" class="modal">
+      <span class="close2">&times;</span>
+      <img class="modal-content" id="img02" alt="Tharusha" src="../img/2nd.jpg">
+      <div id="caption2"></div>
+    </div>
+  </main>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+  <?php
+include('../header&footer/footer.php');
+?>
+  </footer>
+
+  <script>
+var modal1 = document.getElementById('myModal1');
+var modal2 = document.getElementById('myModal2');
+var modal3 = document.getElementById('myModal3');
+var modal4 = document.getElementById('myModal4');
+
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById('myImg1');
+var modalImg = document.getElementById("img01");
+var captionText1 = document.getElementById("caption1");
+img.onclick = function(){
+  modal1.style.display = "block";
+  modalImg.src = this.src;
+  captionText1.innerHTML = this.alt;
+}
+
+
+var img = document.getElementById('myImg2');
+var modalImg = document.getElementById("img02");
+var captionText2 = document.getElementById("caption2");
+img.onclick = function(){
+  modal2.style.display = "block";
+  modalImg.src = this.src;
+  captionText2.innerHTML = this.alt;
+}
+
+
+var img = document.getElementById('myImg3');
+var modalImg = document.getElementById("img03");
+var captionText3 = document.getElementById("caption3");
+img.onclick = function(){
+  modal3.style.display = "block";
+  modalImg.src = this.src;
+  captionText3.innerHTML = this.alt;
+}
+
+
+var img = document.getElementById('myImg4');
+var modalImg = document.getElementById("img04");
+var captionText4 = document.getElementById("caption4");
+img.onclick = function(){
+  modal4.style.display = "block";
+  modalImg.src = this.src;
+  captionText4.innerHTML = this.alt;
+}
+
+// Get the <span> element that closes the modal
+var span1 = document.getElementsByClassName("close1")[0];
+var span2 = document.getElementsByClassName("close2")[0];
+var span3 = document.getElementsByClassName("close3")[0];
+var span4 = document.getElementsByClassName("close4")[0];
+
+
+// When the user clicks on <span> (x), close the modal
+span1.onclick = function() { 
+  modal1.style.display = "none";
+}
+span2.onclick = function() { 
+  modal2.style.display = "none";
+}
+span3.onclick = function() { 
+  modal3.style.display = "none";
+}
+span4.onclick = function() { 
+  modal4.style.display = "none";
+}
+//Window when scrolling
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if ( document.documentElement.scrollTop > 10) {
+    document.getElementById("Top").style.transition= "background-color ease-in-out 0.5s";
+    document.getElementById("Top").style.backgroundColor = "rgba(90, 166, 144)";
+  } else {
+    document.getElementById("Top").style.backgroundColor = "rgba(108, 109, 109, 0.555)";
+  }
+}
+
+//dark mode light mode
+const LightMode=document.querySelector('#Light');
+const AboutUs=document.querySelector('#about-section');
+LightMode.addEventListener('click',()=>{
+document.body.style.backgroundColor="white";
+AboutUs.style.color="#444";
+
+})
+const DarkMode=document.querySelector('#Dark');
+DarkMode.addEventListener('click',()=>{
+  document.body.style.backgroundColor="#444";
+AboutUs.style.color="white";
+
+  })
+  </script>
 </body>
-
 </html>
