@@ -4,21 +4,33 @@ $username = "root";
 $password = "";
 $dbname = "futsalbooking";
 
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT * FROM `signup` ";
 
-if(isset($_GET['date']) && $_GET['date'] != '') {
-    $sql .= "WHERE Booking_Date = '" . $_GET['date'] . "'";
+$sql = "SELECT * FROM `user`";
+
+
+if (isset($_GET['date']) && $_GET['date'] != '') {
+    $sql .= " WHERE Booking_Date = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $_GET['date']);
+    $stmt->execute();
+    $result = $stmt->get_result();
+} else {
+    $result = $conn->query($sql);
 }
-
-$result = mysqli_query($conn, $sql);
 
 if (!$result) {
-    die("Error: " . mysqli_error($conn));
+    die("Error: " . $conn->error);
 }
 
+
+if (isset($stmt)) {
+    $stmt->close();
+}
 ?>

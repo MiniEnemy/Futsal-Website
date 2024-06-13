@@ -60,37 +60,37 @@
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
-    margin-left: 20px; /* Adjusted margin for better alignment */
+    margin-left: 20px;
 }
 
 .form-container input {
-    width: calc(100% - 40px); /* Adjusted input width */
+    width: calc(100% - 40px);
     margin-bottom: 10px;
     padding: 10px;
     box-sizing: border-box;
     background-color: black;
     color: white;
-    margin-left: 20px; /* Adjusted margin for better alignment */
+    margin-left: 20px;
 }
 
 .form-container .user label,
 .form-container .no label,
 .form-container .mail label,
 .form-container .pass label,
-.form-container .conf-pass label { /* Added class for confirm password label */
-    margin-left: 20px; /* Adjusted margin for better alignment */
+.form-container .conf-pass label {
+    margin-left: 20px;
 }
 
 .form-container button {
-    width: calc(100% - 40px); /* Adjusted button width */
-    margin-top: 20px; /* Adjusted margin for better spacing */
+    width: calc(100% - 40px);
+    margin-top: 20px;
     padding: 10px;
     background-color: white;
     color: black;
     border: none;
     cursor: pointer;
     font-weight: bold;
-    margin-left: 20px; /* Adjusted margin for better alignment */
+    margin-left: 20px;
 }
 
 .form-container p {

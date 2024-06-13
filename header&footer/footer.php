@@ -60,9 +60,9 @@ footer .cu p{
     position: absolute;
     top: 170px; 
     color: white;
-    left: 51%; /* Position it at the center horizontally */
-    transform: translateX(-50%); /* Center it precisely */
-     /* Make sure it takes the full width of the footer */
+    left: 51%;
+    transform: translateX(-50%); 
+     
     text-align: center;
     margin-top: 9px;
 }

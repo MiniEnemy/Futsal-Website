@@ -1,10 +1,9 @@
 <?php
-session_start(); // Start the session
+session_start(); 
 
-// Retrieve user details from session
 $userEmail = $_SESSION['userEmail'] ?? "";
 $userPhone = $_SESSION['userPhone'] ?? "";
-$userName = $_SESSION['username'] ?? ""; // Retrieve the username from the session
+$userName = $_SESSION['username'] ?? ""; 
 
 ?>
 
@@ -55,14 +54,14 @@ $userName = $_SESSION['username'] ?? ""; // Retrieve the username from the sessi
                 <option value="14:00-15:00">02:00PM TO 03:00PM</option>
                 <option value="15:00-16:00">03:00PM TO 04:00PM</option>
                 <option value="16:00-17:00">04:00PM TO 05:00PM</option>
-                <!-- Add unique values for other options -->
+                
             </select>
             <span class="error-message" id="time-error">
                 <?php
                 
                 if (isset($_SESSION['error_message'])) {
                     echo $_SESSION['error_message'];
-                    unset($_SESSION['error_message']); // Clear the session variable
+                    unset($_SESSION['error_message']); 
                 }
                 ?>
             </span>
@@ -70,41 +69,41 @@ $userName = $_SESSION['username'] ?? ""; // Retrieve the username from the sessi
         <button type="submit" name="submit" class="submit" onclick="validateForm()">Submit</button>
     </form>
     <?php
-    // Display success message if set
+    
     if(isset($_SESSION['success_message'])) {
         echo '<div class="success-message">' . $_SESSION['success_message'] . '</div>';
-        unset($_SESSION['success_message']); // Clear the session variable
+        unset($_SESSION['success_message']); 
     }
     ?>
     <?php include("../header&footer/footer.php"); ?>
     <script>
     function validateForm() {
-        // Reset previous error messages
+        
         resetErrorMessages();
 
         var date = document.getElementById("booking-date").value;
         var time = document.getElementById("time").value;
 
         
-        // Validate booking date
+        
         if (!date.trim()) {
             document.getElementById("date-error").textContent = "Booking date is required";
         }
 
-        // Validate time
+       
         if (!time.trim()) {
             document.getElementById("time-error").textContent = "Time selection is required";
         }
 
-        // If any error messages are present, prevent form submission
+        
         var errorMessages = document.querySelectorAll(".error-message");
         for (var i = 0; i < errorMessages.length; i++) {
             if (errorMessages[i].textContent !== "") {
-                return false; // Prevent form submission
+                return false; 
             }
         }
 
-        return true; // Allow form submission if no errors
+        return true; 
     }
 
     function resetErrorMessages() {

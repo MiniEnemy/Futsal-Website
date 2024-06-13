@@ -10,14 +10,14 @@
   <link rel="stylesheet" type="text/css" href="../css/about2.css">
 </head>
 <body>
-  <!-- Header Section -->
+
   <?php
 include('../header&footer/header.php');
 ?>
 
 
 
-  <!-- Main Body Section -->
+
   <main class="body-content">
     <div class="about-section" id="about-section">
       <h1>About Us </h1>
@@ -43,7 +43,7 @@ include('../header&footer/header.php');
       </div>
     </div>
 
-    <!-- The Modals -->
+   
     <div id="myModal1" class="modal">
       <span class="close1">&times;</span>
       <img class="modal-content" id="img01" alt="Anjana" src="../img/1st.jpg">
@@ -57,7 +57,7 @@ include('../header&footer/header.php');
     </div>
   </main>
 
-  <!-- Footer Section -->
+  
   <footer class="footer">
   <?php
 include('../header&footer/footer.php');
@@ -71,7 +71,7 @@ var modal3 = document.getElementById('myModal3');
 var modal4 = document.getElementById('myModal4');
 
 
-// Get the image and insert it inside the modal - use its "alt" text as a caption
+
 var img = document.getElementById('myImg1');
 var modalImg = document.getElementById("img01");
 var captionText1 = document.getElementById("caption1");
@@ -111,14 +111,13 @@ img.onclick = function(){
   captionText4.innerHTML = this.alt;
 }
 
-// Get the <span> element that closes the modal
+
 var span1 = document.getElementsByClassName("close1")[0];
 var span2 = document.getElementsByClassName("close2")[0];
 var span3 = document.getElementsByClassName("close3")[0];
 var span4 = document.getElementsByClassName("close4")[0];
 
 
-// When the user clicks on <span> (x), close the modal
 span1.onclick = function() { 
   modal1.style.display = "none";
 }
@@ -131,7 +130,7 @@ span3.onclick = function() {
 span4.onclick = function() { 
   modal4.style.display = "none";
 }
-//Window when scrolling
+
 window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
@@ -143,7 +142,7 @@ function scrollFunction() {
   }
 }
 
-//dark mode light mode
+
 const LightMode=document.querySelector('#Light');
 const AboutUs=document.querySelector('#about-section');
 LightMode.addEventListener('click',()=>{

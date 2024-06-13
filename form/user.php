@@ -3,7 +3,7 @@ if (!session_id()) {
     session_start();
 }
 
-// Database connection
+
 $servername = "localhost";
 $dbUsername = "root";
 $dbPassword = "";
@@ -15,13 +15,13 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Initialize variables
+
 $username = $email = $phone = $password = "";
 $user_id = 0;
 
 if (isset($_SESSION['username'])) {
     $sessionUsername = $_SESSION['username'];
-    // Fetch user data based on session username
+    
     $sql = "SELECT * FROM user WHERE Username = '$sessionUsername'";
     $result = $conn->query($sql);
 
@@ -31,25 +31,25 @@ if (isset($_SESSION['username'])) {
         $username = $row['Username'];
         $email = $row['Email'];
         $phone = $row['Phone'];
-        $password = $row['Password']; // Store current password
+        $password = $row['Password']; 
     }
 }
 
-// Update user data
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $newUsername = $_POST['username'];
     $newEmail = $_POST['email'];
     $newPhone = $_POST['phone'];
     $newPassword = $_POST['password'];
 
-    // Check if password is updated
+
     if (!empty($newPassword)) {
-        $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT); // Hash the new password
+        $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT); 
     } else {
-        $hashedPassword = $password; // Use the existing hashed password
+        $hashedPassword = $password; 
     }
 
-    // Check for duplicate email or username
+
     $checkSql = "SELECT * FROM user WHERE (Email = '$newEmail' OR Username = '$newUsername') AND ID != '$user_id'";
     $checkResult = $conn->query($checkSql);
 
@@ -59,12 +59,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sql = "UPDATE user SET Username='$newUsername', Email='$newEmail', Phone='$newPhone', Password='$hashedPassword' WHERE ID='$user_id'";
         
         if ($conn->query($sql) === TRUE) {
-            // Update session variables
-            $_SESSION['username'] = $newUsername;
+           $_SESSION['username'] = $newUsername;
             $_SESSION['userEmail'] = $newEmail;
             $_SESSION['userPhone'] = $newPhone;
 
-            // Redirect to loggedin.php after successful update
+
             header("Location: ../loginhome/loggedin.php");
             exit();
         } else {
@@ -124,7 +123,7 @@ $conn->close();
             const newPhone = document.getElementById("phone").value;
             const newPassword = document.getElementById("password").value;
 
-            // Clear previous error message
+
             errorMessage.textContent = "";
 
             if (newPassword === "") {
