@@ -26,7 +26,7 @@ include('../header&footer/header.php');
 
     <div class="cards">
       <div class="container">
-        <img id="myImg1" src="../img/1st.jpg" alt="Undergraduate Software Engineering student at university of Westminster , Student role : Student 1 , Tasks : Presentation page and Online market place , UoW ID : w1956095 , IIT ID : 20221307 " width="200" height="200">
+        <img id="myImg1" src="../img/nepali1.jpeg"  width="200" height="200">
         <div class="Text1">
           <h2>michel Ross</h2>
           <p class="title">owner</p>
@@ -35,7 +35,7 @@ include('../header&footer/header.php');
       </div>
 
       <div class="container">
-        <img id="myImg2" src="../img/2nd.jpg" alt="Undergraduate Software Engineering student at university of Westminster , Student role : Student 2 , Tasks : Main site navigation,External CSS and Query form , UoW ID : w1954123 , IIT ID : 20221152 " width="200" height="200">
+        <img id="myImg2" src="../img/neapli2.jpeg"  width="200" height="200">
         <div class="Text2">
           <h2>Tharusha Sandeepa</h2>
           <p class="title">manager</p>

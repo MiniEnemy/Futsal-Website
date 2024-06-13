@@ -35,6 +35,7 @@ if (!session_id()) {
             display: flex; /* Flex container to align items horizontally */
             align-items: center; /* Align items vertically in the center */
             border-bottom: 2px black solid ;
+            font: 'TourneyFont';
         }
         nav p {
             margin-left: 34px;
@@ -43,6 +44,7 @@ if (!session_id()) {
             font-family: 'tourney', 'Helvetica Neue', Helvetica, Arial;
             cursor: pointer;
             width: 304px;
+            
         }
         /* Logo styles */
         .logo1 {
@@ -59,7 +61,7 @@ if (!session_id()) {
         menu a {
             font-family:'merriweather';
             font-weight: 550;
-            color: black;
+            /* color: black; */
             text-decoration: none;
             margin-left: 29px;
             font-size: 26px;
@@ -67,7 +69,7 @@ if (!session_id()) {
         }
         menu i {
             font-weight: 400;
-            color: black;
+            /* color: black; */
             font-size: 36px;
             cursor: pointer;
             margin-left: 50px;
@@ -112,9 +114,7 @@ if (!session_id()) {
         .dropdown:hover .dropdown-content {
             display: block;
         }
-        p #lname{
-            font: 'TourneyFont';
-        }
+        
         .log-img{
             margin-left: 43px;
             width: 57px;
