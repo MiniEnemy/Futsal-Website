@@ -15,56 +15,45 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Initialize variables
-$username = $email = $phone = $password = "";
-$user_id = 0;
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
-if (isset($_SESSION['username'])) {
-    $sessionUsername = $_SESSION['username'];
-    // Fetch user data based on session username
-    $sql = "SELECT * FROM signup WHERE Username = '$sessionUsername'";
+    // Validate user credentials
+    $sql = "SELECT * FROM signup WHERE Username = '$username'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
-        $user_id = $row['ID'];
-        $username = $row['Username'];
-        $email = $row['Email'];
-        $phone = $row['Phone'];
-        $password = $row['Password']; // Store current password
-    }
-}
+        // Verify the password
+        if (password_verify($password, $row['Password'])) {
+            // Credentials are valid, set session variables
+            $_SESSION['username'] = $username;
+            $_SESSION['userEmail'] = $row['Email'];
+            $_SESSION['userPhone'] = $row['Phone'];
 
-// Update user data
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $newUsername = $_POST['username'];
-    $newEmail = $_POST['email'];
-    $newPhone = $_POST['phone'];
-    $newPassword = $_POST['password'];
-
-    // Check if password is updated
-    if (!empty($newPassword)) {
-        $password = $newPassword; // Use new password
-    }
-
-    $sql = "UPDATE signup SET Username='$newUsername', Email='$newEmail', Phone='$newPhone', Password='$password' WHERE ID='$user_id'";
-    
-    if ($conn->query($sql) === TRUE) {
-        // Update session variables
-        $_SESSION['username'] = $newUsername;
-        $_SESSION['userEmail'] = $newEmail;
-        $_SESSION['userPhone'] = $newPhone;
-
-        // Redirect to loggedin.php after successful update
-        header("Location: ../loginhome/loggedin.php");
-        exit();
+            // Redirect to the desired page after successful login
+            header("Location: ../loginhome/loggedin.php");
+            exit();
+        } else {
+            // Invalid password
+            echo "<script>
+                    alert('Invalid username or password.');
+                    window.location.href = './login.php';
+                  </script>";
+        }
     } else {
-        echo "Error updating record: " . $conn->error;
+        // Invalid username
+        echo "<script>
+                alert('Invalid username or password.');
+                window.location.href = './login.php';
+              </script>";
     }
 }
 
 $conn->close();
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
