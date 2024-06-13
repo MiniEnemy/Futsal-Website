@@ -22,7 +22,7 @@ $user_id = 0;
 if (isset($_SESSION['username'])) {
     $sessionUsername = $_SESSION['username'];
     // Fetch user data based on session username
-    $sql = "SELECT * FROM signup WHERE Username = '$sessionUsername'";
+    $sql = "SELECT * FROM user WHERE Username = '$sessionUsername'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -44,17 +44,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Check if password is updated
     if (!empty($newPassword)) {
-        $password = $newPassword; // Use new password
+        $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT); // Hash the new password
+    } else {
+        $hashedPassword = $password; // Use the existing hashed password
     }
 
     // Check for duplicate email or username
-    $checkSql = "SELECT * FROM signup WHERE (Email = '$newEmail' OR Username = '$newUsername') AND ID != '$user_id'";
+    $checkSql = "SELECT * FROM user WHERE (Email = '$newEmail' OR Username = '$newUsername') AND ID != '$user_id'";
     $checkResult = $conn->query($checkSql);
 
     if ($checkResult->num_rows > 0) {
         $error_message = "Username or Email already exists.";
     } else {
-        $sql = "UPDATE signup SET Username='$newUsername', Email='$newEmail', Phone='$newPhone', Password='$password' WHERE ID='$user_id'";
+        $sql = "UPDATE user SET Username='$newUsername', Email='$newEmail', Phone='$newPhone', Password='$hashedPassword' WHERE ID='$user_id'";
         
         if ($conn->query($sql) === TRUE) {
             // Update session variables
@@ -108,39 +110,41 @@ $conn->close();
     </div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const form = document.getElementById("updateForm");
-            const errorMessage = document.getElementById("error-message");
+    document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("updateForm");
+        const errorMessage = document.getElementById("error-message");
 
-            const initialUsername = "<?php echo $username; ?>";
-            const initialEmail = "<?php echo $email; ?>";
-            const initialPhone = "<?php echo $phone; ?>";
+        const initialUsername = "<?php echo $username; ?>";
+        const initialEmail = "<?php echo $email; ?>";
+        const initialPhone = "<?php echo $phone; ?>";
 
-            form.addEventListener("submit", (e) => {
-                const newUsername = document.getElementById("username").value;
-                const newEmail = document.getElementById("email").value;
-                const newPhone = document.getElementById("phone").value;
+        form.addEventListener("submit", (e) => {
+            const newUsername = document.getElementById("username").value;
+            const newEmail = document.getElementById("email").value;
+            const newPhone = document.getElementById("phone").value;
+            const newPassword = document.getElementById("password").value;
 
-                // Clear previous error message
-                errorMessage.textContent = "";
+            // Clear previous error message
+            errorMessage.textContent = "";
 
-                if (newUsername === initialUsername && newEmail === initialEmail && newPhone === initialPhone) {
-                    e.preventDefault();
-                    errorMessage.textContent = "No changes detected. Please update at least one field.";
-                } else if (newUsername.trim() === "" || newEmail.trim() === "" || newPhone.trim() === "") {
-                    e.preventDefault();
-                    errorMessage.textContent = "All fields are required.";
-                } else if (!validateEmail(newEmail)) {
-                    e.preventDefault();
-                    errorMessage.textContent = "Please enter a valid email address.";
-                }
-            });
-
-            function validateEmail(email) {
-                const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                return re.test(String(email).toLowerCase());
+            if (newPassword === "") {
+                e.preventDefault();
+                errorMessage.textContent = "No changes detected. Please update at least one field.";
+            } else if (newUsername.trim() === "" || newEmail.trim() === "" || newPhone.trim() === "") {
+                e.preventDefault();
+                errorMessage.textContent = "All fields are required.";
+            } else if (!validateEmail(newEmail)) {
+                e.preventDefault();
+                errorMessage.textContent = "Please enter a valid email address.";
             }
         });
-    </script>
+
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(String(email).toLowerCase());
+        }
+    });
+</script>
+
 </body>
 </html>

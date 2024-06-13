@@ -16,7 +16,7 @@ $username = $_POST['username'];
 $password = password_hash($_POST['pass'], PASSWORD_DEFAULT);
 
 // Check if email or username already exists
-$checkSql = "SELECT * FROM signup WHERE Email = '$email' OR Username = '$username'";
+$checkSql = "SELECT * FROM user WHERE Email = '$email' OR Username = '$username'";
 $checkResult = $conn->query($checkSql);
 
 if ($checkResult->num_rows > 0) {
@@ -26,7 +26,7 @@ if ($checkResult->num_rows > 0) {
     exit();
 } else {
     // Insert new record
-    $sql = "INSERT INTO signup ( Email, Phone, Username, Password)
+    $sql = "INSERT INTO user ( Email, Phone, Username, Password)
             VALUES ('$email', '$phone', '$username', '$password')";
 
     if ($conn->query($sql) === TRUE) {

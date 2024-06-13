@@ -28,7 +28,7 @@ $username = $_SESSION['username'];
 $username = $conn->real_escape_string($username);
 
 // Query to get user ID
-$sql = "SELECT ID FROM signup WHERE Username = '$username'";
+$sql = "SELECT ID FROM user WHERE Username = '$username'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {

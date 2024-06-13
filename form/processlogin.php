@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
 
     // Validate user credentials
-    $sql = "SELECT * FROM signup WHERE Username = '$username'";
+    $sql = "SELECT * FROM user WHERE Username = '$username'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
