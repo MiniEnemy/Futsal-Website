@@ -8,7 +8,6 @@
         body {
             font-family: Arial, sans-serif;
             background-color: #f8f9fa;
-            /* padding-top: 50px; */
             margin: 0;
         }
         .container {
@@ -64,7 +63,6 @@
             margin-bottom: 20px;
         }
         .form-control {
-            /* padding: 8px; */
             border-radius: 4px;
             border: 1px solid #ced4da;
             width: 200px;
@@ -83,7 +81,6 @@
         * {
             margin: 0;
             padding: 0;
-            /* box-sizing: border-box; */
             font-family: "Poppins", sans-serif;
         }
 
@@ -450,7 +447,7 @@
             border-radius: 4px;
         }
 
-        /* Responsive CSS Here */
+
         @media screen and (max-width: 950px) {
             .nav-img {
                 height: 25px;
@@ -686,7 +683,7 @@
                 <?php
                 
                 include 'connect.php';
-                // Fetching and displaying results
+                
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo "<tr>";
                     echo "<td>" . $row["Username"] . "</td>";

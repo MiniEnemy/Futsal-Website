@@ -11,30 +11,24 @@
 
 
   <script>
-    // Function to validate the form
+ 
     function validateForm() {
       var username = document.getElementById("username").value;
       var password = document.getElementById("password").value;
 
-      // Check if username and password are "owner"
-      if (username.trim() === "owner" && password.trim() === "owner") {
-        window.location.href = "../admin/admin.php"; 
-        return false; 
-      }
 
-      // Check if username is empty
+
       if (username.trim() === "") {
         alert("Please enter your username");
         return false;
       }
 
-      // Check if password is empty
       if (password.trim() === "") {
         alert("Please enter your password");
         return false;
       }
 
-      // Form is valid, proceed with default form submission
+
       return true;
     }
   </script>

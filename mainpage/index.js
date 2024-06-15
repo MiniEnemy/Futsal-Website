@@ -1,9 +1,5 @@
-// Your existing JavaScript code remains unchanged
-
-// Additional functions for opening and closing the login popup
 function schedule() {
-    // Specify the path to the local HTML file
-    var localWebsitePath = "/booking/booking.html"; // Replace with the actual path
+    var localWebsitePath = "/booking/booking.html"; 
     window.open(localWebsitePath, '_blank');
 }
 function openLogin() {
@@ -20,6 +16,6 @@ document.addEventListener('contextmenu', function (e) {
 
 document.addEventListener('mousedown', function (e) {
     if (e.button === 0) {
-        e.preventDefault(); // Disable left-click
+        e.preventDefault(); 
     }
 });

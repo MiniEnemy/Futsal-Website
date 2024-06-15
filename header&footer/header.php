@@ -1,6 +1,6 @@
 <?php
 if (!session_id()) {
-    session_start(); // Start the session if it's not already started
+    session_start(); 
 }
 ?>
 <!DOCTYPE html>
@@ -19,7 +19,7 @@ if (!session_id()) {
 <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Tourney:wght@900&display=swap" rel="stylesheet">
 
     <style>
-        /* Resetting default styles and setting global styles */
+       
         * {
             border: 0;
             box-sizing: border-box;
@@ -30,10 +30,10 @@ if (!session_id()) {
             letter-spacing: 0px;
         }
         nav {
-            background-color: white; /* Dark background color */
-            padding: 10px 20px; /* Padding for the navigation bar */
-            display: flex; /* Flex container to align items horizontally */
-            align-items: center; /* Align items vertically in the center */
+            background-color: white;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
             border-bottom: 2px black solid ;
             font: 'TourneyFont';
         }
@@ -46,12 +46,12 @@ if (!session_id()) {
             width: 304px;
             
         }
-        /* Logo styles */
+       
         .logo1 {
-            width: 100px; /* Adjust width as needed */
-            height: auto; /* Maintain aspect ratio */
+            width: 100px;
+            height: auto;
         }
-        /* Menu styles */
+       
         menu {
             display: flex;
             align-items: center;
@@ -69,7 +69,7 @@ if (!session_id()) {
         }
         menu i {
             font-weight: 400;
-            /* color: black; */
+           
             font-size: 36px;
             cursor: pointer;
             margin-left: 50px;
@@ -77,15 +77,15 @@ if (!session_id()) {
             margin-bottom: 2px;
         }
         menu a:hover {
-            text-decoration: underline; /* Underline on hover */
+            text-decoration: underline;
         }
-        /* Dropdown container */
+       
         .dropdown {
             position: relative;
             display: inline-block;
         }
 
-        /* Dropdown content (hidden by default) */
+       
         .dropdown-content {
             display: none;
             position: absolute;
@@ -96,7 +96,7 @@ if (!session_id()) {
             padding-right: 20px;
         }
 
-        /* Links inside the dropdown */
+       
         .dropdown-content a {
             color: black;
             padding: 12px 16px;
@@ -105,12 +105,12 @@ if (!session_id()) {
             font-size: 20px;
         }
 
-        /* Change color of dropdown links on hover */
+       
         .dropdown-content a:hover {
             background-color: #f1f1f1;
         }
 
-        /* Show the dropdown menu on hover */
+       
         .dropdown:hover .dropdown-content {
             display: block;
         }
@@ -126,7 +126,7 @@ if (!session_id()) {
     <img src="../Logo/Futsal.png" alt="fusal logo" class="logo1">
     <p id="lname" >Elite Strike </p>
     <menu>
-        <!-- Navigation bar ends here -->
+        
         <a href="../mainpage/index.php">Home</a>
         <a href="../mainpage/about.php">About-Us</a>
         <a href="../header&footer/reservation_redirect.php">Reservations</a>
@@ -134,7 +134,7 @@ if (!session_id()) {
         <?php if (isset($_SESSION['username'])) { ?>
             <div class="dropdown">
                 <a href="#" class="user-icon"><i class="fa-solid fa-user"></i></a>
-                <!-- Dropdown content -->
+                
                 <div class="dropdown-content">
                     <a href="../form/user.php"><?php echo $_SESSION['username']; ?></a>
                     <a href="../header&footer/logout.php">Logout</a>

@@ -3,7 +3,7 @@ if (!session_id()) {
     session_start();
 }
 
-// Database connection
+
 $servername = "localhost";
 $dbUsername = "root";
 $dbPassword = "";
@@ -19,31 +19,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // Validate user credentials
+
+    if ($username === 'owner' && $password === 'owner') {
+
+        header("Location: ../admin/admin.php");
+        exit();
+    }
+
+ 
     $sql = "SELECT * FROM user WHERE Username = '$username'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
-        // Verify the password
+        
         if (password_verify($password, $row['Password'])) {
-            // Credentials are valid, set session variables
+            
             $_SESSION['username'] = $username;
             $_SESSION['userEmail'] = $row['Email'];
             $_SESSION['userPhone'] = $row['Phone'];
 
-            // Redirect to the desired page after successful login
+      
             header("Location: ../loginhome/loggedin.php");
             exit();
         } else {
-            // Invalid password
+            
             echo "<script>
                     alert('Invalid username or password.');
                     window.location.href = './login.php';
                   </script>";
         }
     } else {
-        // Invalid username
+        
         echo "<script>
                 alert('Invalid username or password.');
                 window.location.href = './login.php';
@@ -53,6 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 $conn->close();
 ?>
+
 
 
 <!DOCTYPE html>

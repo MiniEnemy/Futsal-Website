@@ -1,33 +1,38 @@
 <?php
 include 'connect.php';
-$id = $_GET['editid'];
-$sql = "SELECT * FROM `signup` WHERE id = $id";
-$result = mysqli_query($conn, $sql);
-$row = mysqli_fetch_assoc($result);
-$name = $row['Username'];
-$email = $row['Email'];
-$phone = $row['Phone'];
 
-if(isset($_POST['submit'])) {
+$id = $_GET['editid'] ?? 0; 
+$sql = "SELECT * FROM user WHERE id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $id);
+$stmt->execute();
+$result = $stmt->get_result();
+$row = $result->fetch_assoc();
+$name = $row['Username'] ?? '';
+$email = $row['Email'] ?? '';
+$phone = $row['Phone'] ?? '';
+
+if (isset($_POST['submit'])) {
     $name = $_POST['username'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
 
-    $sql = "UPDATE signup SET Username='$name', Email='$email', Phone='$phone' WHERE ID=$id";
-    $result = mysqli_query($conn, $sql);
-    if($result) {
+    $sql = "UPDATE user SET Username=?, Email=?, Phone=? WHERE ID=?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("sssi", $name, $email, $phone, $id);
+    $result = $stmt->execute();
+    
+    if ($result) {
         header("Location: customer.php");
         exit(); 
     } else {
-        echo "Error: ". $sql. "<br>". mysqli_error($conn);
+        echo "Error: " . $stmt->error;
     }
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -82,26 +87,24 @@ if(isset($_POST['submit'])) {
         }
     </style>
 </head>
-
 <body>
     <div class="container">
         <h2>Edit Account</h2>
-        <form action="customer.php" method="POST">
+        <form action="" method="POST">
             <div class="form-group">
                 <label for="username">Username:</label>
-                <input type="text" id="username" name="username" value=<?php echo $name;?>>
+                <input type="text" id="username" name="username" value="<?php echo htmlspecialchars($name); ?>">
             </div>
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email"value=<?php echo $email;?> >
+                <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($email); ?>">
             </div>
             <div class="form-group">
                 <label for="phone">Phone:</label>
-                <input type="number" id="phone" name="phone"value=<?php echo $phone;?> >
+                <input type="text" id="phone" name="phone" value="<?php echo htmlspecialchars($phone); ?>">
             </div>
-            <button type="submit" class="btn btn-primary" name="submit">update</button>
+            <input type="submit" name="submit" value="Update">
         </form>
     </div>
 </body>
-
 </html>

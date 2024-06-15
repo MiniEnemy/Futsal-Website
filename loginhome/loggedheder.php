@@ -9,9 +9,9 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Resetting default styles and setting global styles */
+       
 
-        /* Styling for the navigation bar */
+       
         * {
             border: 0;
             box-sizing: border-box;
@@ -24,11 +24,11 @@
 
         nav {
             background-color: white;
-            /* Dark background color */
+           
             padding: 10px 20px;
-            /* Padding for the navigation bar */
+           
             display: flex;
-            /* Flex container to align items horizontally */
+           
             align-items: center;
             border-bottom: 2px black solid;
         }
@@ -42,15 +42,15 @@
             width: 50%;
         }
 
-        /* Logo styles */
+       
         .logo1 {
             width: 100px;
-            /* Adjust width as needed */
+           
             height: auto;
-            /* Maintain aspect ratio */
+           
         }
 
-        /* Menu styles */
+       
         menu {
             display: flex;
             align-items: center;
@@ -79,16 +79,16 @@
 
         menu a:hover {
             text-decoration: underline;
-            /* Underline on hover */
+           
         }
 
-        /* Dropdown container */
+       
         .dropdown {
             position: relative;
             display: inline-block;
         }
 
-        /* Dropdown content (hidden by default) */
+       
         .dropdown-content {
             display: none;
             position: absolute;
@@ -99,7 +99,7 @@
             padding-right: 20px;
         }
 
-        /* Links inside the dropdown */
+       
         .dropdown-content a {
             color: black;
             padding: 12px 16px;
@@ -108,12 +108,12 @@
             font-size: 20px;
         }
 
-        /* Change color of dropdown links on hover */
+       
         .dropdown-content a:hover {
             background-color: #f1f1f1;
         }
 
-        /* Show the dropdown menu on hover */
+       
         .dropdown:hover .dropdown-content {
             display: block;
         }
@@ -125,12 +125,12 @@
         <img src="../Logo/Futsal.png" alt="fusal logo" class="logo1">
         <p>Elite Strike </p>
         <menu>
-            <!-- Navigation bar ends here -->
+            
             <a href="loggedin.php">Home</a>
             <a href="./booking.php">Booking</a>
             <div class="dropdown">
                 <a href="#" class="user-icon"><i class="fa-solid fa-user"></i></a>
-                <!-- Dropdown content -->
+                
                 <div class="dropdown-content">
                     <a href="booking.php">Username</a>
                     <a href="../mainpage/Index.php">Logout</a>

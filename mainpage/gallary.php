@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- Coding By CodingNepal - codingnepalweb.com -->
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,7 +7,7 @@
     <meta data-name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Gallery with Search Box</title>
     <style>
-        /* Google Font Import - Poppins */
+
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
         
         *{

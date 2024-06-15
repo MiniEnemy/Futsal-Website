@@ -15,7 +15,7 @@
         })
     </script>
     <style>
-        /* Main CSS Here */
+        
 
         @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
@@ -389,7 +389,7 @@
             border-radius: 4px;
         }
 
-        /* Responsive CSS Here */
+       
         @media screen and (max-width: 950px) {
             .nav-img {
                 height: 25px;
@@ -571,7 +571,7 @@
 </head>
 
 <body>
-    <!-- for header part -->
+
     <header>
         <div class="logosec">
             <div class="logo">Elite Strike</div>
@@ -619,12 +619,12 @@
                         class="icn srchicn" alt="search-icon">
                 </div>
             </div>
-            <!-- Customer part starts here -->
+            
             <div class="report-container">
                 <div class="report-header">
                     <div class="recent-Articles">Dashboard</div>
                 </div>
-                    <!-- Topic container starts here -->
+                    
                     <div class="box-container">
                         <div class="box">
                             <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182539/1.png"
@@ -648,7 +648,7 @@
                     
                 </div>
             </div>
-            <!-- Customer part ends here -->
+           
         </div>
         
     </div>

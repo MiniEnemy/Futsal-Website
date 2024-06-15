@@ -1,3 +1,20 @@
+<?php
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "futsalbooking";
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+
+$sql = "SELECT * FROM `booking`";
+$result = mysqli_query($conn, $sql);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +25,6 @@
         body {
             font-family: Arial, sans-serif;
             background-color: #f8f9fa;
-            /* padding-top: 50px; */
             margin: 0;
         }
         .container {
@@ -64,7 +80,6 @@
             margin-bottom: 20px;
         }
         .form-control {
-            /* padding: 8px; */
             border-radius: 4px;
             border: 1px solid #ced4da;
             width: 200px;
@@ -83,8 +98,7 @@
         * {
             margin: 0;
             padding: 0;
-            /* box-sizing: border-box; */
-            font-family: "Poppins", sans-serif;
+           font-family: "Poppins", sans-serif;
         }
 
         :root {
@@ -440,7 +454,6 @@
             border-radius: 4px;
         }
 
-        /* Responsive CSS Here */
         @media screen and (max-width: 950px) {
             .nav-img {
                 height: 25px;
@@ -706,7 +719,7 @@
                     die("Error: " . mysqli_error($conn));
                 }
 
-                // Fetching and displaying results
+
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo "<tr>";
                     echo "<td>" . $row["Username"] . "</td>";
@@ -715,7 +728,7 @@
                     echo "<td>" . $row["Booking_Date"] . "</td>";
                     echo "<td>" . $row["TIme"] . "</td>";
                     echo "<td>";
-                    echo '<a href="#" class="btn btn-edit">Edit</a>';
+                    echo '<a href="editbooking.php?editid='. $row["ID"].'" class="btn btn-edit">Edit</a>';
                     echo '<a href="delete-admin.php?deleteid=' . $row["ID"] . '" class="btn btn-danger">Delete</a>';;
                     echo "</td>";
                     echo "</tr>";
