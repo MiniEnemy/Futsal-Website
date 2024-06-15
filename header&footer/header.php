@@ -61,7 +61,7 @@ if (!session_id()) {
         menu a {
             font-family:'merriweather';
             font-weight: 550;
-            /* color: black; */
+            color: black;
             text-decoration: none;
             margin-left: 29px;
             font-size: 26px;

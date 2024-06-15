@@ -18,8 +18,8 @@
 
       // Check if username and password are "owner"
       if (username.trim() === "owner" && password.trim() === "owner") {
-        window.location.href = "../admin/admin.php"; // Redirect to admin.php
-        return false; // Prevent default form submission
+        window.location.href = "../admin/admin.php"; 
+        return false; 
       }
 
       // Check if username is empty

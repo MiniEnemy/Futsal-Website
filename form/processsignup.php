@@ -11,7 +11,7 @@ if ($conn->connect_error) {
 }
 
 $email = $_POST['email'];
-$phone = (string)$_POST['phone']; // Cast phone number to string
+$phone = (string)$_POST['phone'];
 $username = $_POST['username'];
 $password = password_hash($_POST['pass'], PASSWORD_DEFAULT);
 
