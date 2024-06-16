@@ -98,9 +98,18 @@ $conn->close();
             color: #333;
             border-radius: 4px;
             display: inline-block;
+            color: white;
+            font-size: 20px;
+            
+        }
+        .actions .one{
+            background-color: green;
+        }
+        .actions .two{
+            background-color: red;
         }
         .actions a:hover {
-            background-color: #e0e0e0;
+            background-color: black;
         }
         .book-now {
             text-align: center;
@@ -149,8 +158,8 @@ $conn->close();
                     <td><?php echo htmlspecialchars($booking['Booking_Date']); ?></td>
                     <td><?php echo htmlspecialchars($booking['Time']); ?></td>
                     <td class="actions">
-                        <a href="edituser.php?editid-'$edit['ID']; ?>">Edit</a>
-                        <a href="deletebook.php?id=<?php echo $booking['ID']; ?>">Delete</a>
+                        <a class="one"  href="edituser.php?editid-'$edit['ID']; ?>">Edit</a>
+                        <a class="two" href="deletebook.php?id=<?php echo $booking['ID']; ?>">Delete</a>
                     </td>
                 </tr>
             <?php endforeach; ?>

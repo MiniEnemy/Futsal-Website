@@ -3,7 +3,6 @@ if (!session_id()) {
     session_start();
 }
 
-
 $servername = "localhost";
 $dbUsername = "root";
 $dbPassword = "";
@@ -14,7 +13,6 @@ $conn = new mysqli($servername, $dbUsername, $dbPassword, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-
 
 $username = $email = $phone = $password = "";
 $user_id = 0;
@@ -35,20 +33,17 @@ if (isset($_SESSION['username'])) {
     }
 }
 
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $newUsername = $_POST['username'];
     $newEmail = $_POST['email'];
     $newPhone = $_POST['phone'];
     $newPassword = $_POST['password'];
 
+    $hashedPassword = $password;
 
     if (!empty($newPassword)) {
-        $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT); 
-    } else {
-        $hashedPassword = $password; 
+        $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
     }
-
 
     $checkSql = "SELECT * FROM user WHERE (Email = '$newEmail' OR Username = '$newUsername') AND ID != '$user_id'";
     $checkResult = $conn->query($checkSql);
@@ -57,12 +52,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $error_message = "Username or Email already exists.";
     } else {
         $sql = "UPDATE user SET Username='$newUsername', Email='$newEmail', Phone='$newPhone', Password='$hashedPassword' WHERE ID='$user_id'";
-        
+
         if ($conn->query($sql) === TRUE) {
-           $_SESSION['username'] = $newUsername;
+            $_SESSION['username'] = $newUsername;
             $_SESSION['userEmail'] = $newEmail;
             $_SESSION['userPhone'] = $newPhone;
-
 
             header("Location: ../loginhome/loggedin.php");
             exit();
@@ -113,37 +107,48 @@ $conn->close();
         const form = document.getElementById("updateForm");
         const errorMessage = document.getElementById("error-message");
 
-        const initialUsername = "<?php echo $username; ?>";
-        const initialEmail = "<?php echo $email; ?>";
-        const initialPhone = "<?php echo $phone; ?>";
-
         form.addEventListener("submit", (e) => {
             const newUsername = document.getElementById("username").value;
             const newEmail = document.getElementById("email").value;
             const newPhone = document.getElementById("phone").value;
             const newPassword = document.getElementById("password").value;
 
-
             errorMessage.textContent = "";
 
-            if (newPassword === "") {
+            if (!validateUsername(newUsername)) {
                 e.preventDefault();
-                errorMessage.textContent = "No changes detected. Please update at least one field.";
-            } else if (newUsername.trim() === "" || newEmail.trim() === "" || newPhone.trim() === "") {
-                e.preventDefault();
-                errorMessage.textContent = "All fields are required.";
+                errorMessage.textContent = "Username must be alphanumeric and between 3 and 20 characters.";
             } else if (!validateEmail(newEmail)) {
                 e.preventDefault();
                 errorMessage.textContent = "Please enter a valid email address.";
+            } else if (!validatePhone(newPhone)) {
+                e.preventDefault();
+                errorMessage.textContent = "Please enter a valid phone number.";
+            } else if (newPassword !== "" && !validatePassword(newPassword)) {
+                e.preventDefault();
+                errorMessage.textContent = "Password must be at least 8 characters long.";
             }
         });
 
+        function validateUsername(username) {
+            const re = /^[a-zA-Z0-9]{3,20}$/;
+            return re.test(username);
+        }
+
         function validateEmail(email) {
-            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
             return re.test(String(email).toLowerCase());
         }
-    });
-</script>
 
+        function validatePhone(phone) {
+            const re = /^[0-9]{10,15}$/;
+            return re.test(phone);
+        }
+
+        function validatePassword(password) {
+            return password.length >= 8;
+        }
+    });
+    </script>
 </body>
 </html>
