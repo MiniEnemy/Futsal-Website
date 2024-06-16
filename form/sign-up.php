@@ -6,34 +6,29 @@
     <title>Sign Up Page</title>
     <script>
         function validateForm() {
-            // Get the input values
             var username = document.getElementById("username").value;
             var email = document.getElementById("email").value;
             var phone = document.getElementById("phone").value;
             var password = document.getElementById("pass").value;
             var cnfpass = document.getElementById("cnfpass").value;
 
-            // Get the error span elements
             var usernameError = document.getElementById("usernameError");
             var emailError = document.getElementById("emailError");
             var phoneError = document.getElementById("phoneError");
             var passwordError = document.getElementById("passwordError");
             var cnfpassError = document.getElementById("cnfpassError");
 
-            // Clear previous error messages
             usernameError.textContent = "";
             emailError.textContent = "";
             phoneError.textContent = "";
             passwordError.textContent = "";
             cnfpassError.textContent = "";
 
-            // Validate username
             if (username.trim() === "") {
                 usernameError.textContent = "Username is required";
                 returnval = false;
             }
 
-            // Validate email
             var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
             if (email.trim() === "") {
                 emailError.textContent = "Email is required";
@@ -43,7 +38,6 @@
                 returnval = false;
             }
 
-            // Validate phone
             var phonePattern = /^(98|87)\d{8}$/;
     if (phone.trim() === "") {
         phoneError.textContent = "Phone number is required";
@@ -53,7 +47,7 @@
         returnval = false;
     }
 
-            // Validate password
+   
             if (password.trim() === "") {
                 passwordError.textContent = "Password is required";
                 returnval = false;
