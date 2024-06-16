@@ -637,7 +637,7 @@ $result = mysqli_query($conn, $sql);
         <header>
         <div class="logosec">
             <div class="logo">Elite Strike</div>
-            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182541/Untitled-design-(30).png"
+            <img src="../img/list.png"
                 class="icn menuicn" id="menuicn" alt="menu-icon">
         </div>
         <div class="searchbar">
@@ -650,7 +650,7 @@ $result = mysqli_query($conn, $sql);
                 </form>
             </div>
         <div class="dp">
-            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180014/profile-removebg-preview.png"
+            <img src="../img/user.png"
                 class="dpicn" alt="dp">
         </div>
     </header>
@@ -661,22 +661,22 @@ $result = mysqli_query($conn, $sql);
             <nav class="nav">
                 <div class="nav-upper-options">
                     <div class="nav-option option1">
-                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182148/Untitled-design-(29).png"
+                        <img src="../img/dashboard.png"
                             class="nav-img" alt="dashboard">
                             <a class="nav-option option1" href="admin.php"><h3>Dashboard</h3></a>
                     </div>
                     <div class="option2 nav-option">
-                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/9.png"
+                        <img src="../img/article.png"
                             class="nav-img" alt="articles">
                         <a class="option2 nav-option" href="customer.php"><h3>Customer</h3></a>
                     </div>
                     <div class="nav-option option5">
-                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183323/10.png"
+                        <img src="../img/paper.png"
                             class="nav-img" alt="blog">
                             <a class="option3 nav-option" href="booking(admin).php"><h3>Booking</h3></a>
                     </div>
                     <div class="nav-option logout">
-                        <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/7.png"
+                        <img src="../img/logout.png"
                             class="nav-img" alt="logout">
                             <a class="nav-option logout" href="../Index.php"><h3>Logout</h3></a>
                     </div>
