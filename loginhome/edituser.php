@@ -174,7 +174,7 @@ $conn->close();
             <?php endif; ?>
             <div class="form-group actions">
                 <button type="submit" name="update" class="btn btn-primary">Update</button>
-                <a href="user_details.php" id="danger" class="btn btn-danger">Cancel</a>
+                <a href="bookingtble.php" id="danger" class="btn btn-danger">Cancel</a>
             </div>
         </form>
     </div>
