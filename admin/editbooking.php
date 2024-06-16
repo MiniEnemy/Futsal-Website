@@ -83,12 +83,13 @@ if (isset($_POST['update'])) {
             border: 1px solid #ced4da;
             border-radius: 4px;
         }
-        .form-group button {
+        .form-group button,#danger {
             padding: 10px 20px;
             border: none;
             border-radius: 4px;
             cursor: pointer;
             font-size: 16px;
+            text-decoration: none;
         }
         .btn-primary {
             background-color: #007bff;
@@ -146,7 +147,7 @@ if (isset($_POST['update'])) {
             </div>
             <div class="form-group actions">
                 <button type="submit" name="update" class="btn btn-primary">Update</button>
-                <a href="Booking(admin).php" class="btn btn-danger">Cancel</a>
+                <a href="Booking(admin).php" id="danger" class="btn btn-danger">Cancel</a>
             </div>
         </form>
     </div>

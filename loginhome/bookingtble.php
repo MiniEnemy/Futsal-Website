@@ -66,17 +66,22 @@ $conn->close();
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
+        }
+        .container {
+            height: 390px;
+        }
+        .tbl{
+            text-align: center; 
         }
         table {
-            width: 70%;
             margin-bottom: 20px;
             border-collapse: collapse;
+            width: 100%;
         }
         table, th, td {
             border: 1px solid #ddd;
             padding: 8px;
-            text-align: left;
+            text-align: center;
         }
         th {
             background-color: #f2f2f2;
@@ -98,7 +103,12 @@ $conn->close();
             background-color: #e0e0e0;
         }
         .book-now {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .book-now p{
             margin-bottom: 20px;
+            display: inline-block;
         }
         .book-now a {
             text-decoration: none;
@@ -113,35 +123,33 @@ $conn->close();
     </style>
 </head>
 <body>
-
+<?php include"../header&footer/header.php"; ?>
+<div class="container">
 <div class="book-now">
-    <h2>Book Now</h2>
     <p>If you haven't made any bookings yet, you can book here:</p>
     <a href="booking.php">Book Here</a>
 </div>
 
-<div>
+<div class="tbl">
     <?php if (!empty($userData)): ?>
-        <h2>User Details and Bookings</h2>
         <table>
             <tr>
-                <th>ID</th>
+                <th>Username</th>
                 <th>Email</th>
                 <th>Phone</th>
-                <th>Username</th>
                 <th>Booking Date</th>
                 <th>Time</th>
                 <th>Action</th>
             </tr>
             <?php foreach ($userBookings as $booking): ?>
                 <tr>
-                    <td><?php echo htmlspecialchars($userData['ID']); ?></td>
+                    <td><?php echo htmlspecialchars($userData['Username']); ?></td>
                     <td><?php echo htmlspecialchars($userData['Email']); ?></td>
                     <td><?php echo htmlspecialchars($userData['Phone']); ?></td>
-                    <td><?php echo htmlspecialchars($userData['Username']); ?></td>
                     <td><?php echo htmlspecialchars($booking['Booking_Date']); ?></td>
                     <td><?php echo htmlspecialchars($booking['Time']); ?></td>
                     <td class="actions">
+                        <a href="edituser.php?editid-'$edit['ID']; ?>">Edit</a>
                         <a href="deletebook.php?id=<?php echo $booking['ID']; ?>">Delete</a>
                     </td>
                 </tr>
@@ -151,6 +159,8 @@ $conn->close();
         <p>User data not found.</p>
     <?php endif; ?>
 </div>
+</div>
 
+<?php include"../header&footer/footer.php"; ?>
 </body>
 </html>

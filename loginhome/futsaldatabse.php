@@ -34,7 +34,7 @@ if (isset($_POST['submit'])) {
 
         if ($conn->query($sql) === TRUE) {
             $_SESSION['success_message'] = "Booking successful! Redirecting...";
-            header("Location: success.php");
+            header("Location: bookingtble.php");
             exit();
         } else {
             $_SESSION['error_message'] = "Insertion failed: " . $conn->error;
