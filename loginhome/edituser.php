@@ -1,10 +1,7 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['username'])) {
-    header("Location: login.php");
-    exit();
-}
+
 
 $servername = "localhost";
 $username = "root";
@@ -21,6 +18,7 @@ $username = $_SESSION['username'];
 $userData = [];
 $userBookings = [];
 
+// Prepare and execute user data query
 $stmtUser = $conn->prepare("SELECT ID, Email, Phone, Username FROM user WHERE Username = ?");
 $stmtUser->bind_param("s", $username);
 $stmtUser->execute();
@@ -28,8 +26,12 @@ $resultUser = $stmtUser->get_result();
 
 if ($resultUser->num_rows > 0) {
     $userData = $resultUser->fetch_assoc();
+} else {
+    echo "No user data found.";
+    exit();
 }
 
+// Prepare and execute booking data query
 $stmtBooking = $conn->prepare("SELECT ID, Booking_Date, Time FROM booking WHERE Username = ?");
 $stmtBooking->bind_param("s", $username);
 $stmtBooking->execute();
@@ -43,29 +45,27 @@ if (isset($_POST['update'])) {
     $new_username = $_POST['username'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
+    $booking_date = $_POST['booking_date'];
+    $time = $_POST['time'];
 
-    $update_sql = "UPDATE `user` SET Username='$new_username', Email='$email', Phone='$phone' WHERE Username='$username'";
 
-    if ($conn->query($update_sql) === TRUE) {
-        $_SESSION['username'] = $new_username;
-        echo "User details updated successfully";
+        if (!empty($userBookings)) {
+            $booking_id = $userBookings[0]['ID'];
+            $stmtUpdateBooking = $conn->prepare("UPDATE `booking` SET Booking_Date = ?, Time = ? WHERE ID = ?");
+            $stmtUpdateBooking->bind_param("ssi", $booking_date, $time, $booking_id);
 
-        $booking_id = $userBookings[0]['ID'];
-        $booking_date = $_POST['booking_date'];
-        $time = $_POST['time'];
-
-        $update_booking_sql = "UPDATE `booking` SET Booking_Date='$booking_date', Time='$time' WHERE ID=$booking_id";
-
-        if (!$conn->query($update_booking_sql)) {
-            echo "Error updating booking details: " . $conn->error;
+            if ($stmtUpdateBooking->execute()) {
+                header("Location: bookingtble.php");
+                exit();
+            } else {
+                echo "Error updating booking details: " . $conn->error;
+            }
+        } else {
+            header("Location: bookingtble.php");
+            exit();
         }
-
-        header("Location: bookingtble.php");
-        exit();
-    } else {
-        echo "Error updating user details: " . $conn->error;
     }
-}
+
 
 $stmtUser->close();
 $stmtBooking->close();
@@ -109,7 +109,8 @@ $conn->close();
             border: 1px solid #ced4da;
             border-radius: 4px;
         }
-        .form-group button,#danger {
+        .form-group button,
+        #danger {
             padding: 10px 20px;
             border: none;
             border-radius: 4px;
@@ -142,15 +143,15 @@ $conn->close();
         <form action="" method="post">
             <div class="form-group">
                 <label for="username">Username</label>
-                <input type="text" id="username" name="username" value="<?= htmlspecialchars($userData['Username']) ?>" required>
+                <input type="text" id="username" name="username" value="<?= htmlspecialchars($userData['Username']) ?>" disabled>
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" value="<?= htmlspecialchars($userData['Email']) ?>" required>
+                <input type="email" id="email" name="email" value="<?= htmlspecialchars($userData['Email']) ?>" disabled>
             </div>
             <div class="form-group">
                 <label for="phone">Phone</label>
-                <input type="text" id="phone" name="phone" value="<?= htmlspecialchars($userData['Phone']) ?>" required>
+                <input type="text" id="phone" name="phone" value="<?= htmlspecialchars($userData['Phone']) ?>" disabled>
             </div>
             <?php if (!empty($userBookings)): ?>
             <div class="form-group">
@@ -174,7 +175,7 @@ $conn->close();
             <?php endif; ?>
             <div class="form-group actions">
                 <button type="submit" name="update" class="btn btn-primary">Update</button>
-                <a href="user_details.php" id="danger" class="btn btn-danger">Cancel</a>
+                <a href="bookingtble.php" id="danger" class="btn btn-danger">Cancel</a>
             </div>
         </form>
     </div>

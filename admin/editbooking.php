@@ -19,10 +19,10 @@ if (isset($_GET['editid'])) {
     $result = mysqli_query($conn, $sql);
 
     if ($result && mysqli_num_rows($result) > 0) {
-        $row = mysqli_fetch_assoc($result); 
+        $row = mysqli_fetch_assoc($result);
     } else {
-        echo "No booking found with ID: $id"; 
-        exit(); 
+        echo "No booking found with ID: $id";
+        exit();
     }
 }
 
@@ -32,6 +32,13 @@ if (isset($_POST['update'])) {
     $phone = $_POST['phone'];
     $booking_date = $_POST['booking_date'];
     $time = $_POST['time'];
+
+    // Server-side date validation
+    $current_date = date('Y-m-d');
+    if ($booking_date < $current_date) {
+        echo "Error: Booking date cannot be before the current date.";
+        exit();
+    }
 
     $update_sql = "UPDATE `booking` SET Username='$username', Email='$email', Phone='$phone', Booking_Date='$booking_date', Time='$time' WHERE ID=$id";
 
@@ -113,7 +120,7 @@ if (isset($_POST['update'])) {
 <body>
     <div class="container">
         <h2>Edit Booking</h2>
-        <form action="" method="post">
+        <form action="" method="post" onsubmit="return validateForm()">
             <div class="form-group">
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" value="<?= isset($row['Username']) ? $row['Username'] : '' ?>" required>
@@ -151,5 +158,20 @@ if (isset($_POST['update'])) {
             </div>
         </form>
     </div>
+    <script>
+        // Set minimum booking date to today
+        var bookingDateInput = document.getElementById('booking_date');
+        var today = new Date().toISOString().split('T')[0];
+        bookingDateInput.setAttribute('min', today);
+
+        function validateForm() {
+            var bookingDate = document.getElementById('booking_date').value;
+            if (new Date(bookingDate) < new Date(today)) {
+                alert("Booking date cannot be before today's date.");
+                return false;
+            }
+            return true;
+        }
+    </script>
 </body>
 </html>

@@ -32,7 +32,7 @@ $deleteStmt->bind_param("i", $bookingID);
 
 if ($deleteStmt->execute()) {
 
-    header("Location: bookingtbl.php");
+    header("Location: bookingtble.php");
     exit();
 } else {
     echo "Error deleting booking: " . $conn->error;
