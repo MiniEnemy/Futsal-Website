@@ -1,12 +1,12 @@
 form {
     width: 500px;
     margin-left: 530px;
-    height: 600px;
+    min-height: 700px;
     margin-top: 100px;
     
 }
 
-.elem-group {
+.elem-group,#check {
     margin-bottom: 20px;
 }
 label {
@@ -19,7 +19,6 @@ select{
     width: 105%;
     padding: 10px;
     font-size: 14px;
-
 }
 
 input {
@@ -48,10 +47,10 @@ button:hover {
     color: red;
     font-size: 20px;
 }
-#time{
+#start-time, #end-time{
     width: 100%;
 }
-#booking-date,#time,#phone,#name,#email{
+#booking-date,#start-time,#end-time,#phone,#name,#email{
 border: 1px solid black;
 border-radius: 4px;
 }

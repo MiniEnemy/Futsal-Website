@@ -678,7 +678,7 @@ $result = mysqli_query($conn, $sql);
                     <div class="nav-option logout">
                         <img src="../img/logout.png"
                             class="nav-img" alt="logout">
-                            <a class="nav-option logout" href="../Index.php"><h3>Logout</h3></a>
+                            <a class="nav-option logout" href="../mainpage/Index.php"><h3>Logout</h3></a>
                     </div>
                 </div>
             </nav>

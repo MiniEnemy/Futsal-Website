@@ -21,10 +21,9 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Retrieve logged-in user's username from session
+
 $username = $_SESSION['username'];
 
-// Initialize variables to store user data and bookings
 $userData = [];
 $userBookings = [];
 
@@ -68,7 +67,7 @@ $conn->close();
             font-family: Arial, sans-serif;
         }
         .container {
-            height: 390px;
+            min-height: 400px;
         }
         .tbl{
             text-align: center; 

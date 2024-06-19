@@ -1,8 +1,6 @@
 <?php
 session_start();
 
-
-
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -41,36 +39,62 @@ if ($resultBooking->num_rows > 0) {
     $userBookings = $resultBooking->fetch_all(MYSQLI_ASSOC);
 }
 
+// Function to check for overlap
+// Function to check for overlap
+function checkOverlap($conn, $booking_id, $new_start_time, $new_end_time, $booking_date) {
+    // Convert new time range to DateTime objects for comparison
+    $new_start = new DateTime($booking_date . ' ' . $new_start_time);
+    $new_end = new DateTime($booking_date . ' ' . $new_end_time);
+
+    // Prepare query to check for overlapping bookings
+    $stmtOverlap = $conn->prepare("SELECT ID FROM booking WHERE ID <> ? AND Booking_Date = ? AND ((Time >= ? AND Time < ?) OR (Time <= ? AND ? < Time))");
+    $stmtOverlap->bind_param("isssss", $booking_id, $booking_date, $new_start_time, $new_end_time, $new_start_time, $new_end_time);
+    $stmtOverlap->execute();
+    $resultOverlap = $stmtOverlap->get_result();
+
+    if ($resultOverlap->num_rows > 0) {
+        return true; // Overlap found
+    } else {
+        return false; // No overlap
+    }
+}
+
+// Handle form submission
 if (isset($_POST['update'])) {
-    $new_username = $_POST['username'];
-    $email = $_POST['email'];
-    $phone = $_POST['phone'];
-    $booking_date = $_POST['booking_date'];
-    $time = $_POST['time'];
+    $new_start_time = $_POST['start_time'];
+    $new_end_time = $_POST['end_time'];
+    $booking_date = $userBookings[0]['Booking_Date']; // Assuming booking date is fetched and stored
 
+    if (!empty($userBookings)) {
+        $booking_id = $userBookings[0]['ID'];
 
-        if (!empty($userBookings)) {
-            $booking_id = $userBookings[0]['ID'];
-            $stmtUpdateBooking = $conn->prepare("UPDATE `booking` SET Booking_Date = ?, Time = ? WHERE ID = ?");
-            $stmtUpdateBooking->bind_param("ssi", $booking_date, $time, $booking_id);
+        // Check for overlap
+        if (checkOverlap($conn, $booking_id, $new_start_time, $new_end_time, $booking_date)) {
+            $error_message = "Error: The selected time range overlaps with an existing booking.";
+        } else {
+            // Update the booking
+            $stmtUpdateBooking = $conn->prepare("UPDATE `booking` SET Time = ? WHERE ID = ?");
+            $new_time_range = $new_start_time . '-' . $new_end_time;
+            $stmtUpdateBooking->bind_param("si", $new_time_range, $booking_id);
 
             if ($stmtUpdateBooking->execute()) {
                 header("Location: bookingtble.php");
                 exit();
             } else {
-                echo "Error updating booking details: " . $conn->error;
+                $error_message = "Error updating booking details: " . $conn->error;
             }
-        } else {
-            header("Location: bookingtble.php");
-            exit();
         }
+    } else {
+        header("Location: bookingtble.php");
+        exit();
     }
-
+}
 
 $stmtUser->close();
 $stmtBooking->close();
 $conn->close();
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -135,6 +159,9 @@ $conn->close();
         .actions {
             text-align: center;
         }
+        .text-danger {
+            color: red;
+        }
     </style>
 </head>
 <body>
@@ -154,25 +181,52 @@ $conn->close();
                 <input type="text" id="phone" name="phone" value="<?= htmlspecialchars($userData['Phone']) ?>" disabled>
             </div>
             <?php if (!empty($userBookings)): ?>
-            <div class="form-group">
-                <label for="booking_date">Booking Date</label>
-                <input type="date" id="booking_date" name="booking_date" value="<?= htmlspecialchars($userBookings[0]['Booking_Date']) ?>" required>
-            </div>
-            <div class="form-group">
-                <label for="time">Time</label>
-                <select name="time" id="time" required>
-                    <option value="08:00-09:00" <?= ($userBookings[0]['Time'] == '08:00-09:00') ? 'selected' : '' ?>>08:00 AM - 09:00 AM</option>
-                    <option value="09:00-10:00" <?= ($userBookings[0]['Time'] == '09:00-10:00') ? 'selected' : '' ?>>09:00 AM - 10:00 AM</option>
-                    <option value="10:00-11:00" <?= ($userBookings[0]['Time'] == '10:00-11:00') ? 'selected' : '' ?>>10:00 AM - 11:00 AM</option>
-                    <option value="11:00-12:00" <?= ($userBookings[0]['Time'] == '11:00-12:00') ? 'selected' : '' ?>>11:00 AM - 12:00 PM</option>
-                    <option value="12:00-13:00" <?= ($userBookings[0]['Time'] == '12:00-13:00') ? 'selected' : '' ?>>12:00 PM - 01:00 PM</option>
-                    <option value="13:00-14:00" <?= ($userBookings[0]['Time'] == '13:00-14:00') ? 'selected' : '' ?>>01:00 PM - 02:00 PM</option>
-                    <option value="14:00-15:00" <?= ($userBookings[0]['Time'] == '14:00-15:00') ? 'selected' : '' ?>>02:00 PM - 03:00 PM</option>
-                    <option value="15:00-16:00" <?= ($userBookings[0]['Time'] == '15:00-16:00') ? 'selected' : '' ?>>03:00 PM - 04:00 PM</option>
-                    <option value="16:00-17:00" <?= ($userBookings[0]['Time'] == '16:00-17:00') ? 'selected' : '' ?>>04:00 PM - 05:00 PM</option>
-                </select>
-            </div>
+                <div class="form-group">
+                    <label for="booking_date">Booking Date</label>
+                    <input type="date" id="booking_date" name="booking_date" value="<?= htmlspecialchars($userBookings[0]['Booking_Date']) ?>" disabled>
+                </div>
+                <?php 
+                    // Splitting existing time range to show start and end time
+                    $existingTimeRange = explode('-', $userBookings[0]['Time']);
+                    $existingStartTime = $existingTimeRange[0];
+                    $existingEndTime = $existingTimeRange[1];
+                ?>
+                <div class="form-group">
+                    <label for="start_time">Start Time</label>
+                    <select name="start_time" id="start_time" required>
+                        <?php
+                        // Generate options for start time from 8:00 AM to 4:45 PM in 15-minute intervals
+                        $start = new DateTime("08:00");
+                        $end = new DateTime("17:00");
+                        while ($start <= $end) {
+                            $time = $start->format("H:i");
+                            echo '<option value="' . $time . '" ' . ($existingStartTime == $time ? 'selected' : '') . '>' . $time . '</option>';
+                            $start->modify("+15 minutes");
+                        }
+                        ?>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="end_time">End Time</label>
+                    <select name="end_time" id="end_time" required>
+                        <?php
+                        // Generate options for end time from 8:15 AM to 5:00 PM in 15-minute intervals
+                        $start = new DateTime("08:15");
+                        $end = new DateTime("17:00");
+                        while ($start <= $end) {
+                            $time = $start->format("H:i");
+                            echo '<option value="' . $time . '" ' . ($existingEndTime == $time ? 'selected' : '') . '>' . $time . '</option>';
+                            $start->modify("+15 minutes");
+                        }
+                        ?>
+                    </select>
+                </div>
             <?php endif; ?>
+            <div class="form-group">
+                <?php if (isset($error_message)): ?>
+                    <p class="text-danger"><?= $error_message ?></p>
+                <?php endif; ?>
+            </div>
             <div class="form-group actions">
                 <button type="submit" name="update" class="btn btn-primary">Update</button>
                 <a href="bookingtble.php" id="danger" class="btn btn-danger">Cancel</a>
