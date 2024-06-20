@@ -3,7 +3,6 @@ if (!session_id()) {
     session_start();
 }
 
-
 $servername = "localhost";
 $dbUsername = "root";
 $dbPassword = "";
@@ -19,49 +18,51 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
+    // Check admin credentials
+    $sqlAdmin = "SELECT * FROM admin WHERE Username = ?";
+    $stmtAdmin = $conn->prepare($sqlAdmin);
+    $stmtAdmin->bind_param("s", $username);
+    $stmtAdmin->execute();
+    $resultAdmin = $stmtAdmin->get_result();
 
-    if ($username === 'owner' && $password === 'owner') {
-
-        header("Location: ../admin/admin.php");
-        exit();
+    if ($resultAdmin->num_rows > 0) {
+        $rowAdmin = $resultAdmin->fetch_assoc();
+        if ($password == $rowAdmin['Password']) {
+            // Admin login successful
+            $_SESSION['username'] = $username;
+            $_SESSION['userEmail'] = $rowAdmin['Email'];
+            $_SESSION['userPhone'] = $rowAdmin['Phone'];
+            header("Location: ../admin/admin.php");
+            exit();
+        }
     }
 
- 
-    $sql = "SELECT * FROM user WHERE Username = '$username'";
-    $result = $conn->query($sql);
+    // Check user credentials
+    $sqlUser = "SELECT * FROM user WHERE Username = ?";
+    $stmtUser = $conn->prepare($sqlUser);
+    $stmtUser->bind_param("s", $username);
+    $stmtUser->execute();
+    $resultUser = $stmtUser->get_result();
 
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        
-        if (password_verify($password, $row['Password'])) {
-            
+    if ($resultUser->num_rows > 0) {
+        $rowUser = $resultUser->fetch_assoc();
+        if (password_verify($password, $rowUser['Password'])) {
+            // User login successful
             $_SESSION['username'] = $username;
-            $_SESSION['userEmail'] = $row['Email'];
-            $_SESSION['userPhone'] = $row['Phone'];
-
-      
+            $_SESSION['userEmail'] = $rowUser['Email'];
+            $_SESSION['userPhone'] = $rowUser['Phone'];
             header("Location: ../loginhome/loggedin.php");
             exit();
-        } else {
-            
-            echo "<script>
-                    alert('Invalid username or password.');
-                    window.location.href = './login.php';
-                  </script>";
         }
-    } else {
-        
-        echo "<script>
-                alert('Invalid username or password.');
-                window.location.href = './login.php';
-              </script>";
     }
+
+    // Redirect back to login on failure without an error message
+    header("Location: ./login.php");
+    exit();
 }
 
 $conn->close();
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -74,18 +75,18 @@ $conn->close();
     <h2>Update User Information</h2>
     <form action="" method="post">
         <label for="username">Username:</label><br>
-        <input type="text" id="username" name="username" value="<?php echo $username; ?>"><br>
+        <input type="text" id="username" name="username" value="<?php echo isset($username) ? $username : ''; ?>"><br>
         
         <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" value="<?php echo $email; ?>"><br>
+        <input type="email" id="email" name="email" value="<?php echo isset($email) ? $email : ''; ?>"><br>
         
         <label for="phone">Phone:</label><br>
-        <input type="text" id="phone" name="phone" value="<?php echo $phone; ?>"><br>
+        <input type="text" id="phone" name="phone" value="<?php echo isset($phone) ? $phone : ''; ?>"><br>
         
         <label for="password">Password:</label><br>
         <input type="password" id="password" name="password" placeholder="Enter new password if you want to change it"><br>
         
-        <input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
+        <input type="hidden" name="user_id" value="<?php echo isset($user_id) ? $user_id : ''; ?>">
         <input type="submit" value="Submit">
     </form>
 </body>
