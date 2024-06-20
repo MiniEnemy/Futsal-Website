@@ -51,16 +51,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($checkResult->num_rows > 0) {
         $error_message = "Username or Email already exists.";
     } else {
-        $sql = "UPDATE user SET Username='$newUsername', Email='$newEmail', Phone='$newPhone', Password='$hashedPassword' WHERE ID='$user_id'";
+        $conn->begin_transaction();
 
-        if ($conn->query($sql) === TRUE) {
+        try {
+            $updateUserSql = "UPDATE user SET Username='$newUsername', Email='$newEmail', Phone='$newPhone', Password='$hashedPassword' WHERE ID='$user_id'";
+            $conn->query($updateUserSql);
+
+            $updateBookingSql = "UPDATE booking SET Username='$newUsername', Email='$newEmail', Phone='$newPhone' WHERE Username='$username'";
+            $conn->query($updateBookingSql);
+
+            $conn->commit();
+
             $_SESSION['username'] = $newUsername;
             $_SESSION['userEmail'] = $newEmail;
             $_SESSION['userPhone'] = $newPhone;
 
             header("Location: ../loginhome/loggedin.php");
             exit();
-        } else {
+        } catch (Exception $e) {
+            $conn->rollback();
             $error_message = "Error updating record: " . $conn->error;
         }
     }
@@ -76,6 +85,12 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update User Information</title>
     <link rel="stylesheet" href="../css/update.css">
+    <style>
+        .error {
+            color: red;
+            margin-top: 5px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -83,20 +98,27 @@ $conn->close();
         <?php if (isset($error_message)): ?>
             <div class="error"><?php echo $error_message; ?></div>
         <?php endif; ?>
-        <div class="error" id="error-message"></div>
         <form id="updateForm" action="" method="post">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" value="<?php echo htmlspecialchars($username); ?>">
-
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($email); ?>">
-
-            <label for="phone">Phone:</label>
-            <input type="text" id="phone" name="phone" value="<?php echo htmlspecialchars($phone); ?>">
-
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" placeholder="Enter new password if you want to change it">
-
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" value="<?php echo htmlspecialchars($username); ?>">
+                <div class="error" id="username-error"></div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($email); ?>">
+                <div class="error" id="email-error"></div>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="text" id="phone" name="phone" value="<?php echo htmlspecialchars($phone); ?>">
+                <div class="error" id="phone-error"></div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Enter new password if you want to change it">
+                <div class="error" id="password-error"></div>
+            </div>
             <input type="hidden" name="user_id" value="<?php echo htmlspecialchars($user_id); ?>">
             <input type="submit" value="Submit">
         </form>
@@ -105,7 +127,6 @@ $conn->close();
     <script>
     document.addEventListener("DOMContentLoaded", () => {
         const form = document.getElementById("updateForm");
-        const errorMessage = document.getElementById("error-message");
 
         form.addEventListener("submit", (e) => {
             const newUsername = document.getElementById("username").value;
@@ -113,20 +134,37 @@ $conn->close();
             const newPhone = document.getElementById("phone").value;
             const newPassword = document.getElementById("password").value;
 
-            errorMessage.textContent = "";
+            const usernameError = document.getElementById("username-error");
+            const emailError = document.getElementById("email-error");
+            const phoneError = document.getElementById("phone-error");
+            const passwordError = document.getElementById("password-error");
+
+            usernameError.textContent = "";
+            emailError.textContent = "";
+            phoneError.textContent = "";
+            passwordError.textContent = "";
+
+            let valid = true;
 
             if (!validateUsername(newUsername)) {
+                usernameError.textContent = "Username must be alphanumeric and between 3 and 20 characters.";
+                valid = false;
+            }
+            if (!validateEmail(newEmail)) {
+                emailError.textContent = "Please enter a valid email address.";
+                valid = false;
+            }
+            if (!validatePhone(newPhone)) {
+                phoneError.textContent = "Please enter a valid phone number.";
+                valid = false;
+            }
+            if (newPassword !== "" && !validatePassword(newPassword)) {
+                passwordError.textContent = "Password must be at least 8 characters long.";
+                valid = false;
+            }
+
+            if (!valid) {
                 e.preventDefault();
-                errorMessage.textContent = "Username must be alphanumeric and between 3 and 20 characters.";
-            } else if (!validateEmail(newEmail)) {
-                e.preventDefault();
-                errorMessage.textContent = "Please enter a valid email address.";
-            } else if (!validatePhone(newPhone)) {
-                e.preventDefault();
-                errorMessage.textContent = "Please enter a valid phone number.";
-            } else if (newPassword !== "" && !validatePassword(newPassword)) {
-                e.preventDefault();
-                errorMessage.textContent = "Password must be at least 8 characters long.";
             }
         });
 
