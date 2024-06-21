@@ -675,6 +675,11 @@ $result = mysqli_query($conn, $sql);
                             class="nav-img" alt="blog">
                             <a class="option3 nav-option" href="booking(admin).php"><h3>Booking</h3></a>
                     </div>
+                    <div class="nav-option logs">
+                        <img src="../img/logout.png"
+                            class="nav-img" alt="logs">
+                            <a class="nav-option logout" href="admin_logs.php"><h3>Logs</h3></a>
+                    </div>
                     <div class="nav-option logout">
                         <img src="../img/logout.png"
                             class="nav-img" alt="logout">

@@ -1,27 +1,47 @@
 <?php
-include 'connect.php';
+session_start();
 
-$id = $_GET['editid'] ?? 0; 
+// Include your database connection file
+include 'connect.php';
+// Include your logging function file
+include 'log_function.php';
+
+// Function to get current admin ID (replace with your actual implementation)
+function get_current_admin_id() {
+    // Example implementation, replace with your actual method of getting admin ID
+    return $_SESSION['admin_id'] ?? 0; // Assuming admin_id is stored in session
+}
+
+// Check if editid is set in URL
+$id = $_GET['editid'] ?? 0;
+
+// Fetch existing user details from the database
 $sql = "SELECT * FROM user WHERE id = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $id);
 $stmt->execute();
 $result = $stmt->get_result();
 $row = $result->fetch_assoc();
+
+// Store old values for logging purposes
 $old_name = $row['Username'] ?? '';
 $old_email = $row['Email'] ?? '';
 $old_phone = $row['Phone'] ?? '';
 
+// Initialize variables for form values
 $name = $old_name;
 $email = $old_email;
 $phone = $old_phone;
 
+// Handle form submission
 if (isset($_POST['submit'])) {
     $name = $_POST['username'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
 
+    // Start transaction
     $conn->begin_transaction();
+
     try {
         // Update user table
         $sql = "UPDATE user SET Username=?, Email=?, Phone=? WHERE ID=?";
@@ -29,23 +49,28 @@ if (isset($_POST['submit'])) {
         $stmt->bind_param("sssi", $name, $email, $phone, $id);
         $stmt->execute();
 
-        // Update booking table
-        $sql = "UPDATE booking SET Username=?, Email=?, Phone=? WHERE Username=? AND Email=? AND Phone=?";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("ssssss", $name, $email, $phone, $old_name, $old_email, $old_phone);
-        $stmt->execute();
+        // Log admin activity
+        $admin_id = get_current_admin_id();
+        $action = "Update User";
+        $details = "User ID: $id, Original: Name=$old_name, Email=$old_email, Phone=$old_phone; Updated: Name=$name, Email=$email, Phone=$phone";
+        log_admin_activity($admin_id, $action, $details);
 
+        // Commit transaction
         $conn->commit();
 
+        // Redirect after successful update
         header("Location: customer.php");
         exit();
     } catch (Exception $e) {
+        // Rollback transaction on error
         $conn->rollback();
         echo "Error: " . $e->getMessage();
     }
 }
-?>
 
+$stmt->close();
+$conn->close();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

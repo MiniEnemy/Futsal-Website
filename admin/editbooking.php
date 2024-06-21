@@ -58,6 +58,21 @@ function checkOverlap($conn, $booking_id, $new_start_time, $new_end_time, $booki
     }
 }
 
+// Function to log admin activity with booking times
+function log_admin_activity($admin_id, $action, $details, $old_time_range = null, $new_time_range = null) {
+    $log_file = 'admin_activity.log';
+    $timestamp = date('Y-m-d H:i:s');
+    $log_entry = "$timestamp | Admin ID: $admin_id | $action | Details: $details";
+    
+    // Append old and new time ranges if provided
+    if ($old_time_range !== null && $new_time_range !== null) {
+        $log_entry .= " | Old Time: $old_time_range | New Time: $new_time_range";
+    }
+    
+    $log_entry .= PHP_EOL;
+    file_put_contents($log_file, $log_entry, FILE_APPEND | LOCK_EX);
+}
+
 // Handle form submission
 if (isset($_POST['update'])) {
     $new_start_time = $_POST['start_time'];
@@ -66,6 +81,7 @@ if (isset($_POST['update'])) {
 
     if (!empty($userBookings)) {
         $booking_id = $userBookings[0]['ID'];
+        $existingTimeRange = $userBookings[0]['Time']; // Existing time range
 
         // Check for overlap
         if (checkOverlap($conn, $booking_id, $new_start_time, $new_end_time, $booking_date)) {
@@ -77,6 +93,12 @@ if (isset($_POST['update'])) {
             $stmtUpdateBooking->bind_param("si", $new_time_range, $booking_id);
 
             if ($stmtUpdateBooking->execute()) {
+                // Log admin activity with old and new time ranges
+                $admin_id = $_SESSION['Admin_ID']; // Replace with actual admin ID retrieval method
+                $action = "Update Booking";
+                $details = "Booking ID: $booking_id";
+                log_admin_activity($admin_id, $action, $details, $existingTimeRange, $new_time_range);
+
                 header("Location: Booking(admin).php");
                 exit();
             } else {
@@ -93,7 +115,6 @@ $stmtUser->close();
 $stmtBooking->close();
 $conn->close();
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
