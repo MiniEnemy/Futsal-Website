@@ -1,1 +1,8 @@
-[2024-06-22 08:24:51] Admin ID:  - Action: Delete User - Details: Deleted user with ID: 41 and username: dosa
+2024-06-22 09:21:09 | Admin ID: 0 | Action: Update User | Details: User ID: 42, Original: Name=dosa, Email=yonda@gmail.com, Phone=9863249771; Updated: Name=dosa, Email=yonda@gmail.com, Phone=9863249771
+2024-06-22 09:24:50 | Admin ID: 0 | Action: Update User | Details: User ID: 42, Original: Name=dosa, Email=yonda@gmail.com, Phone=9863249771; Updated: Name=ram, Email=yonda@gmail.com, Phone=9863249771
+2024-06-22 09:25:07 | Admin ID: 0 | Action: Update User | Details: User ID: 42, Original: Name=ram, Email=yonda@gmail.com, Phone=9863249771; Updated: Name=dosa, Email=yonda@gmail.com, Phone=9863249771
+2024-06-22 09:28:31 | Admin ID: 0 | Action: Update User | Details: User ID: 42, Original: Name=dosa, Email=yonda@gmail.com, Phone=9863249771; Updated: Name=ram, Email=yonda@gmail.com, Phone=9863249771
+2024-06-22 09:30:39 | Admin ID: 0 | Action: Update User | Details: User ID: 42, Original: Name=ram, Email=yonda@gmail.com, Phone=9863249771; Updated: Name=ram2, Email=yonda@gmail.com, Phone=9863249771
+2024-06-22 09:35:13 | Admin ID: 0 | Action: Update User | Details: User ID: 42, Original: Name=ram2, Email=yonda@gmail.com, Phone=9863249771; Updated: Name=ram, Email=yonda@gmail.com, Phone=9863249771
+2024-06-22 09:39:34 | Admin ID: 0 | Action: Update User | Details: User ID: 42, Original: Name=ram, Email=yonda@gmail.com, Phone=9863249771; Updated: Name=dosa, Email=yonda@gmail.com, Phone=9863249771
+2024-06-22 09:40:47 | Admin ID: 0 | Action: Update User | Details: User ID: 42, Original: Name=dosa, Email=yonda@gmail.com, Phone=9863249771; Updated: Name=ram, Email=yonda@gmail.com, Phone=9863249771

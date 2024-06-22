@@ -16,17 +16,17 @@ function get_current_admin_id() {
 $id = $_GET['editid'] ?? 0;
 
 // Fetch existing user details from the database
-$sql = "SELECT * FROM user WHERE id = ?";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("i", $id);
-$stmt->execute();
-$result = $stmt->get_result();
-$row = $result->fetch_assoc();
+$sqlUser = "SELECT * FROM user WHERE id = ?";
+$stmtUser = $conn->prepare($sqlUser);
+$stmtUser->bind_param("i", $id);
+$stmtUser->execute();
+$resultUser = $stmtUser->get_result();
+$rowUser = $resultUser->fetch_assoc();
 
 // Store old values for logging purposes
-$old_name = $row['Username'] ?? '';
-$old_email = $row['Email'] ?? '';
-$old_phone = $row['Phone'] ?? '';
+$old_name = $rowUser['Username'] ?? '';
+$old_email = $rowUser['Email'] ?? '';
+$old_phone = $rowUser['Phone'] ?? '';
 
 // Initialize variables for form values
 $name = $old_name;
@@ -44,10 +44,16 @@ if (isset($_POST['submit'])) {
 
     try {
         // Update user table
-        $sql = "UPDATE user SET Username=?, Email=?, Phone=? WHERE ID=?";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("sssi", $name, $email, $phone, $id);
-        $stmt->execute();
+        $sqlUpdateUser = "UPDATE user SET Username=?, Email=?, Phone=? WHERE ID=?";
+        $stmtUpdateUser = $conn->prepare($sqlUpdateUser);
+        $stmtUpdateUser->bind_param("sssi", $name, $email, $phone, $id);
+        $stmtUpdateUser->execute();
+
+        // Update booking table where Username matches old_name
+        $sqlUpdateBooking = "UPDATE booking SET Username=? WHERE Username=?";
+        $stmtUpdateBooking = $conn->prepare($sqlUpdateBooking);
+        $stmtUpdateBooking->bind_param("ss", $name, $old_name); // Update bookings where old username matches
+        $stmtUpdateBooking->execute();
 
         // Log admin activity
         $admin_id = get_current_admin_id();
@@ -68,7 +74,7 @@ if (isset($_POST['submit'])) {
     }
 }
 
-$stmt->close();
+$stmtUser->close();
 $conn->close();
 ?>
 <!DOCTYPE html>

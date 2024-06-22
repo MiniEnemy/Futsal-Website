@@ -56,38 +56,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    // Redirect back to login on failure without an error message
+    // If no successful login attempt, set an error message
+    $_SESSION['error_message'] = "Invalid username or password. Please try again.";
+
     header("Location: ./login.php");
     exit();
 }
 
 $conn->close();
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update User Information</title>
-</head>
-<body>
-    <h2>Update User Information</h2>
-    <form action="" method="post">
-        <label for="username">Username:</label><br>
-        <input type="text" id="username" name="username" value="<?php echo isset($username) ? $username : ''; ?>"><br>
-        
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" value="<?php echo isset($email) ? $email : ''; ?>"><br>
-        
-        <label for="phone">Phone:</label><br>
-        <input type="text" id="phone" name="phone" value="<?php echo isset($phone) ? $phone : ''; ?>"><br>
-        
-        <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password" placeholder="Enter new password if you want to change it"><br>
-        
-        <input type="hidden" name="user_id" value="<?php echo isset($user_id) ? $user_id : ''; ?>">
-        <input type="submit" value="Submit">
-    </form>
-</body>
-</html>

@@ -117,7 +117,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
             $bookedStart = new DateTime($bookedStartTime);
             $bookedEnd = new DateTime($bookedEndTime);
 
-            if (($start >= $bookedStart && $start < $bookedEnd) || ($end > $bookedStart && $end <= $bookedEnd) || ($start <= $bookedStart && $end >= $bookedEnd)) {
+            if (($start >= $bookedStart && $start < $bookedEnd) || ($end > $bookedStart && $end < $bookedEnd) || ($start <= $bookedStart && $end >= $bookedEnd)) {
                 $_SESSION['error_message'] = "Selected time range is already booked. Please choose another time.";
                 header("Location: booking.php");
                 exit();
