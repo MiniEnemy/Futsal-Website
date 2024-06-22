@@ -733,7 +733,7 @@ $result = mysqli_query($conn, $sql);
                     echo "<td>" . $row["Booking_Date"] . "</td>";
                     echo "<td>" . $row["TIme"] . "</td>";
                     echo "<td>";
-                    echo '<a href="editbooking.php?editid='. $row["ID"].'" class="btn btn-edit">Edit</a>';
+                    echo '<a href="editbooking.php?username=' . urlencode($row["Username"]) . '" class="btn btn-edit">Edit</a>';
                     echo '<a href="delete-admin.php?deleteid=' . $row["ID"] . '" class="btn btn-danger">Delete</a>';;
                     echo "</td>";
                     echo "</tr>";

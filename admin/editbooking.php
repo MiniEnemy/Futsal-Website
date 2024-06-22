@@ -12,7 +12,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$username = $_SESSION['username'];
+$username = isset($_GET['username']) ? $_GET['username'] : '';
 $userData = [];
 $userBookings = [];
 
@@ -185,11 +185,32 @@ $conn->close();
             color: red;
         }
     </style>
+    <script>
+        function validateTime() {
+            const startTime = document.getElementById('start_time').value;
+            const endTime = document.getElementById('end_time').value;
+            const start = new Date('1970-01-01T' + startTime + 'Z');
+            const end = new Date('1970-01-01T' + endTime + 'Z');
+
+            if (start >= end) {
+                alert('End time must be later than start time.');
+                return false;
+            }
+
+            const difference = (end - start) / (1000 * 60 * 60); // Difference in hours
+            if (difference < 1) {
+                alert('The difference between start time and end time must be at least one hour.');
+                return false;
+            }
+
+            return true;
+        }
+    </script>
 </head>
 <body>
     <div class="container">
         <h2>Edit Booking Details</h2>
-        <form action="" method="post">
+        <form action="" method="post" onsubmit="return validateTime()">
             <div class="form-group">
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" value="<?= htmlspecialchars($userData['Username']) ?>" disabled>

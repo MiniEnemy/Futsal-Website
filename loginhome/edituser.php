@@ -68,6 +68,8 @@ if (isset($_POST['update'])) {
     // Validate start and end time
     if (strtotime($new_start_time) >= strtotime($new_end_time)) {
         $error_message = "Error: Start time must be earlier than end time.";
+    } elseif ((strtotime($new_end_time) - strtotime($new_start_time)) < 3600) { // Check for at least 1 hour difference
+        $error_message = "Error: The difference between start time and end time must be at least one hour.";
     } else {
         if (!empty($userBookings)) {
             $booking_id = $userBookings[0]['ID'];
@@ -167,11 +169,32 @@ $conn->close();
             color: red;
         }
     </style>
+    <script>
+        function validateTime() {
+            const startTime = document.getElementById('start_time').value;
+            const endTime = document.getElementById('end_time').value;
+            const start = new Date('1970-01-01T' + startTime + 'Z');
+            const end = new Date('1970-01-01T' + endTime + 'Z');
+
+            if (start >= end) {
+                alert('End time must be later than start time.');
+                return false;
+            }
+
+            const difference = (end - start) / (1000 * 60 * 60); // Difference in hours
+            if (difference < 1) {
+                alert('The difference between start time and end time must be at least one hour.');
+                return false;
+            }
+
+            return true;
+        }
+    </script>
 </head>
 <body>
     <div class="container">
         <h2>Edit User Details</h2>
-        <form action="" method="post">
+        <form action="" method="post" onsubmit="return validateTime()">
             <div class="form-group">
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" value="<?= htmlspecialchars($userData['Username']) ?>" disabled>

@@ -660,6 +660,11 @@
                             class="nav-img" alt="blog">
                             <a class="option3 nav-option" href="booking(admin).php"><h3>Booking</h3></a>
                     </div>
+                    <div class="nav-option logs">
+                        <img src="../img/logout.png"
+                            class="nav-img" alt="logs">
+                            <a class="nav-option logout" href="admin_logs.php"><h3>Logs</h3></a>
+                    </div>
                     <div class="nav-option logout">
                         <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/7.png"
                             class="nav-img" alt="logout">

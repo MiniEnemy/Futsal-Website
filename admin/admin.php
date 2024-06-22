@@ -601,7 +601,12 @@
                     <div class="nav-option option5">
                         <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183323/10.png"
                             class="nav-img" alt="blog">
-                            <a class="option3 nav-option" href="customer.php"><h3>Booking</h3></a>
+                            <a class="option3 nav-option" href="Booking(admin).php"><h3>Booking</h3></a>
+                    </div>
+                    <div class="nav-option logs">
+                        <img src="../img/logout.png"
+                            class="nav-img" alt="logs">
+                            <a class="nav-option logout" href="admin_logs.php"><h3>Logs</h3></a>
                     </div>
                     <div class="nav-option logout">
                         <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/7.png"
@@ -638,9 +643,7 @@
                             <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182538/2.png"
                                 alt="">
                             <div class="text">
-                                <a class="topic-heading"href="Booking(admin).php" >
-                                    <div class="topic-heading">Bookings</div>
-                                </a>
+                            <div class="topic-heading"><a href="Booking(admin).php" class="topic-heading">Bookings</a></div>
                                 <div class="topic">Go on click</div>
                             </div>
                         </div>
