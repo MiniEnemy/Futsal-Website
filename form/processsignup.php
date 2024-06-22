@@ -18,12 +18,16 @@ $password = password_hash($_POST['pass'], PASSWORD_DEFAULT);
 $checkSql = "SELECT * FROM user WHERE Email = '$email' OR Username = '$username'";
 $checkResult = $conn->query($checkSql);
 
-if ($checkResult->num_rows > 0) {
+$checkAdminSql = "SELECT * FROM admin WHERE Email = '$email' OR Username = '$username'";
+$checkAdminResult = $conn->query($checkAdminSql);
+
+if ($checkResult->num_rows > 0 || $checkAdminResult->num_rows > 0) {
 
     echo "<script>alert('Email or username already exists.');</script>";
     echo "<script>window.location.href = './sign-up.php';</script>";
     exit();
-} else {
+}
+    else{
     $sql = "INSERT INTO user ( Email, Phone, Username, Password)
             VALUES ('$email', '$phone', '$username', '$password')";
 
@@ -33,7 +37,7 @@ if ($checkResult->num_rows > 0) {
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
-}
+    }
 
 $conn->close();
 

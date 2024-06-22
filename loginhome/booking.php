@@ -136,7 +136,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
             header("Location: booking.php");
             exit();
         }
-
         $conn->close();
     } else {
         $_SESSION['error_message'] = "All fields are required.";
