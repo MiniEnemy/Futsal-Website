@@ -15,6 +15,7 @@ if ($conn->connect_error) {
 $username = $_SESSION['username'];
 $userData = [];
 $userBookings = [];
+$error_message = '';
 
 // Prepare and execute user data query
 $stmtUser = $conn->prepare("SELECT ID, Email, Phone, Username FROM user WHERE Username = ?");
@@ -40,7 +41,6 @@ if ($resultBooking->num_rows > 0) {
 }
 
 // Function to check for overlap
-// Function to check for overlap
 function checkOverlap($conn, $booking_id, $new_start_time, $new_end_time, $booking_date) {
     // Convert new time range to DateTime objects for comparison
     $new_start = new DateTime($booking_date . ' ' . $new_start_time);
@@ -65,28 +65,33 @@ if (isset($_POST['update'])) {
     $new_end_time = $_POST['end_time'];
     $booking_date = $userBookings[0]['Booking_Date']; // Assuming booking date is fetched and stored
 
-    if (!empty($userBookings)) {
-        $booking_id = $userBookings[0]['ID'];
-
-        // Check for overlap
-        if (checkOverlap($conn, $booking_id, $new_start_time, $new_end_time, $booking_date)) {
-            $error_message = "Error: The selected time range overlaps with an existing booking.";
-        } else {
-            // Update the booking
-            $stmtUpdateBooking = $conn->prepare("UPDATE `booking` SET Time = ? WHERE ID = ?");
-            $new_time_range = $new_start_time . '-' . $new_end_time;
-            $stmtUpdateBooking->bind_param("si", $new_time_range, $booking_id);
-
-            if ($stmtUpdateBooking->execute()) {
-                header("Location: bookingtble.php");
-                exit();
-            } else {
-                $error_message = "Error updating booking details: " . $conn->error;
-            }
-        }
+    // Validate start and end time
+    if (strtotime($new_start_time) >= strtotime($new_end_time)) {
+        $error_message = "Error: Start time must be earlier than end time.";
     } else {
-        header("Location: bookingtble.php");
-        exit();
+        if (!empty($userBookings)) {
+            $booking_id = $userBookings[0]['ID'];
+
+            // Check for overlap
+            if (checkOverlap($conn, $booking_id, $new_start_time, $new_end_time, $booking_date)) {
+                $error_message = "Error: The selected time range overlaps with an existing booking.";
+            } else {
+                // Update the booking
+                $stmtUpdateBooking = $conn->prepare("UPDATE `booking` SET Time = ? WHERE ID = ?");
+                $new_time_range = $new_start_time . '-' . $new_end_time;
+                $stmtUpdateBooking->bind_param("si", $new_time_range, $booking_id);
+
+                if ($stmtUpdateBooking->execute()) {
+                    header("Location: bookingtble.php");
+                    exit();
+                } else {
+                    $error_message = "Error updating booking details: " . $conn->error;
+                }
+            }
+        } else {
+            header("Location: bookingtble.php");
+            exit();
+        }
     }
 }
 
@@ -94,7 +99,6 @@ $stmtUser->close();
 $stmtBooking->close();
 $conn->close();
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -223,7 +227,7 @@ $conn->close();
                 </div>
             <?php endif; ?>
             <div class="form-group">
-                <?php if (isset($error_message)): ?>
+                <?php if (!empty($error_message)): ?>
                     <p class="text-danger"><?= $error_message ?></p>
                 <?php endif; ?>
             </div>
