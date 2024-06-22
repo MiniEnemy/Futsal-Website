@@ -1,4 +1,7 @@
 <?php
+// Start session to use session variables
+session_start();
+
 // Function to display logs
 function display_logs() {
     $log_file = 'admin_activity.log';
@@ -6,7 +9,7 @@ function display_logs() {
     if (file_exists($log_file)) {
         $logs = file($log_file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
         
-        echo '<table border="1">';
+        echo '<table class="log-table">';
         echo '<tr><th>Timestamp</th><th>Admin ID</th><th>Action</th><th>Details</th></tr>';
         
         foreach ($logs as $log) {
@@ -21,7 +24,7 @@ function display_logs() {
             
             // Additional details, if present (e.g., old and new booking times)
             $extra_details = '';
-            if (isset($log_parts[4]) && strpos($log_parts[4], 'Old Time') !== false && strpos($log_parts[5], 'New Time') !== false) {
+            if (isset($log_parts[4]) && strpos($log_parts[4], 'Old Time') !== false && isset($log_parts[5]) && strpos($log_parts[5], 'New Time') !== false) {
                 $old_time = htmlspecialchars($log_parts[4]);
                 $new_time = htmlspecialchars($log_parts[5]);
                 $extra_details = "<br>($old_time, $new_time)";
@@ -38,7 +41,7 @@ function display_logs() {
         
         echo '</table>';
     } else {
-        echo 'No logs available.';
+        echo '<div class="no-logs">No logs available.</div>';
     }
 }
 
@@ -51,50 +54,101 @@ function clear_logs() {
         unlink($log_file);
     }
 }
+
+// Check if clear logs action is triggered
+if (isset($_POST['clear_logs'])) {
+    clear_logs();
+    $_SESSION['logs_cleared'] = true; // Set session variable to indicate logs have been cleared
+    header("Location: {$_SERVER['PHP_SELF']}"); // Redirect to clear POST data
+    exit();
+}
+
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Activity Logs</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
         }
+        
         h1 {
             text-align: center;
+            color: #4b49ac;
         }
-        table {
+        
+        .log-table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 20px;
+            margin: 20px 0;
+            font-size: 16px;
+            min-width: 400px;
         }
-        table, th, td {
-            border: 1px solid #ccc;
-        }
-        th, td {
-            padding: 8px;
+        
+        .log-table th, .log-table td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
             text-align: left;
         }
-        th {
+        
+        .log-table th {
+            background-color: #4b49ac;
+            color: #ffffff;
+        }
+        
+        .log-table tr:nth-child(even) {
             background-color: #f2f2f2;
         }
+        
+        .log-table tr:hover {
+            background-color: #e9e9e9;
+        }
+        
+        .no-logs {
+            text-align: center;
+            color: #777;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        
+        .popup {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+            display: none; /* Hide initially */
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        }
+        
         form {
             text-align: center;
+            margin: 20px 0;
         }
+        
         button {
             padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 4px;
             font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
+        
         button:hover {
-            background-color: #45a049;
+            background-color: #0056b3;
         }
     </style>
 </head>
@@ -109,14 +163,27 @@ function clear_logs() {
         <button type="submit" name="clear_logs">Clear Logs</button>
     </form>
     
+    <!-- Popup message for logs cleared -->
     <?php
-    // Handle clearing logs
-    if (isset($_POST['clear_logs'])) {
-        clear_logs();
-        echo '<p>Logs have been cleared.</p>';
-        // Optionally, you can redirect or refresh the page after clearing logs
-        // header("Refresh:0"); // Uncomment this line to refresh the page after clearing logs
+    if (isset($_SESSION['logs_cleared']) && $_SESSION['logs_cleared'] === true) {
+        echo '<div class="popup">';
+        echo 'Logs have been cleared.';
+        echo '</div>';
+        unset($_SESSION['logs_cleared']); // Clear the session variable after displaying the message
     }
     ?>
+    
+    <script>
+    // JavaScript to show popup for a few seconds and then hide it
+    window.onload = function() {
+        var popup = document.querySelector('.popup');
+        if (popup) {
+            popup.style.display = 'block';
+            setTimeout(function() {
+                popup.style.display = 'none';
+            }, 3000); // 3000 milliseconds = 3 seconds
+        }
+    };
+    </script>
 </body>
 </html>

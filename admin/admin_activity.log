@@ -1,1 +1,4 @@
-[2024-06-22 08:24:51] Admin ID:  - Action: Delete User - Details: Deleted user with ID: 41 and username: dosa
+2024-06-22 09:23:09 | Admin ID:  | Update Booking | Details: Booking ID: 76 | Old Time: 10:45-11:00 | New Time: 10:00-11:00
+2024-06-22 09:23:24 | Admin ID:  | Update Booking | Details: Booking ID: 76 | Old Time: 10:00-11:00 | New Time: 10:30-11:00
+2024-06-22 09:26:39 | Admin ID: 0 | Action: Update User | Details: User ID: 39, Original: Name=mini, Email=home.minj@gmail.com, Phone=9841266010; Updated: Name=minienemy, Email=home.minj@gmail.com, Phone=9841266010
+2024-06-22 09:27:00 | Admin ID: 0 | Action: Update User | Details: User ID: 39, Original: Name=minienemy, Email=home.minj@gmail.com, Phone=9841266010; Updated: Name=mini, Email=home.minj@gmail.com, Phone=9841266010
