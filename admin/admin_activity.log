@@ -1,3 +1,7 @@
 2024-06-22 13:32:41 | Admin ID:  | Update Booking | Details: Booking ID: 114 | Old Time: 08:00-11:30 | New Time: 10:15-08:15
 2024-06-22 13:33:13 | Admin ID:  | Update Booking | Details: Booking ID: 114 | Old Time: 10:15-08:15 | New Time: 10:15-11:00
 2024-06-22 13:37:56 | Admin ID:  | Update Booking | Details: Booking ID: 114 | Old Time: 10:15-11:00 | New Time: 10:15-11:15
+2024-06-23 08:06:28 | Admin ID:  | Update Booking | Details: Booking ID: 80 | Old Time: 08:30-10:00 | New Time: 08:00-09:00
+[2024-06-23 08:06:35] Admin ID:  - Action: Delete User - Details: Deleted user with ID: 41 and username: trial
+2024-06-23 08:12:20 |  | Delete User | Deleted user with ID: 42 and username: aryan2
+2024-06-23 08:16:42 |  | Delete User | Deleted user with ID: 43 and username: aryann

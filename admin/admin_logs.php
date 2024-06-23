@@ -15,27 +15,19 @@ function display_logs() {
         foreach ($logs as $log) {
             // Explode the log entry into components
             $log_parts = explode(' | ', $log);
-            
-            // Extract basic details
-            $timestamp = htmlspecialchars($log_parts[0]);
-            $admin_id = htmlspecialchars($log_parts[1]);
-            $action = htmlspecialchars($log_parts[2]);
-            $details = htmlspecialchars($log_parts[3]);
-            
-            // Additional details, if present (e.g., old and new booking times)
-            $extra_details = '';
-            if (isset($log_parts[4]) && strpos($log_parts[4], 'Old Time') !== false && isset($log_parts[5]) && strpos($log_parts[5], 'New Time') !== false) {
-                $old_time = htmlspecialchars($log_parts[4]);
-                $new_time = htmlspecialchars($log_parts[5]);
-                $extra_details = "<br>($old_time, $new_time)";
-            }
+
+            // Extract basic details with checks
+            $timestamp = htmlspecialchars($log_parts[0] ?? '');
+            $admin_id = htmlspecialchars($log_parts[1] ?? '');
+            $action = htmlspecialchars($log_parts[2] ?? '');
+            $details = htmlspecialchars($log_parts[3] ?? '');
             
             // Display table row
             echo '<tr>';
             echo '<td>' . $timestamp . '</td>';
             echo '<td>' . $admin_id . '</td>';
             echo '<td>' . $action . '</td>';
-            echo '<td>' . $details . $extra_details . '</td>';
+            echo '<td>' . $details . '</td>';
             echo '</tr>';
         }
         
@@ -184,7 +176,6 @@ if (isset($_POST['clear_logs'])) {
             }, 3000); // 3000 milliseconds = 3 seconds
         }
     };
-    // for ayran
     </script>
 </body>
 </html>
